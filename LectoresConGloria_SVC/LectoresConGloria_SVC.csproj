@@ -5,9 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Entidades\" />
-    <Folder Include="Repositorios\" />
-    <Folder Include="Servicios\" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.21" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repositorios\Interfaces\" />
   </ItemGroup>
 
 </Project>
