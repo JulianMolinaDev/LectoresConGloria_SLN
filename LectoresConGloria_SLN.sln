@@ -5,13 +5,9 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectoresConGloria_MVC", "LectoresConGloria_MVC\LectoresConGloria_MVC.csproj", "{C2C1F82B-9685-43E5-8D94-E89ADE53EECC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectoresConGloria_API_PRIV", "LectoresConGloria_API_PRIV\LectoresConGloria_API_PRIV.csproj", "{87F0C118-A4DC-48CB-82A0-CCE0058B45EA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectoresConGloria_MDL", "LectoresConGloria_MDL\LectoresConGloria_MDL.csproj", "{BFA3CE9C-34C2-4D49-B465-0434402BDE7B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectoresConGloria_SVC", "LectoresConGloria_SVC\LectoresConGloria_SVC.csproj", "{D7245487-734A-4D9F-8DAC-49CC86DA5B90}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectoresConGloria_SVC_API", "LectoresConGloria_SVC_API\LectoresConGloria_SVC_API.csproj", "{989DF2FC-FE58-4BC8-A505-BEF99157EC33}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectoresConGloria_FWK", "LectoresConGloria_FWK\LectoresConGloria_FWK.csproj", "{E4207956-85DC-4C93-9877-E36F9BA8C088}"
 EndProject
@@ -25,10 +21,6 @@ Global
 		{C2C1F82B-9685-43E5-8D94-E89ADE53EECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2C1F82B-9685-43E5-8D94-E89ADE53EECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2C1F82B-9685-43E5-8D94-E89ADE53EECC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87F0C118-A4DC-48CB-82A0-CCE0058B45EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87F0C118-A4DC-48CB-82A0-CCE0058B45EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87F0C118-A4DC-48CB-82A0-CCE0058B45EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{87F0C118-A4DC-48CB-82A0-CCE0058B45EA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BFA3CE9C-34C2-4D49-B465-0434402BDE7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BFA3CE9C-34C2-4D49-B465-0434402BDE7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFA3CE9C-34C2-4D49-B465-0434402BDE7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,10 +29,6 @@ Global
 		{D7245487-734A-4D9F-8DAC-49CC86DA5B90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7245487-734A-4D9F-8DAC-49CC86DA5B90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7245487-734A-4D9F-8DAC-49CC86DA5B90}.Release|Any CPU.Build.0 = Release|Any CPU
-		{989DF2FC-FE58-4BC8-A505-BEF99157EC33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{989DF2FC-FE58-4BC8-A505-BEF99157EC33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{989DF2FC-FE58-4BC8-A505-BEF99157EC33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{989DF2FC-FE58-4BC8-A505-BEF99157EC33}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E4207956-85DC-4C93-9877-E36F9BA8C088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E4207956-85DC-4C93-9877-E36F9BA8C088}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4207956-85DC-4C93-9877-E36F9BA8C088}.Release|Any CPU.ActiveCfg = Release|Any CPU

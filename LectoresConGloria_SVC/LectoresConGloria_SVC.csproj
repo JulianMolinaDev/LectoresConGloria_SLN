@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositorios\Interfaces\" />
+    <ProjectReference Include="..\LectoresConGloria_FWK\LectoresConGloria_FWK.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LectoresConGloria_SVC.Servicios
 {
-    public class SVC_Click : ISVC_Click
+    class SVC_Usuario : ISVC_Usuario
     {
     }
 }
