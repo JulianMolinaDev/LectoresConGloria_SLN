@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LectoresConGloria_SVC.Repositorios.Interfaces
 {
-    class IREP_Usuario
+    interface IREP_Usuario
     {
     }
 }
