@@ -1,10 +1,11 @@
-﻿using System;
+﻿using LectoresConGloria_MDL.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace LectoresConGloria_SVC.Repositorios.Interfaces
 {
-    class IREP_Click
+    interface IREP_Click : IRepositorio<MDL_Click, int>
     {
     }
 }

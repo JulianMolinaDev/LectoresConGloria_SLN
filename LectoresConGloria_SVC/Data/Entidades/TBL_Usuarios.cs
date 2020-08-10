@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LectoresConGloria_SVC.Data.Entidades
 {
-    class TBL_Usuario
+    public class TBL_Usuarios
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
@@ -13,5 +13,6 @@ namespace LectoresConGloria_SVC.Data.Entidades
         public string Correo { get; set; }
         public byte[] Password { get; set; }
         public DateTime FechaAlta { get; set; }
+        public ICollection<TBL_Usuarios> Usuarios { get; set; }
     }
 }
