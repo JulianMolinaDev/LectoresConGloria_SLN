@@ -13,4 +13,8 @@
     <ProjectReference Include="..\LectoresConGloria_FWK\LectoresConGloria_FWK.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Constantes\" />
+  </ItemGroup>
+
 </Project>

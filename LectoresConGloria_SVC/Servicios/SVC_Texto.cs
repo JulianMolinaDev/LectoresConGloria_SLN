@@ -1,5 +1,6 @@
 ﻿using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
+using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Repositorios;
 using LectoresConGloria_SVC.Repositorios.Interfaces;
 using System;
@@ -29,6 +30,21 @@ namespace LectoresConGloria_SVC.Servicios
         public async Task<IEnumerable<MDL_Texto>> Get()
         {
             return await _repositorio.Select();
+        }
+
+        public Task<IEnumerable<V_Lista>> GetMasClicks()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<V_Lista>> GetUltimos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<V_Lista>> GetUltimosPorFecha(DateTime fecha)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<bool> Post(MDL_Texto reg)

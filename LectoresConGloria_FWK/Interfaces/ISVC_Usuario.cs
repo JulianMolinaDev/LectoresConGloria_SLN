@@ -1,11 +1,9 @@
 ﻿using LectoresConGloria_MDL.Modelos;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LectoresConGloria_FWK.Interfaces
 {
-    public interface ISVC_Usuario : IServicio<MDL_Usuario, int>
+    public interface ISVC_Usuario : IServicio<MDL_Usuario, int>,
+        ISecurity<MDL_Usuario, MDL_Login>
     {
 
     }

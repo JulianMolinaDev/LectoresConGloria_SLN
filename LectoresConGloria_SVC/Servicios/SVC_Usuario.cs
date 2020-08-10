@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Servicios
 {
-    class SVC_Usuario : ISVC_Usuario
+    public class SVC_Usuario : ISVC_Usuario
     {
         private readonly IREP_Usuario _repositorio;
         public SVC_Usuario()
@@ -29,6 +29,11 @@ namespace LectoresConGloria_SVC.Servicios
             return await _repositorio.Select();
         }
 
+        public Task<MDL_Usuario> Login(MDL_Login reg)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public async Task<bool> Post(MDL_Usuario reg)
         {
             return await _repositorio.Insert(reg);
@@ -37,6 +42,11 @@ namespace LectoresConGloria_SVC.Servicios
         public async Task<bool> Put(int id, MDL_Usuario reg)
         {
             return await _repositorio.Update(id, reg);
+        }
+
+        public Task<bool> Register(MDL_Usuario reg)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

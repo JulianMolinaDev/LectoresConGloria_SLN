@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Servicios\" />
+    <ProjectReference Include="..\LectoresConGloria_FWK\LectoresConGloria_FWK.csproj" />
+    <ProjectReference Include="..\LectoresConGloria_SVC\LectoresConGloria_SVC.csproj" />
   </ItemGroup>
 
 </Project>
