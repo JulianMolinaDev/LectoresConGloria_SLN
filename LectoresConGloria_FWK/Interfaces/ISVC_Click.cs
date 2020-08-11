@@ -2,7 +2,7 @@
 
 namespace LectoresConGloria_FWK.Interfaces
 {
-    public interface ISVC_Click : IServicio<MDL_Click, int>
+    public interface ISVC_Click : IWriteOnly<MDL_Click>
     {
     }
 }

@@ -15,29 +15,10 @@ namespace LectoresConGloria_MVC.Servicios
         {
             _servicio = servicio;
         }
-        public async Task<bool> Delete(int id)
-        {
-            return await _servicio.Delete(id);
-        }
 
-        public async Task<MDL_Click> Get(int id)
+        public async Task<bool> Write(MDL_Click reg)
         {
-            return await _servicio.Get(id);
-        }
-
-        public async Task<IEnumerable<MDL_Click>> Get()
-        {
-            return await _servicio.Get();
-        }
-
-        public async Task<bool> Post(MDL_Click reg)
-        {
-            return await _servicio.Post(reg);
-        }
-
-        public async Task<bool> Put(int id, MDL_Click reg)
-        {
-            return await _servicio.Put(id, reg);
+            return await _servicio.Write(reg);
         }
     }
 }
