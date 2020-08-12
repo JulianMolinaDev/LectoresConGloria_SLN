@@ -36,6 +36,16 @@ namespace LectoresConGloria_SVC.Repositorios
             return true;
         }
 
+        public Task<MDL_Usuario> Login(MDL_Login reg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> Register(MDL_Usuario reg)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<MDL_Usuario> Select(int id)
         {
             var entity = await _context.TBL_Usuarios.FindAsync(id);

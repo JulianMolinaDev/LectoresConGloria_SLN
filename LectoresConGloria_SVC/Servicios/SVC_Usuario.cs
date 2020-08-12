@@ -29,9 +29,9 @@ namespace LectoresConGloria_SVC.Servicios
             return await _repositorio.Select();
         }
 
-        public Task<MDL_Usuario> Login(MDL_Login reg)
+        public async Task<MDL_Usuario> Login(MDL_Login reg)
         {
-            throw new System.NotImplementedException();
+            return await _repositorio.Login(reg);
         }
 
         public async Task<bool> Post(MDL_Usuario reg)
@@ -44,9 +44,9 @@ namespace LectoresConGloria_SVC.Servicios
             return await _repositorio.Update(id, reg);
         }
 
-        public Task<bool> Register(MDL_Usuario reg)
+        public async Task<bool> Register(MDL_Usuario reg)
         {
-            throw new System.NotImplementedException();
+            return await _repositorio.Register(reg);
         }
     }
 }
