@@ -1,4 +1,5 @@
 ﻿@model LectoresConGloria_MDL.Vistas.V_TextoDetalle
+@using LectoresConGloria_MDL.Enumerados;
 
 @{
     ViewData["Title"] = "Detalle";
@@ -16,7 +17,7 @@
                 @Html.DisplayNameFor(model => model.Texto)
             </dt>
             <dd class="col-sm-10">
-                @Html.ActionLink("Ver", "Goto", "Click", new { /* id = Model.PrimaryKey */ }, new { target = "_blank" })
+                @Html.ActionLink("Ver", "Goto", "Click", new { id = Model.Id, tipoClick = TipoClick.TEXTO }, new { target = "_blank" })
             </dd>
         }
         @if (Model.Audio)
@@ -25,7 +26,7 @@
                 @Html.DisplayNameFor(model => model.Audio)
             </dt>
             <dd class="col-sm-10">
-                @Html.ActionLink("Ver", "Goto", "Click", new { /* id = Model.PrimaryKey */ }, new { target = "_blank" })
+                @Html.ActionLink("Ver", "Goto", "Click", new { id = Model.Id, tipoClick = TipoClick.AUDIO }, new { target = "_blank" })
             </dd>
         }
         @if (Model.Audio)
@@ -34,7 +35,7 @@
                 @Html.DisplayNameFor(model => model.Explicacion)
             </dt>
             <dd class="col-sm-10">
-                @Html.ActionLink("Ver", "Goto", "Click", new { /* id = Model.PrimaryKey */ }, new { target = "_blank" })
+                @Html.ActionLink("Ver", "Goto", "Click", new { id = Model.Id, tipoClick = TipoClick.EXPLICACION }, new { target = "_blank" })
             </dd>
         }
         <dt class="col-sm-2">
