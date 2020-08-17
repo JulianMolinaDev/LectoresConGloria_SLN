@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LectoresConGloria_FWK\LectoresConGloria_FWK.csproj" />
     <ProjectReference Include="..\LectoresConGloria_SVC\LectoresConGloria_SVC.csproj" />
   </ItemGroup>

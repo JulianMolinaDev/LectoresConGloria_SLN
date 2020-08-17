@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LectoresConGloria_FWK.Interfaces;
+using LectoresConGloria_MDL.Vistas;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LectoresConGloria_MVC.Controllers.Site
@@ -29,6 +30,11 @@ namespace LectoresConGloria_MVC.Controllers.Site
         public ActionResult GetMasClicks()
         {
             return View();
+        }
+        public ActionResult Detalle(int id)
+        {
+            var model = _servicio.GetDetalle(id).Result;
+            return Ok(model);
         }
     }
 }

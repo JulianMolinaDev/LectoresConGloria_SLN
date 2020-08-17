@@ -25,7 +25,10 @@ namespace LectoresConGloria_MVC.Servicios
         {
             return await _servicio.Get(id);
         }
-
+        public async Task<V_TextoDetalle> GetDetalle(int id)
+        {
+            return await _servicio.GetDetalle(id);
+        }
         public async Task<IEnumerable<MDL_Texto>> Get()
         {
             return await _servicio.Get();

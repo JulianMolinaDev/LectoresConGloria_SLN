@@ -17,17 +17,22 @@ namespace LectoresConGloria_MVC.Controllers.Api
         {
             _servicio = servicio;
         }
-        ActionResult GetUltimosPorFecha(DateTime fecha)
+        public ActionResult GetUltimosPorFecha(DateTime fecha)
         {
             var model = _servicio.GetUltimosPorFecha(fecha);
             return Ok(model);
         }
-        ActionResult GetUltimos()
+        public ActionResult GetUltimos()
         {
             var model = _servicio.GetUltimos();
             return Ok(model);
         }
-        ActionResult GetMasClicks()
+        public ActionResult GetMasClicks()
+        {
+            var model = _servicio.GetMasClicks();
+            return Ok(model);
+        }
+        public ActionResult Detalle(int id)
         {
             var model = _servicio.GetMasClicks();
             return Ok(model);

@@ -32,6 +32,11 @@ namespace LectoresConGloria_SVC.Servicios
             return await _repositorio.Select();
         }
 
+        public Task<V_TextoDetalle> GetDetalle(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<IEnumerable<V_Lista>> GetMasClicks()
         {
             throw new NotImplementedException();
