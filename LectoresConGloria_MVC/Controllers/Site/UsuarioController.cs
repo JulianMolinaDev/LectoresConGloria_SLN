@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,9 +10,10 @@ namespace LectoresConGloria_MVC.Controllers.Site
 {
     public class UsuarioController : Controller
     {
-        public UsuarioController()
+        private readonly ISVC_Usuario _servicio;
+        public UsuarioController(ISVC_Usuario servicio)
         {
-
+            _servicio = servicio;
         }
         public IActionResult Login()
         {
@@ -20,7 +22,12 @@ namespace LectoresConGloria_MVC.Controllers.Site
         [HttpPost]
         public IActionResult Login(MDL_Login login)
         {
-            return View();
+            var user = _servicio.Login(login);
+            if (user != null)
+            {
+                return RedirectToAction("Index","Home");
+            }
+            return View(login);
         }
     }
 }
