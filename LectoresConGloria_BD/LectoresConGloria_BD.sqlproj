@@ -70,5 +70,10 @@
     <Build Include="Tablas\TBL_Usuarios.sql" />
     <Build Include="Keys\Foreign\FK_Clicks_Textos.sql" />
     <Build Include="Keys\Foreign\FK_Clicks_Usuarios.sql" />
+    <Build Include="Tablas\TBL_TextosCategorias.sql" />
+    <Build Include="Tablas\TBL_Categorias.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="LectoresConGloria_BD.refactorlog" />
   </ItemGroup>
 </Project>
