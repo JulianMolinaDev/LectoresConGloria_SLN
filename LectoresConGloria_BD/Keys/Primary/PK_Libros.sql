@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[TBL_Libros]
+	ADD CONSTRAINT [PK_Libros]
+	PRIMARY KEY (Id)

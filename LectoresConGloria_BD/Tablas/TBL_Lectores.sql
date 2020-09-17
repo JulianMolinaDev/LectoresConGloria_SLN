@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[TBL_Usuarios]
+﻿CREATE TABLE [dbo].[TBL_Lectores]
 (
 	[Id] INT NOT NULL IDENTITY(1,1), 
     [Nombre] VARCHAR(50) NOT NULL, 

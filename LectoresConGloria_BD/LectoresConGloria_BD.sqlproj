@@ -63,17 +63,36 @@
     <Folder Include="Funciones" />
     <Folder Include="SP" />
     <Folder Include="Tablas" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tablas\TBL_Clicks.sql" />
     <Build Include="Tablas\TBL_Textos.sql" />
     <Build Include="Tablas\TBL_Usuarios.sql" />
     <Build Include="Keys\Foreign\FK_Clicks_Textos.sql" />
-    <Build Include="Keys\Foreign\FK_Clicks_Usuarios.sql" />
+    <Build Include="Keys\Foreign\FK_Clicks_Lectores.sql" />
     <Build Include="Tablas\TBL_TextosCategorias.sql" />
     <Build Include="Tablas\TBL_Categorias.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="LectoresConGloria_BD.refactorlog" />
+    <Build Include="Funciones\FN_Encrypt.sql" />
+    <Build Include="Funciones\FN_Decrypt.sql" />
+    <Build Include="Tablas\TBL_Lectores.sql" />
+    <Build Include="Keys\Primary\PK_Categorias.sql" />
+    <Build Include="Keys\Primary\PK_Clicks.sql" />
+    <Build Include="Keys\Primary\PK_Lectores.sql" />
+    <Build Include="Keys\Primary\PK_Textos.sql" />
+    <Build Include="Funciones\FN_HabilitaBajarLibro.sql" />
+    <Build Include="Keys\Primary\PK_TextosCategorias.sql" />
+    <Build Include="Tablas\TBL_Libros.sql" />
+    <Build Include="Tablas\TBL_Formatos.sql" />
+    <Build Include="Tablas\TBL_FormatosLibros.sql" />
+    <Build Include="Tablas\TBL_TextosLibros.sql" />
+    <Build Include="Keys\Primary\PK_Formatos.sql" />
+    <Build Include="Keys\Primary\PK_FormatosLibros.sql" />
+    <Build Include="Keys\Primary\PK_Libros.sql" />
+    <Build Include="Keys\Unique\UK_Formatos.sql" />
+    <Build Include="Keys\Unique\UK_Categorias.sql" />
+    <Build Include="Keys\Unique\UK_Lectores.sql" />
+    <Build Include="Keys\Unique\UK_Usuarios.sql" />
+    <Build Include="Keys\Unique\UK_Libros.sql" />
   </ItemGroup>
 </Project>

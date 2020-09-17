@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[TBL_Textos]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT NOT NULL IDENTITY(1,1), 
     [Titulo] VARCHAR(50) NOT NULL, 
     [Explicacion] VARCHAR(50) NOT NULL, 
     [Audio] VARCHAR(50) NOT NULL, 

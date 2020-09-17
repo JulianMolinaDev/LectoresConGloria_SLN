@@ -8,4 +8,8 @@
     <ProjectReference Include="..\LectoresConGloria_MDL\LectoresConGloria_MDL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Mensajes\" />
+  </ItemGroup>
+
 </Project>

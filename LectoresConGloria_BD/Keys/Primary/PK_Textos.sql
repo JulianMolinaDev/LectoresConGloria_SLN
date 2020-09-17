@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[TBL_Textos]
+	ADD CONSTRAINT [PK_Textos]
+	PRIMARY KEY (Id)

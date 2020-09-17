@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[TBL_Clicks]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT NOT NULL IDENTITY(1,1), 
     [IdTexto] INT NOT NULL, 
-    [IdUsuario] INT NOT NULL, 
+    [IdLector] INT NOT NULL, 
     [TipoClick] INT NOT NULL, 
     [FechaAlta] SMALLDATETIME NOT NULL DEFAULT GETDATE()
 )

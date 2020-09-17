@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[TBL_Clicks]
+	ADD CONSTRAINT [PK_Clicks]
+	PRIMARY KEY (Id)
