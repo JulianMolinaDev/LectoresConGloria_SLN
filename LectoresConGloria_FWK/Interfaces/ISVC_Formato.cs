@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LectoresConGloria_MDL.Modelos;
 
 namespace LectoresConGloria_FWK.Interfaces
 {
-    class ISVC_Formato
+    public interface ISVC_Formato : IServicio<MDL_Formato, int>
     {
     }
 }

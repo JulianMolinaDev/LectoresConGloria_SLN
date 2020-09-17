@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LectoresConGloria_MDL.Modelos;
 
 namespace LectoresConGloria_FWK.Interfaces
 {
-    interface ISVC_Lector
+    interface ISVC_Lector : IServicio<MDL_Lector, int>,
+        ISecurity<MDL_Lector, MDL_Login>
     {
     }
 }
