@@ -2,7 +2,7 @@
 
 namespace LectoresConGloria_FWK.Interfaces
 {
-    interface ISVC_Lector : IServicio<MDL_Lector, int>,
+    public interface ISVC_Lector : IServicio<MDL_Lector, int>,
         ISecurity<MDL_Lector, MDL_Login>
     {
     }

@@ -2,7 +2,7 @@
 
 namespace LectoresConGloria_FWK.Interfaces
 {
-    interface ISVC_FormatoLibro : IServicio<MDL_FormatoLibro, int>
+    public interface ISVC_FormatoLibro : IServicio<MDL_FormatoLibro, int>
     {
     }
 }

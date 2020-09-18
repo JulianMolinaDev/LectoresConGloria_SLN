@@ -8,10 +8,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LectoresConGloria_MVC.Controllers.Site
 {
-    public class UsuarioController : Controller
+    public class LectorController : Controller
     {
-        private readonly ISVC_Usuario _servicio;
-        public UsuarioController(ISVC_Usuario servicio)
+        private readonly ISVC_Lector _servicio;
+        public LectorController(ISVC_Lector servicio)
         {
             _servicio = servicio;
         }
