@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LectoresConGloria_MVC_ADM.Controllers
 {
+    
     public class CategoriaController : Controller
     {
         // GET: CategoriaController

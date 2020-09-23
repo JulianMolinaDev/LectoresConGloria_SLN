@@ -8,4 +8,8 @@
     <ProjectReference Include="..\LectoresConGloria_FWK\LectoresConGloria_FWK.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Reportes\" />
+  </ItemGroup>
+
 </Project>
