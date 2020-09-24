@@ -1,5 +1,5 @@
 ﻿using LectoresConGloria_MDL.Enumerados;
-using Microsoft.AspNetCore.Mvc;
+using System.Web.Mvc;
 
 namespace LectoresConGloria_MVC.Controllers.Site
 {
@@ -9,7 +9,7 @@ namespace LectoresConGloria_MVC.Controllers.Site
         {
 
         }
-        public IActionResult Goto(int idTexto, int tipoClick)
+        public ActionResult Goto(int idTexto, int tipoClick)
         {
             var caso = (TipoClick)tipoClick;
             switch (caso)
