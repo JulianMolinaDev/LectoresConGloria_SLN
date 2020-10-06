@@ -197,6 +197,10 @@
       <Project>{A16468F3-71AA-487C-AAED-E45C3390959C}</Project>
       <Name>LectoresConGloria_NET_MDL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LectoresConGloria_NET_SVC\LectoresConGloria_NET_SVC.csproj">
+      <Project>{7CFFDD5A-2798-4609-B4A2-9A2B7D186641}</Project>
+      <Name>LectoresConGloria_NET_SVC</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

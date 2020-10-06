@@ -6,13 +6,12 @@ namespace LectoresConGloria_SVC.Data.Entidades
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class TBL_Textos
+    public partial class TBL_Libros
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBL_Textos()
+        public TBL_Libros()
         {
-            TBL_Clicks = new HashSet<TBL_Clicks>();
-            TBL_TextosCategorias = new HashSet<TBL_TextosCategorias>();
+            TBL_FormatosLibros = new HashSet<TBL_FormatosLibros>();
             TBL_TextosLibros = new HashSet<TBL_TextosLibros>();
         }
 
@@ -20,28 +19,10 @@ namespace LectoresConGloria_SVC.Data.Entidades
 
         [Required]
         [StringLength(50)]
-        public string Titulo { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Explicacion { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Audio { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Archivo { get; set; }
-
-        [Column(TypeName = "smalldatetime")]
-        public DateTime FechaAlta { get; set; }
+        public string Nombre { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_Clicks> TBL_Clicks { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_TextosCategorias> TBL_TextosCategorias { get; set; }
+        public virtual ICollection<TBL_FormatosLibros> TBL_FormatosLibros { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_TextosLibros> TBL_TextosLibros { get; set; }

@@ -20,7 +20,7 @@ namespace LectoresConGloria_SVC.Repositorios
             _context = new LectoresConGloria_Context();
             _mapper = Automapeo.Instance;
         }
-        public async Task<bool> Delete(int id)
+        public async void Delete(int id)
         {
             var entity = await _context.TBL_Usuarios.FindAsync(id);
             _context.TBL_Usuarios.Remove(entity);
@@ -28,7 +28,7 @@ namespace LectoresConGloria_SVC.Repositorios
             return true;
         }
 
-        public async Task<bool> Insert(MDL_Usuario item)
+        public async void Insert(MDL_Usuario item)
         {
             var entity = _mapper.Map<TBL_Usuarios>(item);
             _context.TBL_Usuarios.Add(entity);
@@ -41,7 +41,7 @@ namespace LectoresConGloria_SVC.Repositorios
             throw new NotImplementedException();
         }
 
-        public Task<bool> Register(MDL_Usuario reg)
+        public void Register(MDL_Usuario reg)
         {
             throw new NotImplementedException();
         }
@@ -60,7 +60,7 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public async Task<bool> Update(int id, MDL_Usuario item)
+        public async void Update(int id, MDL_Usuario item)
         {
             throw new NotImplementedException();
         }

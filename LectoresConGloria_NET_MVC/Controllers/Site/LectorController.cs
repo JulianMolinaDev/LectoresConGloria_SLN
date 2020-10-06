@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LectoresConGloria_FWK.Interfaces;
+﻿using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
-using Microsoft.AspNetCore.Mvc;
+using System.Web.Mvc;
 
 namespace LectoresConGloria_MVC.Controllers.Site
 {
@@ -15,12 +11,12 @@ namespace LectoresConGloria_MVC.Controllers.Site
         {
             _servicio = servicio;
         }
-        public IActionResult Login()
+        public ActionResult Login()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Login(MDL_Login login)
+        public ActionResult Login(MDL_Login login)
         {
             var user = _servicio.Login(login);
             if (user != null)

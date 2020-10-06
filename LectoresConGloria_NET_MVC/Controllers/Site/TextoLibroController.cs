@@ -1,16 +1,23 @@
-﻿using System;
+﻿using LectoresConGloria_SVC.Servicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using System.Web.Mvc;
 
 namespace LectoresConGloria_MVC.Controllers.Site
 {
     public class TextoLibroController : Controller
     {
-        public IActionResult TextosPorLibro(int idLibro)
+        readonly SVC_TextoLibro _servicio;
+        public TextoLibroController()
         {
-            return View();
+            _servicio = new SVC_TextoLibro();
+        }
+        public async Task<ActionResult> TextosPorLibro(int idLibro)
+        {
+            var model = await _servicio.GetTextosPorLibro(idLibro);
+            return View(model);
         }
     }
 }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Servicios
 {
-    class SVC_Categoria : ISVC_Categoria
+    public class SVC_Categoria : ISVC_Categoria
     {
-        public Task<bool> Delete(int id)
+        public void Delete(int id)
         {
             throw new NotImplementedException();
         }
@@ -24,12 +24,12 @@ namespace LectoresConGloria_SVC.Servicios
             throw new NotImplementedException();
         }
 
-        public Task<bool> Post(MDL_Categoria reg)
+        public void Post(MDL_Categoria reg)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> Put(int id, MDL_Categoria reg)
+        public void Put(int id, MDL_Categoria reg)
         {
             throw new NotImplementedException();
         }

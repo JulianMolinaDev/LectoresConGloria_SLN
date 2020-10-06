@@ -1,23 +1,24 @@
-﻿using LectoresConGloria_MDL.Modelos;
-using LectoresConGloria_SVC.Data;
-using LectoresConGloria_SVC.Repositorios.Interfaces;
+﻿using LectoresConGloria_FWK.Interfaces;
+using LectoresConGloria_MDL.Modelos;
+using LectoresConGloria_SVC.Data.Entidades;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Repositorios
 {
-    class REP_Categoria : IREP_Categoria
+    class REP_Categoria : ISVC_Categoria
     {
-        LectoresConGloria_Context _contexto;
+        readonly LectoresConGloria_Context _contexto;
         public REP_Categoria()
         {
             _contexto = new LectoresConGloria_Context();
         }
-        public Task<bool> Delete(int id)
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var entity = _contexto.TBL_Categorias.Find(id);
+            _contexto.TBL_Categorias.Remove(entity);
+
         }
 
         public Task<MDL_Categoria> Get(int id)
@@ -30,12 +31,12 @@ namespace LectoresConGloria_SVC.Repositorios
             throw new NotImplementedException();
         }
 
-        public Task<bool> Post(MDL_Categoria reg)
+        public void Post(MDL_Categoria reg)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> Put(int id, MDL_Categoria reg)
+        public void Put(int id, MDL_Categoria reg)
         {
             throw new NotImplementedException();
         }

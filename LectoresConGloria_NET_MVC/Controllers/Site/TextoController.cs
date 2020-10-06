@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Vistas;
-using Microsoft.AspNetCore.Mvc;
 
 namespace LectoresConGloria_MVC.Controllers.Site
 {
@@ -15,7 +15,7 @@ namespace LectoresConGloria_MVC.Controllers.Site
         {
             _servicio = servicio;
         }
-        public IActionResult Index()
+        public ActionResult Index()
         {
             return View();
         }
@@ -34,7 +34,7 @@ namespace LectoresConGloria_MVC.Controllers.Site
         public ActionResult Detalle(int id)
         {
             var model = _servicio.GetDetalle(id).Result;
-            return Ok(model);
+            return View(); 
         }
     }
 }

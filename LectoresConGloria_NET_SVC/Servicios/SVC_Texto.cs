@@ -17,7 +17,7 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio = new REP_Texto();
         }
-        public async Task<bool> Delete(int id)
+        public async void Delete(int id)
         {
             return await _repositorio.Delete(id);
         }
@@ -52,12 +52,12 @@ namespace LectoresConGloria_SVC.Servicios
             throw new NotImplementedException();
         }
 
-        public async Task<bool> Post(MDL_Texto reg)
+        public async void Post(MDL_Texto reg)
         {
             return await _repositorio.Insert(reg);
         }
 
-        public async Task<bool> Put(int id, MDL_Texto reg)
+        public async void Put(int id, MDL_Texto reg)
         {
             return await _repositorio.Update(id, reg);
         }

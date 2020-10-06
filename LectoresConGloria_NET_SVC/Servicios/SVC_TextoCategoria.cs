@@ -10,7 +10,7 @@ namespace LectoresConGloria_SVC.Servicios
 {
     class SVC_TextoCategoria : ISVC_TextoCategoria
     {
-        public Task<bool> Delete(int id)
+        public void Delete(int id)
         {
             throw new NotImplementedException();
         }
@@ -35,12 +35,12 @@ namespace LectoresConGloria_SVC.Servicios
             throw new NotImplementedException();
         }
 
-        public Task<bool> Post(MDL_TextoCategoria reg)
+        public void Post(MDL_TextoCategoria reg)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> Put(int id, MDL_TextoCategoria reg)
+        public void Put(int id, MDL_TextoCategoria reg)
         {
             throw new NotImplementedException();
         }

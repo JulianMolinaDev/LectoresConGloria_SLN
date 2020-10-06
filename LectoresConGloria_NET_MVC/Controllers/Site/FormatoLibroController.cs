@@ -6,7 +6,7 @@ namespace LectoresConGloria_MVC.Controllers.Site
 {
     public class FormatoLibroController : Controller
     {
-        SVC_FormatoLibro _servicio;
+        readonly SVC_FormatoLibro _servicio;
         public FormatoLibroController()
         {
             _servicio = new SVC_FormatoLibro();

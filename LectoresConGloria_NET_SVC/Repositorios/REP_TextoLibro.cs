@@ -1,44 +1,42 @@
 ﻿using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
+using LectoresConGloria_MDL.Vistas;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace LectoresConGloria_SVC.Servicios
+namespace LectoresConGloria_SVC.Repositorios
 {
-    public class SVC_Lector : ISVC_Lector
+    class REP_TextoLibro : ISVC_TextoLibro
     {
-        public async void Delete(int id)
+        public void Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<MDL_Lector> Get(int id)
+        public Task<MDL_TextoLibro> Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<MDL_Lector>> Get()
+        public Task<IEnumerable<MDL_TextoLibro>> Get()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<MDL_Lector> Login(MDL_Login reg)
+        public Task<IEnumerable<V_Lista>> GetTextosPorLibro(int idLibro)
         {
             throw new NotImplementedException();
         }
 
-        public async void Post(MDL_Lector reg)
+        public void Post(MDL_TextoLibro reg)
         {
             throw new NotImplementedException();
         }
 
-        public async void Put(int id, MDL_Lector reg)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async void Register(MDL_Lector reg)
+        public void Put(int id, MDL_TextoLibro reg)
         {
             throw new NotImplementedException();
         }

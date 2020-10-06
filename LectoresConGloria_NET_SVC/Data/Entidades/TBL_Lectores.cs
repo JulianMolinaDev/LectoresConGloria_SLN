@@ -6,37 +6,38 @@ namespace LectoresConGloria_SVC.Data.Entidades
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class TBL_Usuarios
+    public partial class TBL_Lectores
     {
-        [Key]
-        [Column(Order = 0)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_Lectores()
+        {
+            TBL_Clicks = new HashSet<TBL_Clicks>();
+        }
+
         public int Id { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
+        [Required]
         [StringLength(50)]
         public string Nombre { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
+        [Required]
         [StringLength(50)]
         public string Apellidos { get; set; }
 
-        [Key]
-        [Column(Order = 3, TypeName = "date")]
+        [Column(TypeName = "date")]
         public DateTime FechaNacimiento { get; set; }
 
-        [Key]
-        [Column(Order = 4)]
+        [Required]
         [StringLength(50)]
         public string Correo { get; set; }
 
-        [Key]
-        [Column(Order = 5)]
+        [Required]
         public byte[] Password { get; set; }
 
-        [Key]
-        [Column(Order = 6, TypeName = "smalldatetime")]
+        [Column(TypeName = "smalldatetime")]
         public DateTime FechaAlta { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_Clicks> TBL_Clicks { get; set; }
     }
 }

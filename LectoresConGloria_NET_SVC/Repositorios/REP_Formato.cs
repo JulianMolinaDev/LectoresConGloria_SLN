@@ -2,12 +2,13 @@
 using LectoresConGloria_MDL.Modelos;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LectoresConGloria_SVC.Servicios
+namespace LectoresConGloria_SVC.Repositorios
 {
-    class SVC_Formato : ISVC_Formato
+    class REP_Formato : ISVC_Formato
     {
         public void Delete(int id)
         {

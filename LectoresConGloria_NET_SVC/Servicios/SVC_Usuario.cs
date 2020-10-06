@@ -14,7 +14,7 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio = new REP_Usuario();
         }
-        public async Task<bool> Delete(int id)
+        public async void Delete(int id)
         {
             return await _repositorio.Delete(id);
         }
@@ -34,17 +34,17 @@ namespace LectoresConGloria_SVC.Servicios
             return await _repositorio.Login(reg);
         }
 
-        public async Task<bool> Post(MDL_Usuario reg)
+        public async void Post(MDL_Usuario reg)
         {
             return await _repositorio.Insert(reg);
         }
 
-        public async Task<bool> Put(int id, MDL_Usuario reg)
+        public async void Put(int id, MDL_Usuario reg)
         {
             return await _repositorio.Update(id, reg);
         }
 
-        public async Task<bool> Register(MDL_Usuario reg)
+        public async void Register(MDL_Usuario reg)
         {
             return await _repositorio.Register(reg);
         }

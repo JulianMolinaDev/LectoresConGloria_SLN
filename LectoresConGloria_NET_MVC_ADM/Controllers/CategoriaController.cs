@@ -1,13 +1,20 @@
-﻿using System;
+﻿using LectoresConGloria_MDL.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LectoresConGloria_SVC.Servicios;
 
 namespace LectoresConGloria_NET_MVC_ADM.Controllers
 {
     public class CategoriaController : Controller
     {
+        readonly SVC_Categoria _servicio;
+        public CategoriaController()
+        {
+            _servicio = new SVC_Categoria();
+        }
         // GET: Categoria
         public ActionResult Index()
         {
@@ -28,7 +35,7 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
 
         // POST: Categoria/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(MDL_Categoria reg)
         {
             try
             {
@@ -50,7 +57,7 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
 
         // POST: Categoria/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, MDL_Categoria reg)
         {
             try
             {
@@ -72,7 +79,7 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
 
         // POST: Categoria/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, MDL_Categoria reg)
         {
             try
             {
