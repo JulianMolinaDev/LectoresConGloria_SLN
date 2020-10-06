@@ -1,16 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using LectoresConGloria_MDL.Vistas;
+using LectoresConGloria_SVC.Servicios;
+using System.Web.Mvc;
 
 namespace LectoresConGloria_MVC.Controllers.Site
 {
     public class FormatoLibroController : Controller
     {
-        public IActionResult GetFormatos(int idLibro)
+        SVC_FormatoLibro _servicio;
+        public FormatoLibroController()
         {
-            return View();
+            _servicio = new SVC_FormatoLibro();
+        }
+        [ChildActionOnly]
+        public ActionResult GetFormatos(int idLibro)
+        {
+            var model = _servicio.GetListaByLibro(idLibro);
+            return View("_GetFormatos", model);
+        }
+        public ActionResult GetFormatoLibro(int idFormatoLibro)
+        {
+            V_LibroDescarga model = _servicio.GetContenido(idFormatoLibro);
+            return File(model.Contenido, model.Tipo, model.Nombre);
         }
     }
 }

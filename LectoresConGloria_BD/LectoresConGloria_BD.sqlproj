@@ -68,7 +68,6 @@
   <ItemGroup>
     <Build Include="Tablas\TBL_Clicks.sql" />
     <Build Include="Tablas\TBL_Textos.sql" />
-    <Build Include="Tablas\TBL_Usuarios.sql" />
     <Build Include="Keys\Foreign\FK_Clicks_Textos.sql" />
     <Build Include="Keys\Foreign\FK_Clicks_Lectores.sql" />
     <Build Include="Tablas\TBL_TextosCategorias.sql" />
@@ -92,7 +91,6 @@
     <Build Include="Keys\Unique\UK_Formatos.sql" />
     <Build Include="Keys\Unique\UK_Categorias.sql" />
     <Build Include="Keys\Unique\UK_Lectores.sql" />
-    <Build Include="Keys\Unique\UK_Usuarios.sql" />
     <Build Include="Keys\Unique\UK_Libros.sql" />
     <Build Include="Keys\Foreign\FK_TextosCategorias_Textos.sql" />
     <Build Include="Keys\Foreign\FK_TextosCategorias_Categorias.sql" />

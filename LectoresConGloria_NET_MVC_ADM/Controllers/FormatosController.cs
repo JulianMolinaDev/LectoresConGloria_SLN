@@ -1,5 +1,4 @@
-﻿using LectoresConGloria_MDL.Modelos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,29 +6,29 @@ using System.Web.Mvc;
 
 namespace LectoresConGloria_NET_MVC_ADM.Controllers
 {
-    public class TextoController : Controller
+    public class FormatosController : Controller
     {
-        // GET: Texto
+        // GET: Formatos
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Texto/Details/5
+        // GET: Formatos/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Texto/Create
+        // GET: Formatos/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Texto/Create
+        // POST: Formatos/Create
         [HttpPost]
-        public ActionResult Create(MDL_Texto reg)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
@@ -43,13 +42,13 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             }
         }
 
-        // GET: Texto/Edit/5
+        // GET: Formatos/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Texto/Edit/5
+        // POST: Formatos/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -65,13 +64,13 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             }
         }
 
-        // GET: Texto/Delete/5
+        // GET: Formatos/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Texto/Delete/5
+        // POST: Formatos/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

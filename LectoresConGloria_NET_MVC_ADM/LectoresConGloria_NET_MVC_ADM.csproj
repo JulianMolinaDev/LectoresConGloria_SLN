@@ -121,7 +121,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Controllers\FormatosController.cs" />
+    <Compile Include="Controllers\FormatosLibrosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LibrosController.cs" />
     <Compile Include="Controllers\TextoCategoriaController.cs" />
     <Compile Include="Controllers\TextoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -170,6 +173,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Categoria\" />
+    <Folder Include="Views\FormatosLibros\" />
+    <Folder Include="Views\Formatos\" />
+    <Folder Include="Views\Libros\" />
     <Folder Include="Views\TextoCategoria\" />
     <Folder Include="Views\Texto\" />
   </ItemGroup>
@@ -185,6 +191,12 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LectoresConGloria_NET_MDL\LectoresConGloria_NET_MDL.csproj">
+      <Project>{A16468F3-71AA-487C-AAED-E45C3390959C}</Project>
+      <Name>LectoresConGloria_NET_MDL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

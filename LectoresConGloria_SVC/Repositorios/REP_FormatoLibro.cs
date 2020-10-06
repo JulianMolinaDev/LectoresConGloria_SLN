@@ -1,21 +1,15 @@
 ﻿using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
-using LectoresConGloria_SVC.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LectoresConGloria_SVC.Servicios
+namespace LectoresConGloria_SVC.Repositorios
 {
-    public class SVC_FormatoLibro : ISVC_FormatoLibro
+    class REP_FormatoLibro : ISVC_FormatoLibro
     {
-        REP_FormatoLibro _repositorio;
-        public SVC_FormatoLibro()
-        {
-            _repositorio = new REP_FormatoLibro();
-        }
         public Task<bool> Delete(int id)
         {
             throw new NotImplementedException();
@@ -33,12 +27,12 @@ namespace LectoresConGloria_SVC.Servicios
 
         public V_LibroDescarga GetContenido(int idFormatoLibro)
         {
-            return _repositorio.GetContenido(idFormatoLibro);
+            throw new NotImplementedException();
         }
 
         public IEnumerable<V_Lista> GetListaByLibro(int idLibro)
         {
-            return _repositorio.GetListaByLibro(idLibro);
+            throw new NotImplementedException();
         }
 
         public Task<bool> Post(MDL_FormatoLibro reg)

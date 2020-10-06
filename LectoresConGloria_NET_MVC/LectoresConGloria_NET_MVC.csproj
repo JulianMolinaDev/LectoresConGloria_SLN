@@ -185,6 +185,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\FormatoLibro\_GetFormatos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -208,6 +209,10 @@
     <ProjectReference Include="..\LectoresConGloria_NET_MDL\LectoresConGloria_NET_MDL.csproj">
       <Project>{A16468F3-71AA-487C-AAED-E45C3390959C}</Project>
       <Name>LectoresConGloria_NET_MDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LectoresConGloria_SVC\LectoresConGloria_SVC.csproj">
+      <Project>{D7245487-734A-4D9F-8DAC-49CC86DA5B90}</Project>
+      <Name>LectoresConGloria_SVC</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

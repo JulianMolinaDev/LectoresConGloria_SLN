@@ -1,0 +1,8 @@
+﻿@model IEnumerable<LectoresConGloria_MDL.Vistas.V_Lista>
+
+@foreach (var item in Model)
+{
+    <div>
+        @Html.ActionLink(item.Valor, "GetFormatoLibro", new { id = item.Id })
+    </div>
+}
