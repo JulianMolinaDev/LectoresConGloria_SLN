@@ -2,7 +2,6 @@
 using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
-using LectoresConGloria_SVC.Data;
 using LectoresConGloria_SVC.Data.Entidades;
 using LectoresConGloria_SVC.Mapeo;
 using System;
@@ -29,7 +28,7 @@ namespace LectoresConGloria_SVC.Repositorios
             await _context.SaveChangesAsync();
         }
 
-        public async void Insert(MDL_Texto item)
+        public async void Post(MDL_Texto item)
         {
             var entity = _mapper.Map<TBL_Textos>(item);
             _context.TBL_Textos.Add(entity);
@@ -50,7 +49,7 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public async Task<IEnumerable<V_Lista>> SelectMasClicks()
+        public async Task<IEnumerable<V_Lista>> GetMasClicks()
         {
             var output = await _context.TBL_Textos.OrderByDescending(x => x.FechaAlta)
                 .Take(5).Select(x => new V_Lista()
@@ -61,7 +60,7 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public async Task<IEnumerable<V_Lista>> SelectUltimos()
+        public async Task<IEnumerable<V_Lista>> GetUltimos()
         {
             var output = await _context.TBL_Textos.OrderByDescending(x => x.FechaAlta)
                 .Take(5).Select(x => new V_Lista()
@@ -72,10 +71,10 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public async Task<IEnumerable<V_Lista>> SelectUltimosPorFecha(DateTime fecha)
+        public async Task<IEnumerable<V_Lista>> GetUltimosPorFecha(DateTime fecha)
         {
-            var output = await _context.TBL_Textos.Where(x=> x.FechaAlta >= fecha)
-                .Take(5).Select(x=> new V_Lista()
+            var output = await _context.TBL_Textos.Where(x => x.FechaAlta >= fecha)
+                .Take(5).Select(x => new V_Lista()
                 {
                     Id = x.Id,
                     Valor = x.Titulo
@@ -88,29 +87,18 @@ namespace LectoresConGloria_SVC.Repositorios
             throw new NotImplementedException();
         }
 
-        public Task<V_TextoDetalle> GetDetalle(int id)
+        public async Task<V_TextoDetalle> GetDetalle(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<V_Lista>> GetUltimosPorFecha(DateTime fecha)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<V_Lista>> GetUltimos()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<V_Lista>> GetMasClicks()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Post(MDL_Texto reg)
-        {
-            throw new NotImplementedException();
+            var entity = await _context.TBL_Textos.FindAsync(id);
+            var output = new V_TextoDetalle()
+            {
+                Audio = !string.IsNullOrEmpty(entity.Audio),
+                Explicacion = !string.IsNullOrEmpty(entity.Explicacion),
+                Texto = !string.IsNullOrEmpty(entity.Archivo),
+                Titulo = entity.Titulo,
+                Id = entity.Id
+            };
+            return output;
         }
     }
 }

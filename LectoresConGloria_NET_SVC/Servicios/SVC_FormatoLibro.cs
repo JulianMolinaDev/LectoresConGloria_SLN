@@ -18,17 +18,17 @@ namespace LectoresConGloria_SVC.Servicios
         }
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _repositorio.Delete(id);
         }
 
-        public Task<MDL_FormatoLibro> Get(int id)
+        public async Task<MDL_FormatoLibro> Get(int id)
         {
-            throw new NotImplementedException();
+            return await _repositorio.Get(id);
         }
 
-        public Task<IEnumerable<MDL_FormatoLibro>> Get()
+        public async Task<IEnumerable<MDL_FormatoLibro>> Get()
         {
-            throw new NotImplementedException();
+            return await _repositorio.Get();
         }
 
         public V_LibroDescarga GetContenido(int idFormatoLibro)
@@ -36,19 +36,19 @@ namespace LectoresConGloria_SVC.Servicios
             return _repositorio.GetContenido(idFormatoLibro);
         }
 
-        public IEnumerable<V_Lista> GetListaByLibro(int idLibro)
+        public IEnumerable<V_Lista> GetFormatosByLibro(int idLibro)
         {
-            return _repositorio.GetListaByLibro(idLibro);
+            return _repositorio.GetFormatosByLibro(idLibro);
         }
 
         public void Post(MDL_FormatoLibro reg)
         {
-            throw new NotImplementedException();
+            _repositorio.Post(reg);
         }
 
         public void Put(int id, MDL_FormatoLibro reg)
         {
-            throw new NotImplementedException();
+            _repositorio.Put(id, reg);
         }
     }
 }

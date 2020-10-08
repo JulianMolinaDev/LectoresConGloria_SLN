@@ -14,7 +14,7 @@ namespace LectoresConGloria_MVC.Controllers.Site
         [ChildActionOnly]
         public ActionResult GetFormatos(int idLibro)
         {
-            var model = _servicio.GetListaByLibro(idLibro);
+            var model = _servicio.GetFormatosByLibro(idLibro);
             return View("_GetFormatos", model);
         }
         public ActionResult GetFormatoLibro(int idFormatoLibro)

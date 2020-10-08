@@ -6,7 +6,7 @@ namespace LectoresConGloria_FWK.Interfaces
 {
     public interface ISVC_FormatoLibro : IServicio<MDL_FormatoLibro, int>
     {
-        IEnumerable<V_Lista> GetListaByLibro(int idLibro);
+        IEnumerable<V_Lista> GetFormatosByLibro(int idLibro);
         V_LibroDescarga GetContenido(int idFormatoLibro);
     }
 }

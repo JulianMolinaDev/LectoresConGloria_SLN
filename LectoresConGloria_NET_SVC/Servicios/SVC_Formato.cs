@@ -1,5 +1,6 @@
 ﻿using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
+using LectoresConGloria_SVC.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,29 +10,34 @@ namespace LectoresConGloria_SVC.Servicios
 {
     class SVC_Formato : ISVC_Formato
     {
+        readonly REP_Formato _repositorio;
+        public SVC_Formato()
+        {
+            _repositorio = new REP_Formato();
+        }
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _repositorio.Delete(id);
         }
 
-        public Task<MDL_Formato> Get(int id)
+        public async Task<MDL_Formato> Get(int id)
         {
-            throw new NotImplementedException();
+            return await _repositorio.Get(id);
         }
 
-        public Task<IEnumerable<MDL_Formato>> Get()
+        public async Task<IEnumerable<MDL_Formato>> Get()
         {
-            throw new NotImplementedException();
+            return await _repositorio.Get();
         }
 
         public void Post(MDL_Formato reg)
         {
-            throw new NotImplementedException();
+            _repositorio.Post(reg);
         }
 
         public void Put(int id, MDL_Formato reg)
         {
-            throw new NotImplementedException();
+            _repositorio.Put(id, reg);
         }
     }
 }

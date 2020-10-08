@@ -74,6 +74,8 @@
     <Compile Include="Repositorios\REP_Click.cs" />
     <Compile Include="Repositorios\REP_Formato.cs" />
     <Compile Include="Repositorios\REP_FormatoLibro.cs" />
+    <Compile Include="Repositorios\REP_Lector.cs" />
+    <Compile Include="Repositorios\REP_Libro.cs" />
     <Compile Include="Repositorios\REP_Texto.cs" />
     <Compile Include="Repositorios\REP_TextoCategoria.cs" />
     <Compile Include="Repositorios\REP_TextoLibro.cs" />
