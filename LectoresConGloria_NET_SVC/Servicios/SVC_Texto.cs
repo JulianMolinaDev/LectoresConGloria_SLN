@@ -30,29 +30,29 @@ namespace LectoresConGloria_SVC.Servicios
             return await _repositorio.Get();
         }
 
-        public Task<V_TextoDetalle> GetDetalle(int id)
+        public async Task<V_TextoDetalle> GetDetalle(int id)
         {
-            throw new NotImplementedException();
+            return await _repositorio.GetDetalle(id);
         }
 
-        public Task<IEnumerable<V_Lista>> GetMasClicks()
+        public async Task<IEnumerable<V_Lista>> GetMasClicks()
         {
-            throw new NotImplementedException();
+            return await _repositorio.GetMasClicks();
         }
 
-        public Task<IEnumerable<V_Lista>> GetUltimos()
+        public async Task<IEnumerable<V_Lista>> GetUltimos()
         {
-            throw new NotImplementedException();
+            return await _repositorio.GetUltimos();
         }
 
-        public Task<IEnumerable<V_Lista>> GetUltimosPorFecha(DateTime fecha)
+        public async Task<IEnumerable<V_Lista>> GetUltimosPorFecha(DateTime fecha)
         {
-            throw new NotImplementedException();
+            return await _repositorio.GetUltimosPorFecha(fecha);
         }
 
         public async void Post(MDL_Texto reg)
         {
-            _repositorio.Post(reg);
+           _repositorio.Post(reg);
         }
 
         public async void Put(int id, MDL_Texto reg)

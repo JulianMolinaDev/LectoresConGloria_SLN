@@ -1,0 +1,27 @@
+﻿@model LectoresConGloria_MDL.Modelos.MDL_Libro
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imagen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imagen)
+        </dd>
+
+    </dl>
+</div>
+@Html.Action("TextosPorLibro", "TextoLibro", new { idlibro = Model.Id })
+

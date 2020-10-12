@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LectoresConGloria_MDL.Modelos;
+using LectoresConGloria_SVC.Servicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,16 +10,23 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
 {
     public class FormatosLibrosController : Controller
     {
+        private readonly SVC_FormatoLibro _servicio;
+        public FormatosLibrosController()
+        {
+            _servicio = new SVC_FormatoLibro();
+        }
         // GET: FormatosLibros
         public ActionResult Index()
         {
-            return View();
+            var modelo = _servicio.Get();
+            return View(modelo);
         }
 
         // GET: FormatosLibros/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var modelo = _servicio.Get(id);
+            return View(modelo);
         }
 
         // GET: FormatosLibros/Create
@@ -28,61 +37,60 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
 
         // POST: FormatosLibros/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(MDL_FormatoLibro reg)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                _servicio.Post(reg);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(reg);
             }
         }
 
         // GET: FormatosLibros/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var modelo = _servicio.Get(id);
+            return View(modelo);
         }
 
         // POST: FormatosLibros/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, MDL_FormatoLibro reg)
         {
             try
             {
-                // TODO: Add update logic here
-
+                _servicio.Put(id, reg);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(reg);
             }
         }
 
         // GET: FormatosLibros/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var modelo = _servicio.Get(id);
+            return View(modelo);
         }
 
         // POST: FormatosLibros/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, MDL_FormatoLibro reg)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                _servicio.Delete(id);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(reg);
             }
         }
     }

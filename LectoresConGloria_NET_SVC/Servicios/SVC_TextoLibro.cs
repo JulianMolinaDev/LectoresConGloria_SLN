@@ -17,32 +17,32 @@ namespace LectoresConGloria_SVC.Servicios
         }
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _repositorio.Delete(id);
         }
 
-        public Task<MDL_TextoLibro> Get(int id)
+        public async Task<MDL_TextoLibro> Get(int id)
         {
-            throw new NotImplementedException();
+            return await _repositorio.Get(id);
         }
 
-        public Task<IEnumerable<MDL_TextoLibro>> Get()
+        public async Task<IEnumerable<MDL_TextoLibro>> Get()
         {
-            throw new NotImplementedException();
+            return await _repositorio.Get();
         }
 
-        public Task<IEnumerable<V_Lista>> GetTextosPorLibro(int idLibro)
+        public async Task<IEnumerable<V_Lista>> GetTextosPorLibro(int idLibro)
         {
-            return _repositorio.GetTextosPorLibro(idLibro);
+            return await _repositorio.GetTextosPorLibro(idLibro);
         }
 
         public void Post(MDL_TextoLibro reg)
         {
-            throw new NotImplementedException();
+            _repositorio.Post(reg);
         }
 
         public void Put(int id, MDL_TextoLibro reg)
         {
-            throw new NotImplementedException();
+            _repositorio.Put(id, reg);
         }
     }
 }

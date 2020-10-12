@@ -18,13 +18,15 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         // GET: Categoria
         public ActionResult Index()
         {
-            return View();
+            var modelo = _servicio.Get();
+            return View(modelo);
         }
 
         // GET: Categoria/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var modelo = _servicio.Get(id);
+            return View(modelo);
         }
 
         // GET: Categoria/Create
@@ -39,20 +41,20 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-
+                _servicio.Post(reg);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(reg);
             }
         }
 
         // GET: Categoria/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var modelo = _servicio.Get(id);
+            return View(modelo);
         }
 
         // POST: Categoria/Edit/5
@@ -61,20 +63,20 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         {
             try
             {
-                // TODO: Add update logic here
-
+                _servicio.Put(id, reg);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(reg);
             }
         }
 
         // GET: Categoria/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var modelo = _servicio.Get(id);
+            return View(modelo);
         }
 
         // POST: Categoria/Delete/5
@@ -83,13 +85,12 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
+                _servicio.Delete(id);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(reg);
             }
         }
     }

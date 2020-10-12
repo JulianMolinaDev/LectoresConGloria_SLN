@@ -137,11 +137,11 @@
     <Compile Include="Controllers\Api\TextoController.cs" />
     <Compile Include="Controllers\Api\UsuarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Controllers\Site\ClickController.cs" />
     <Compile Include="Controllers\Site\FormatoLibroController.cs" />
     <Compile Include="Controllers\Site\LectorController.cs" />
     <Compile Include="Controllers\Site\LibroController.cs" />
+    <Compile Include="Controllers\Site\TextoCategoriaController.cs" />
     <Compile Include="Controllers\Site\TextoController.cs" />
     <Compile Include="Controllers\Site\TextoLibroController.cs" />
     <Compile Include="Global.asax.cs">
@@ -186,11 +186,24 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\FormatoLibro\_GetFormatos.cshtml" />
+    <Content Include="Views\Lector\Login.cshtml" />
+    <Content Include="Views\Lector\Registro.cshtml" />
+    <Content Include="Views\Libro\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutIn.cshtml" />
+    <Content Include="Views\Texto\GetUltimosPorFecha.cshtml" />
+    <Content Include="Views\Texto\GetUltimos.cshtml" />
+    <Content Include="Views\Texto\GetMasClicks.cshtml" />
+    <Content Include="Views\Texto\Detalle.cshtml" />
+    <Content Include="Views\TextoLibro\TextosPorLibro.cshtml" />
+    <Content Include="Views\TextoCategoria\CategoriaPorTexto.cshtml" />
+    <Content Include="Views\TextoCategoria\TextoPorCategoria.cshtml" />
+    <Content Include="Views\Libro\Detalle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\Libros\" />
+    <Folder Include="Content\Images\Textos\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Security\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,6 +1,7 @@
 ﻿using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
+using LectoresConGloria_SVC.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,41 +9,46 @@ using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Servicios
 {
-    class SVC_TextoCategoria : ISVC_TextoCategoria
+    public class SVC_TextoCategoria : ISVC_TextoCategoria
     {
+        readonly REP_TextoCategoria _repositorio;
+        public SVC_TextoCategoria()
+        {
+            _repositorio = new REP_TextoCategoria();
+        }
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _repositorio.Delete(id);
         }
 
-        public Task<MDL_TextoCategoria> Get(int id)
+        public async Task<MDL_TextoCategoria> Get(int id)
         {
-            throw new NotImplementedException();
+            return await _repositorio.Get(id);
         }
 
-        public Task<IEnumerable<MDL_TextoCategoria>> Get()
+        public async Task<IEnumerable<MDL_TextoCategoria>> Get()
         {
-            throw new NotImplementedException();
+            return await _repositorio.Get();
         }
 
-        public Task<IEnumerable<V_Lista>> GetCategoriaPorTexto(int idTexto)
+        public async Task<IEnumerable<V_Lista>> GetCategoriaPorTexto(int idTexto)
         {
-            throw new NotImplementedException();
+            return await _repositorio.GetCategoriaPorTexto(idTexto);
         }
 
-        public Task<IEnumerable<V_Lista>> GetTextoPorCategoria(int idCategoria)
+        public async Task<IEnumerable<V_Lista>> GetTextoPorCategoria(int idCategoria)
         {
-            throw new NotImplementedException();
+            return await _repositorio.GetTextoPorCategoria(idCategoria);
         }
 
         public void Post(MDL_TextoCategoria reg)
         {
-            throw new NotImplementedException();
+            _repositorio.Post(reg);
         }
 
         public void Put(int id, MDL_TextoCategoria reg)
         {
-            throw new NotImplementedException();
+            _repositorio.Put(id, reg);
         }
     }
 }

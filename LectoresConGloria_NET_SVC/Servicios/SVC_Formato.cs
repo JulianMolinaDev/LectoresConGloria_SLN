@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Servicios
 {
-    class SVC_Formato : ISVC_Formato
+    public class SVC_Formato : ISVC_Formato
     {
         readonly REP_Formato _repositorio;
         public SVC_Formato()

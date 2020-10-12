@@ -1,5 +1,6 @@
 ﻿using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
+using System;
 using System.Web.Mvc;
 
 namespace LectoresConGloria_MVC.Controllers.Site
@@ -24,6 +25,28 @@ namespace LectoresConGloria_MVC.Controllers.Site
                 return RedirectToAction("Index","Home");
             }
             return View(login);
+        }
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Register(MDL_Lector reg)
+        {
+            try
+            {
+                _servicio.Register(reg);
+                return RedirectToAction("Login");
+            }
+            catch(Exception)
+            {
+                return View(reg);
+            }            
+        }
+        [Authorize]
+        public ActionResult Logoff()
+        {
+            return RedirectToAction("Login");
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LectoresConGloria_MDL.Modelos;
+using LectoresConGloria_SVC.Servicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,11 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
 {
     public class TextoCategoriaController : Controller
     {
+        readonly SVC_TextoCategoria _servicio;
+        public TextoCategoriaController()
+        {
+            _servicio = new SVC_TextoCategoria();
+        }
         // GET: TextoCategoria
         public ActionResult Index()
         {
@@ -17,7 +24,8 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         // GET: TextoCategoria/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var modelo = _servicio.Get(id);
+            return View(modelo);
         }
 
         // GET: TextoCategoria/Create
@@ -28,61 +36,60 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
 
         // POST: TextoCategoria/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(MDL_TextoCategoria reg)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                _servicio.Post(reg);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(reg);
             }
         }
 
         // GET: TextoCategoria/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var modelo = _servicio.Get(id);
+            return View(modelo);
         }
 
         // POST: TextoCategoria/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, MDL_TextoCategoria reg)
         {
             try
             {
-                // TODO: Add update logic here
-
+                _servicio.Put(id, reg);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(reg);
             }
         }
 
         // GET: TextoCategoria/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var modelo = _servicio.Get(id);
+            return View(modelo);
         }
 
         // POST: TextoCategoria/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, MDL_TextoCategoria reg)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                _servicio.Delete(id);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(reg);
             }
         }
     }

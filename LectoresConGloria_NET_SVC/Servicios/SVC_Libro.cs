@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Servicios
 {
-    class SVC_Libro : ISVC_Libro
+    public class SVC_Libro : ISVC_Libro
     {
         readonly REP_Libro _repositorio;
         public SVC_Libro()

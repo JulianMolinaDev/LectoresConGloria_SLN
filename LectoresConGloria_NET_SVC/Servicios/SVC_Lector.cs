@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Servicios
 {
-    class SVC_Lector : ISVC_Lector
+    public class SVC_Lector : ISVC_Lector
     {
         readonly REP_Lector _repositorio;
         public SVC_Lector()

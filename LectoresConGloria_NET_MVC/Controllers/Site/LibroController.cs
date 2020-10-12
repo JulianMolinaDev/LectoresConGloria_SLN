@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LectoresConGloria_FWK.Interfaces;
+using LectoresConGloria_SVC.Servicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,9 +10,20 @@ namespace LectoresConGloria_MVC.Controllers.Site
 {
     public class LibroController : Controller
     {
-        public ActionResult Index(int idLibro)
+        readonly SVC_Libro _servicio;
+        public LibroController()
         {
-            return View();
+            _servicio = new SVC_Libro();
+        }
+        public ActionResult Index()
+        {
+            var modelo = _servicio.Get();
+            return View(modelo);
+        }
+        public ActionResult Detalle(int idLibro)
+        {
+            var modelo = _servicio.Get(idLibro);
+            return View(modelo);
         }
     }
 }

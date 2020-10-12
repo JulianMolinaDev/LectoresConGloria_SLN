@@ -19,22 +19,26 @@ namespace LectoresConGloria_MVC.Controllers.Site
         {
             return View();
         }
-        public ActionResult GetUltimosPorFecha(DateTime fecha)
+        public ActionResult GetUltimosPorFecha()
         {
-            return View();
+            //TODO: Revisar fecha
+            var model = _servicio.GetUltimosPorFecha(DateTime.Now).Result;
+            return View(model);
         }
         public ActionResult GetUltimos()
         {
-            return View();
+            var model = _servicio.GetUltimos().Result;
+            return View(model);
         }
         public ActionResult GetMasClicks()
         {
-            return View();
+            var model = _servicio.GetMasClicks().Result;
+            return View(model);
         }
         public ActionResult Detalle(int id)
         {
             var model = _servicio.GetDetalle(id).Result;
-            return View(); 
+            return View(model); 
         }
     }
 }

@@ -13,7 +13,7 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio = new REP_Usuario();
         }
-        public async void Delete(int id)
+        public void Delete(int id)
         {
              _repositorio.Delete(id);
         }
@@ -33,17 +33,17 @@ namespace LectoresConGloria_SVC.Servicios
             return await _repositorio.Login(reg);
         }
 
-        public async void Post(MDL_Usuario reg)
+        public void Post(MDL_Usuario reg)
         {
             _repositorio.Post(reg);
         }
 
-        public async void Put(int id, MDL_Usuario reg)
+        public void Put(int id, MDL_Usuario reg)
         {
             _repositorio.Put(id, reg);
         }
 
-        public async void Register(MDL_Usuario reg)
+        public void Register(MDL_Usuario reg)
         {
             _repositorio.Register(reg);
         }

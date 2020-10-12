@@ -168,11 +168,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Categoria\Index.cshtml" />
+    <Content Include="Views\Categoria\Create.cshtml" />
+    <Content Include="Views\Categoria\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Categoria\" />
     <Folder Include="Views\FormatosLibros\" />
     <Folder Include="Views\Formatos\" />
     <Folder Include="Views\Libros\" />

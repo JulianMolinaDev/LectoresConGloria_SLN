@@ -1,0 +1,49 @@
+﻿@model LectoresConGloria_MDL.Vistas.V_TextoDetalle
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Titulo)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Texto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Texto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Audio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Audio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Explicacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Explicacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vistas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vistas)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
