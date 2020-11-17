@@ -8,19 +8,19 @@ namespace LectoresConGloria_SVC.Repositorios
 {
     class REP_Click : ISVC_Click
     {
-        readonly LectoresConGloria_Context _context;
+        readonly LectoresConGloria_Context _contexto;
         readonly IMapper _mapper;
         public REP_Click()
         {
-            _context = new LectoresConGloria_Context();
+            _contexto = new LectoresConGloria_Context();
             _mapper = Automapeo.Instance;
         }
-        
-        public async void Write(MDL_Click reg)
+
+        public void Write(MDL_Click reg)
         {
             var entity = _mapper.Map<TBL_Clicks>(reg);
-            _context.TBL_Clicks.Add(entity);
-            await _context.SaveChangesAsync();
+            _contexto.TBL_Clicks.Add(entity);
+            _contexto.SaveChanges();
         }
     }
 }

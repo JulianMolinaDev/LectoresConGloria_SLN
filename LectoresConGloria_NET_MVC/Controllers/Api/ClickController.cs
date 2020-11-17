@@ -1,22 +1,20 @@
 ﻿using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
-using Microsoft.AspNetCore.Mvc;
+using LectoresConGloria_SVC.Servicios;
+using System.Web.Http;
 
 namespace LectoresConGloria_MVC.Controllers.Api
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ClickController : ControllerBase
+    public class ClickController : ApiController
     {
         private readonly ISVC_Click _servicio;
-        public ClickController(ISVC_Click servicio)
+        public ClickController()
         {
-            _servicio = servicio;
+            _servicio = new SVC_Click();
         }
-        public IActionResult Write(MDL_Click click)
+        public void Write([FromBody] MDL_Click click)
         {
             _servicio.Write(click);
-            return Ok();
         }
     }
 }

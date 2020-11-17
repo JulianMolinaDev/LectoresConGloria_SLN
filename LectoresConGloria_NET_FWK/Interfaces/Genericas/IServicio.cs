@@ -7,8 +7,8 @@ namespace LectoresConGloria_FWK.Interfaces
     {
         void Post(TEntity reg);
         void Delete(TKey id);
-        Task<TEntity> Get(TKey id);
-        Task<IEnumerable<TEntity>> Get();
+        TEntity Get(TKey id);
+        IEnumerable<TEntity> Get();
         void Put(TKey id, TEntity reg);
     }
 }

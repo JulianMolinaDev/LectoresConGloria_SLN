@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LectoresConGloria_FWK.Interfaces;
+using LectoresConGloria_MDL.Enumerados;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Data.Entidades;
@@ -7,6 +8,7 @@ using LectoresConGloria_SVC.Mapeo;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,23 +24,48 @@ namespace LectoresConGloria_SVC.Repositorios
             _contexto = new LectoresConGloria_Context();
             _mapper = Automapeo.Instance;
         }
-        public async void Delete(int id)
+
+        public void CambiarContenido(int idFormatoLibro, byte[] contenido)
+        {
+            var entity = _contexto.TBL_FormatosLibros.Find(idFormatoLibro);
+            entity.Contenido = contenido;
+            _contexto.Entry(entity).State = EntityState.Modified;
+            _contexto.SaveChanges();
+        }
+
+        public void CambiarFormato(int idFormatoLibro, int idFormato)
+        {
+            var entity = _contexto.TBL_FormatosLibros.Find(idFormatoLibro);
+            entity.IdFormato = idFormato;
+            _contexto.Entry(entity).State = EntityState.Modified;
+            _contexto.SaveChanges();
+        }
+
+        public void Delete(int id)
         {
             var entity = _contexto.TBL_FormatosLibros.Find(id);
             _contexto.TBL_FormatosLibros.Remove(entity);
-            await _contexto.SaveChangesAsync();
+            _contexto.SaveChanges();
         }
 
-        public async Task<MDL_FormatoLibro> Get(int id)
+        public IEnumerable<V_Lista> FaltantesFormatosByLibro(int idLibro)
         {
-            var entity = await _contexto.TBL_FormatosLibros.FindAsync(id);
+            var output = _contexto.Database.SqlQuery<V_Lista>
+                ("SP_FaltantesFormatosByLibro @idLibro", new SqlParameter("@idLibro", idLibro))
+                .ToList();
+            return output;
+        }
+
+        public MDL_FormatoLibro Get(int id)
+        {
+            var entity = _contexto.TBL_FormatosLibros.Find(id);
             var output = _mapper.Map<MDL_FormatoLibro>(entity);
             return output;
         }
 
-        public async Task<IEnumerable<MDL_FormatoLibro>> Get()
+        public IEnumerable<MDL_FormatoLibro> Get()
         {
-            var entity = await _contexto.TBL_FormatosLibros.ToListAsync();
+            var entity = _contexto.TBL_FormatosLibros.ToList();
             var output = _mapper.Map<IEnumerable<MDL_FormatoLibro>>(entity);
             return output;
         }
@@ -62,39 +89,86 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
+        public V_Lista GetFormatoAsItem(int idFormatoLibro)
+        {
+            var output = _contexto.TBL_FormatosLibros
+                .Where(x => x.Id == idFormatoLibro)
+                .AsNoTracking()
+                .Include(x => x.TBL_Formatos)
+                .Select(x => new V_Lista()
+                {
+                    Id = x.IdFormato,
+                    Valor = x.TBL_Formatos.Nombre
+                }).FirstOrDefault();
+
+            return output;
+        }
+
         /// <summary>
         /// Obtiene los formatos para despues entregar el contenido
         /// </summary>
         /// <param name="idLibro">Id del libro/// </param>
         /// <returns>Lista de formatos disponibles para descargar</returns>
-        public IEnumerable<V_Lista> GetFormatosByLibro(int idLibro)
+        public IEnumerable<V_ListaRelacion> GetFormatosByLibro(int idLibro)
         {
+
             var output = _contexto.TBL_FormatosLibros
                 .Where(x => x.IdLibro == idLibro)
                 .Include(x => x.TBL_Formatos)
-                .Select(x => new V_Lista()
+                .Select(x => new V_ListaRelacion()
                 {
                     Id = x.Id,
+                    IdForanea = x.IdFormato,
                     Valor = x.TBL_Formatos.Nombre
+                });
+            return output;
+
+        }
+
+        public V_Lista GetLibroAsItem(int idFormatoLibro)
+        {
+            var output = _contexto.TBL_FormatosLibros
+                .Where(x => x.Id == idFormatoLibro)
+                .AsNoTracking()
+                .Include(x => x.TBL_Libros)
+                .Select(x => new V_Lista()
+                {
+                    Id = x.IdLibro,
+                    Valor = x.TBL_Libros.Nombre
+                }).FirstOrDefault();
+
+            return output;
+        }
+
+        public IEnumerable<V_ListaRelacion> GetLibrosByFormato(int idFormato)
+        {
+            var output = _contexto.TBL_FormatosLibros
+                .Where(x => x.IdFormato == idFormato)
+                .Include(x => x.TBL_Libros)
+                .Select(x => new V_ListaRelacion()
+                {
+                    Id = x.Id,
+                    IdForanea = x.IdLibro,
+                    Valor = x.TBL_Libros.Nombre
                 });
             return output;
         }
 
-        public async void Post(MDL_FormatoLibro reg)
+        public void Post(MDL_FormatoLibro reg)
         {
             var entity = _mapper.Map<TBL_FormatosLibros>(reg);
             _contexto.TBL_FormatosLibros.Add(entity);
-            await _contexto.SaveChangesAsync();
+            _contexto.SaveChanges();
         }
 
-        public async void Put(int id, MDL_FormatoLibro reg)
+        public void Put(int id, MDL_FormatoLibro reg)
         {
             var register = _mapper.Map<TBL_FormatosLibros>(reg);
-            var entity = await _contexto.TBL_FormatosLibros.FindAsync(id);
+            var entity = _contexto.TBL_FormatosLibros.Find(id);
             entity.IdFormato = register.IdFormato;
             entity.IdLibro = register.IdLibro;
             _contexto.Entry(entity).State = EntityState.Modified;
-            await _contexto.SaveChangesAsync();
+            _contexto.SaveChanges();
         }
     }
 }

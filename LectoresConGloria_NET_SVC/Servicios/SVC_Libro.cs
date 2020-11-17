@@ -1,5 +1,6 @@
 ﻿using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
+using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Repositorios;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -18,14 +19,24 @@ namespace LectoresConGloria_SVC.Servicios
             _repositorio.Delete(id);
         }
 
-        public async Task<MDL_Libro> Get(int id)
+        public MDL_Libro Get(int id)
         {
-            return await _repositorio.Get(id);
+            return _repositorio.Get(id);
         }
 
-        public async Task<IEnumerable<MDL_Libro>> Get()
+        public IEnumerable<MDL_Libro> Get()
         {
-            return await _repositorio.Get();
+            return _repositorio.Get();
+        }
+
+        public IEnumerable<V_Lista> GetList()
+        {
+            return _repositorio.GetList();
+        }
+
+        public IEnumerable<V_Lista> GetListByNombre(string nombre)
+        {
+            return _repositorio.GetListByNombre(nombre);
         }
 
         public void Post(MDL_Libro reg)

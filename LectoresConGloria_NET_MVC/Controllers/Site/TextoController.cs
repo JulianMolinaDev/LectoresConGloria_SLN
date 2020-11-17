@@ -22,22 +22,22 @@ namespace LectoresConGloria_MVC.Controllers.Site
         public ActionResult GetUltimosPorFecha()
         {
             //TODO: Revisar fecha
-            var model = _servicio.GetUltimosPorFecha(DateTime.Now).Result;
+            var model = _servicio.GetUltimosPorFecha(DateTime.Now);
             return View(model);
         }
         public ActionResult GetUltimos()
         {
-            var model = _servicio.GetUltimos().Result;
+            var model = _servicio.GetUltimos();
             return View(model);
         }
         public ActionResult GetMasClicks()
         {
-            var model = _servicio.GetMasClicks().Result;
+            var model = _servicio.GetMasClicks();
             return View(model);
         }
         public ActionResult Detalle(int id)
         {
-            var model = _servicio.GetDetalle(id).Result;
+            var model = _servicio.GetDetalle(id);
             return View(model); 
         }
     }

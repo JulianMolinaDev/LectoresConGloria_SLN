@@ -12,7 +12,7 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio = new REP_Click();
         }
-        public async void Write(MDL_Click reg)
+        public void Write(MDL_Click reg)
         {
             _repositorio.Write(reg);
         }

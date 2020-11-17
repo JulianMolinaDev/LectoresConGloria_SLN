@@ -1,4 +1,7 @@
 ﻿using LectoresConGloria_MDL.Modelos;
+using LectoresConGloria_MDL.Vistas;
+using LectoresConGloria_NET_MVC_ADM.Models;
+using LectoresConGloria_NET_MVC_ADM.Utilidades;
 using LectoresConGloria_SVC.Servicios;
 using System;
 using System.Collections.Generic;
@@ -8,10 +11,10 @@ using System.Web.Mvc;
 
 namespace LectoresConGloria_NET_MVC_ADM.Controllers
 {
-    public class FormatosLibrosController : Controller
+    public class FormatoLibroController : Controller
     {
         private readonly SVC_FormatoLibro _servicio;
-        public FormatosLibrosController()
+        public FormatoLibroController()
         {
             _servicio = new SVC_FormatoLibro();
         }
@@ -30,18 +33,29 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         }
 
         // GET: FormatosLibros/Create
-        public ActionResult Create()
+        public ActionResult AsignarFormato(int id)
         {
-            return View();
+            ViewBag.Formatos = _servicio.FaltantesFormatosByLibro(id);
+            var modelo = new VM_FormatoLibro()
+            {
+                IdLibro = id,
+                Archivo = null,
+            };
+            return View(modelo);
         }
 
         // POST: FormatosLibros/Create
         [HttpPost]
-        public ActionResult Create(MDL_FormatoLibro reg)
+        public ActionResult AsignarFormato(VM_FormatoLibro reg)
         {
             try
             {
-                _servicio.Post(reg);
+                _servicio.Post(new MDL_FormatoLibro()
+                {
+                    Contenido = reg.Archivo.InputStream.StreamToByteArray(),
+                    IdFormato = reg.IdFormato,
+                    IdLibro = reg.IdLibro
+                });
                 return RedirectToAction("Index");
             }
             catch
@@ -92,6 +106,23 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             {
                 return View(reg);
             }
+        }
+
+        public ActionResult FormatosPorLibro(int id)
+        {
+            var modelo = _servicio.GetFormatosByLibro(id);
+            return View(modelo);
+        }
+        public ActionResult LibrosPorFormato(int id)
+        {
+            var modelo = _servicio.GetLibrosByFormato(id);
+            return PartialView(modelo);
+        }
+        [HttpGet]
+        public ActionResult CambiarFormato(int id)
+        {
+            var modelo = _servicio.GetLibroAsItem(id);
+            return PartialView(modelo);
         }
     }
 }

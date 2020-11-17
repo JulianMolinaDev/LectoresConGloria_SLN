@@ -8,41 +8,41 @@ using System.Web.Mvc;
 
 namespace LectoresConGloria_NET_MVC_ADM.Controllers
 {
-    public class LibrosController : Controller
+    public class FormatoController : Controller
     {
-        readonly SVC_Libro _servicio;
-        public LibrosController()
+        private readonly SVC_Formato _servicio;
+        public FormatoController()
         {
-            _servicio = new SVC_Libro();
+            _servicio = new SVC_Formato();
         }
-        // GET: Libros
+        // GET: Formatos
         public ActionResult Index()
         {
-            var modelo = _servicio.Get();
-            return View(modelo);
+            var model = _servicio.Get();
+            return View(model);
         }
 
-        // GET: Libros/Details/5
+        // GET: Formatos/Details/5
         public ActionResult Details(int id)
         {
-            var modelo = _servicio.Get(id);
+            var model = _servicio.Get(id);
+            return View(model);
+        }
+
+        // GET: Formatos/Create
+        public ActionResult Create()
+        {
+            var modelo = new MDL_Formato();
             return View(modelo);
         }
 
-        // GET: Libros/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Libros/Create
+        // POST: Formatos/Create
         [HttpPost]
-        public ActionResult Create(MDL_Libro reg)
+        public ActionResult Create(MDL_Formato reg)
         {
             try
             {
                 _servicio.Post(reg);
-
                 return RedirectToAction("Index");
             }
             catch
@@ -51,20 +51,21 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             }
         }
 
-        // GET: Libros/Edit/5
+        // GET: Formatos/Edit/5
         public ActionResult Edit(int id)
         {
-            var modelo = _servicio.Get(id);
-            return View(modelo);
+            var model = _servicio.Get(id);
+            return View(model);
         }
 
-        // POST: Libros/Edit/5
+        // POST: Formatos/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, MDL_Libro reg)
+        public ActionResult Edit(int id, MDL_Formato reg)
         {
             try
             {
                 _servicio.Put(id, reg);
+
                 return RedirectToAction("Index");
             }
             catch
@@ -73,16 +74,16 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             }
         }
 
-        // GET: Libros/Delete/5
+        // GET: Formatos/Delete/5
         public ActionResult Delete(int id)
         {
-            var modelo = _servicio.Get(id);
-            return View(modelo);
+            var model = _servicio.Get(id);
+            return View(model);
         }
 
-        // POST: Libros/Delete/5
+        // POST: Formatos/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, MDL_Libro reg)
+        public ActionResult Delete(int id, MDL_Formato reg)
         {
             try
             {

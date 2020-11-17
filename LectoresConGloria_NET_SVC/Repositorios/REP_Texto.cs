@@ -14,82 +14,86 @@ namespace LectoresConGloria_SVC.Repositorios
 {
     class REP_Texto : ISVC_Texto
     {
-        readonly LectoresConGloria_Context _context;
+        readonly LectoresConGloria_Context _contexto;
         readonly IMapper _mapper;
         public REP_Texto()
         {
-            _context = new LectoresConGloria_Context();
+            _contexto = new LectoresConGloria_Context();
             _mapper = Automapeo.Instance;
         }
-        public async void Delete(int id)
+        public void Delete(int id)
         {
-            var entity = await _context.TBL_Textos.FindAsync(id);
-            _context.TBL_Textos.Remove(entity);
-            await _context.SaveChangesAsync();
+            var entity = _contexto.TBL_Textos.Find(id);
+            _contexto.TBL_Textos.Remove(entity);
+            _contexto.SaveChanges();
         }
 
-        public async void Post(MDL_Texto item)
+        public void Post(MDL_Texto item)
         {
             var entity = _mapper.Map<TBL_Textos>(item);
-            _context.TBL_Textos.Add(entity);
-            await _context.SaveChangesAsync();
+            _contexto.TBL_Textos.Add(entity);
+            _contexto.SaveChanges();
         }
 
-        public async Task<MDL_Texto> Get(int id)
+        public MDL_Texto Get(int id)
         {
-            var entity = await _context.TBL_Textos.FindAsync(id);
+            var entity = _contexto.TBL_Textos.Find(id);
             var output = _mapper.Map<MDL_Texto>(entity);
             return output;
         }
 
-        public async Task<IEnumerable<MDL_Texto>> Get()
+        public IEnumerable<MDL_Texto> Get()
         {
-            var entity = await _context.TBL_Textos.ToListAsync();
+            var entity = _contexto.TBL_Textos.ToList();
             var output = _mapper.Map<IEnumerable<MDL_Texto>>(entity);
             return output;
         }
 
-        public async Task<IEnumerable<V_Lista>> GetMasClicks()
+        public IEnumerable<V_Lista> GetMasClicks()
         {
-            var output = await _context.TBL_Textos.OrderByDescending(x => x.FechaAlta)
+            var output =  _contexto.TBL_Textos.OrderByDescending(x => x.FechaAlta)
+                .AsNoTracking()
                 .Take(5).Select(x => new V_Lista()
                 {
                     Id = x.Id,
                     Valor = x.Titulo
-                }).ToListAsync();
+                }).ToList();
             return output;
         }
 
-        public async Task<IEnumerable<V_Lista>> GetUltimos()
+        public IEnumerable<V_Lista> GetUltimos()
         {
-            var output = await _context.TBL_Textos.OrderByDescending(x => x.FechaAlta)
+            var output =  _contexto.TBL_Textos
+                .OrderByDescending(x => x.FechaAlta)
+                .AsNoTracking()
                 .Take(5).Select(x => new V_Lista()
                 {
                     Id = x.Id,
                     Valor = x.Titulo
-                }).ToListAsync();
+                });
             return output;
         }
 
-        public async Task<IEnumerable<V_Lista>> GetUltimosPorFecha(DateTime fecha)
+        public IEnumerable<V_Lista> GetUltimosPorFecha(DateTime fecha)
         {
-            var output = await _context.TBL_Textos.Where(x => x.FechaAlta >= fecha)
+            var output =  _contexto.TBL_Textos.Where(x => x.FechaAlta >= fecha)
+                .AsNoTracking()
                 .Take(5).Select(x => new V_Lista()
                 {
                     Id = x.Id,
                     Valor = x.Titulo
-                }).ToListAsync();
+                });
             return output;
         }
 
-        public async void Put(int id, MDL_Texto item)
+        public void Put(int id, MDL_Texto item)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<V_TextoDetalle> GetDetalle(int id)
+        public V_TextoDetalle GetDetalle(int id)
         {
-            var entity = await _context.TBL_Textos.FindAsync(id);
+            var entity = _contexto.TBL_Textos.Find(id);
             var output = new V_TextoDetalle()
             {
                 Audio = !string.IsNullOrEmpty(entity.Audio),
@@ -98,6 +102,16 @@ namespace LectoresConGloria_SVC.Repositorios
                 Titulo = entity.Titulo,
                 Id = entity.Id
             };
+            return output;
+        }
+
+        public IEnumerable<V_Lista> GetList()
+        {
+            var output = _contexto.TBL_Textos.Select(x => new V_Lista()
+            {
+                Id = x.Id,
+                Valor = x.Titulo
+            });
             return output;
         }
     }

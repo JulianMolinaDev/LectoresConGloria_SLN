@@ -21,24 +21,24 @@ namespace LectoresConGloria_SVC.Servicios
             _repositorio.Delete(id);
         }
 
-        public async Task<MDL_TextoCategoria> Get(int id)
+        public MDL_TextoCategoria Get(int id)
         {
-            return await _repositorio.Get(id);
+            return _repositorio.Get(id);
         }
 
-        public async Task<IEnumerable<MDL_TextoCategoria>> Get()
+        public IEnumerable<MDL_TextoCategoria> Get()
         {
-            return await _repositorio.Get();
+            return _repositorio.Get();
         }
 
-        public async Task<IEnumerable<V_Lista>> GetCategoriaPorTexto(int idTexto)
+        public IEnumerable<V_ListaRelacion> GetCategoriaPorTexto(int idTexto)
         {
-            return await _repositorio.GetCategoriaPorTexto(idTexto);
+            return _repositorio.GetCategoriaPorTexto(idTexto);
         }
 
-        public async Task<IEnumerable<V_Lista>> GetTextoPorCategoria(int idCategoria)
+        public IEnumerable<V_ListaRelacion> GetTextoPorCategoria(int idCategoria)
         {
-            return await _repositorio.GetTextoPorCategoria(idCategoria);
+            return _repositorio.GetTextoPorCategoria(idCategoria);
         }
 
         public void Post(MDL_TextoCategoria reg)
@@ -50,5 +50,6 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio.Put(id, reg);
         }
+        
     }
 }

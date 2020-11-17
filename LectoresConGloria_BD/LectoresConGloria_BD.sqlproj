@@ -98,6 +98,8 @@
     <Build Include="Keys\Foreign\FK_FormatosLibros_Libros.sql" />
     <Build Include="Keys\Foreign\FK_TextosLibros_Libros.sql" />
     <Build Include="Keys\Foreign\FK_TextosLibros_Textos.sql" />
+    <Build Include="SP\SP_FaltantesFormatosByLibro.sql" />
+    <Build Include="SP\SP_FaltantesCategoriasByTexto.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />

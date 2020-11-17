@@ -1,0 +1,27 @@
+﻿@model IEnumerable<LectoresConGloria_MDL.Vistas.V_ListaRelacion>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Formato
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.ActionLink("Editar Formato", "Edit", new { id = item.IdForanea }) |
+            @Html.ActionLink("Editar Relacion", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

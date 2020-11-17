@@ -11,9 +11,9 @@ namespace LectoresConGloria_MVC.Controllers.Site
         {
             _servicio = new SVC_TextoLibro();
         }
-        public async Task<ActionResult> TextosPorLibro(int idLibro)
+        public ActionResult TextosPorLibro(int idLibro)
         {
-            var model = await _servicio.GetTextosPorLibro(idLibro);
+            var model = _servicio.GetTextosPorLibro(idLibro);
             return View(model);
         }
     }

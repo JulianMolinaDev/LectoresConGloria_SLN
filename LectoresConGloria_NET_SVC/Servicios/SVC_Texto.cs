@@ -15,47 +15,52 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio = new REP_Texto();
         }
-        public async void Delete(int id)
+        public void Delete(int id)
         {
             _repositorio.Delete(id);
         }
 
-        public async Task<MDL_Texto> Get(int id)
+        public MDL_Texto Get(int id)
         {
-            return await _repositorio.Get(id);
+            return _repositorio.Get(id);
         }
 
-        public async Task<IEnumerable<MDL_Texto>> Get()
+        public IEnumerable<MDL_Texto> Get()
         {
-            return await _repositorio.Get();
+            return _repositorio.Get();
         }
 
-        public async Task<V_TextoDetalle> GetDetalle(int id)
+        public V_TextoDetalle GetDetalle(int id)
         {
-            return await _repositorio.GetDetalle(id);
+            return _repositorio.GetDetalle(id);
         }
 
-        public async Task<IEnumerable<V_Lista>> GetMasClicks()
+        public IEnumerable<V_Lista> GetList()
         {
-            return await _repositorio.GetMasClicks();
+            return _repositorio.GetList();
         }
 
-        public async Task<IEnumerable<V_Lista>> GetUltimos()
+        public IEnumerable<V_Lista> GetMasClicks()
         {
-            return await _repositorio.GetUltimos();
+            return _repositorio.GetMasClicks();
         }
 
-        public async Task<IEnumerable<V_Lista>> GetUltimosPorFecha(DateTime fecha)
+        public IEnumerable<V_Lista> GetUltimos()
         {
-            return await _repositorio.GetUltimosPorFecha(fecha);
+            return _repositorio.GetUltimos();
         }
 
-        public async void Post(MDL_Texto reg)
+        public IEnumerable<V_Lista> GetUltimosPorFecha(DateTime fecha)
         {
-           _repositorio.Post(reg);
+            return _repositorio.GetUltimosPorFecha(fecha);
         }
 
-        public async void Put(int id, MDL_Texto reg)
+        public void Post(MDL_Texto reg)
+        {
+            _repositorio.Post(reg);
+        }
+
+        public void Put(int id, MDL_Texto reg)
         {
             _repositorio.Put(id, reg);
         }

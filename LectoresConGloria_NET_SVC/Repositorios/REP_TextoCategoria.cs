@@ -29,43 +29,46 @@ namespace LectoresConGloria_SVC.Repositorios
             _contexto.SaveChanges();
         }
 
-        public async Task<MDL_TextoCategoria> Get(int id)
+        public MDL_TextoCategoria Get(int id)
         {
-            var entity = await _contexto.TBL_TextosCategorias.FindAsync(id);
+            var entity = _contexto.TBL_TextosCategorias.Find(id);
             var output = _mapper.Map<MDL_TextoCategoria>(entity);
             return output;
         }
 
-        public async Task<IEnumerable<MDL_TextoCategoria>> Get()
+        public IEnumerable<MDL_TextoCategoria> Get()
         {
-            var entity = await _contexto.TBL_TextosCategorias.ToListAsync();
+            var entity = _contexto.TBL_TextosCategorias.ToList();
             var output = _mapper.Map<IEnumerable<MDL_TextoCategoria>>(entity);
             return output;
         }
 
-        public async Task<IEnumerable<V_Lista>> GetCategoriaPorTexto(int idTexto)
+        public IEnumerable<V_ListaRelacion> GetCategoriaPorTexto(int idTexto)
         {
-            var entity = await _contexto.TBL_TextosCategorias
-                .Include(x=> x.TBL_Categorias)
-                .Where(x => x.IdTexto == idTexto).ToListAsync();
-            var output = entity.Select(x => new V_Lista()
-            {
-                Id = x.IdCategoria,
-                Valor = x.TBL_Categorias.Nombre
-            });
+            var output = _contexto.TBL_TextosCategorias
+                .Include(x => x.TBL_Categorias)
+                .AsNoTracking()
+                .Where(x => x.IdTexto == idTexto)
+                .Select(x => new V_ListaRelacion()
+                {
+                    Id = x.Id,
+                    IdForanea = x.IdCategoria,
+                    Valor = x.TBL_Categorias.Nombre
+                });
             return output;
         }
 
-        public async Task<IEnumerable<V_Lista>> GetTextoPorCategoria(int idCategoria)
+        public IEnumerable<V_ListaRelacion> GetTextoPorCategoria(int idCategoria)
         {
-            var entity = await _contexto.TBL_TextosCategorias
+            var output = _contexto.TBL_TextosCategorias
                 .Include(x => x.TBL_Textos)
-                .Where(x => x.IdCategoria == idCategoria).ToListAsync();
-            var output = entity.Select(x => new V_Lista()
-            {
-                Id = x.IdTexto,
-                Valor = x.TBL_Textos.Titulo
-            });
+                .Where(x => x.IdCategoria == idCategoria)
+                .Select(x => new V_ListaRelacion()
+                {
+                    Id = x.Id,
+                    IdForanea = x.IdTexto,
+                    Valor = x.TBL_Textos.Titulo
+                });
             return output;
         }
 

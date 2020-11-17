@@ -22,43 +22,46 @@ namespace LectoresConGloria_SVC.Repositorios
             _contexto = new LectoresConGloria_Context();
             _mapper = Automapeo.Instance;
         }
-        public async void Delete(int id)
+        public void Delete(int id)
         {
             var entity = _contexto.TBL_TextosCategorias.Find(id);
             _contexto.TBL_TextosCategorias.Remove(entity);
-            await _contexto.SaveChangesAsync();
+            _contexto.SaveChanges();
         }
-        public async Task<MDL_TextoLibro> Get(int id)
+        public MDL_TextoLibro Get(int id)
         {
-            var entity = await _contexto.TBL_TextosLibros.FindAsync(id);
+            var entity = _contexto.TBL_TextosLibros.Find(id);
             var output = _mapper.Map<MDL_TextoLibro>(entity);
             return output;
-            }
+        }
 
-        public async Task<IEnumerable<MDL_TextoLibro>> Get()
+        public IEnumerable<MDL_TextoLibro> Get()
         {
-            var entity = await _contexto.TBL_TextosLibros.ToListAsync();
+            var entity = _contexto.TBL_TextosLibros.ToList();
             var output = _mapper.Map<IEnumerable<MDL_TextoLibro>>(entity);
             return output;
         }
 
-        public async Task<IEnumerable<V_Lista>> GetTextosPorLibro(int idLibro)
+        public IEnumerable<V_ListaRelacion> GetTextosPorLibro(int idLibro)
         {
-            var output = await _contexto.TBL_TextosLibros
-                .Where(x=> x.IdLibro == idLibro)
-                .Include(x=> x.TBL_Textos)
-                .Select(x=> new V_Lista() { 
-                    Id = x.IdTexto,
+            var output =  _contexto.TBL_TextosLibros
+                .Where(x => x.IdLibro == idLibro)
+                .AsNoTracking()
+                .Include(x => x.TBL_Textos)
+                .Select(x => new V_ListaRelacion()
+                {
+                    Id = x.Id,
+                    IdForanea = x.IdTexto,
                     Valor = x.TBL_Textos.Titulo
-                }).ToListAsync();
+                });
             return output;
         }
 
-        public async void Post(MDL_TextoLibro reg)
+        public void Post(MDL_TextoLibro reg)
         {
             var entity = _mapper.Map<TBL_TextosLibros>(reg);
             _contexto.TBL_TextosLibros.Add(entity);
-            await _contexto.SaveChangesAsync();
+            _contexto.SaveChanges();
         }
 
         public void Put(int id, MDL_TextoLibro reg)

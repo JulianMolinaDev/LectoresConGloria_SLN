@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public int IdTexto { get; set; }
-        public int Categoria { get; set; }
+        public int IdCategoria { get; set; }
 
     }
 }

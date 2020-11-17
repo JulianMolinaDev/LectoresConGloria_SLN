@@ -19,19 +19,19 @@ namespace LectoresConGloria_SVC.Servicios
             _repositorio.Delete(id);
         }
 
-        public async Task<MDL_Lector> Get(int id)
+        public MDL_Lector Get(int id)
         {
-            return await _repositorio.Get(id);
+            return _repositorio.Get(id);
         }
 
-        public async Task<IEnumerable<MDL_Lector>> Get()
+        public IEnumerable<MDL_Lector> Get()
         {
-            return await _repositorio.Get();
+            return _repositorio.Get();
         }
 
-        public async Task<MDL_Lector> Login(MDL_Login reg)
+        public MDL_Lector Login(MDL_Login reg)
         {
-            return await _repositorio.Login(reg);
+            return _repositorio.Login(reg);
         }
 
         public void Post(MDL_Lector reg)

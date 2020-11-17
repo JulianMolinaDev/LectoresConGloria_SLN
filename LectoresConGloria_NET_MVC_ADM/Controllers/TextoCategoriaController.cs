@@ -1,4 +1,5 @@
 ﻿using LectoresConGloria_MDL.Modelos;
+using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Servicios;
 using System;
 using System.Collections.Generic;
@@ -91,6 +92,35 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             {
                 return View(reg);
             }
+        }
+        public ActionResult AsociarTextoACategoria(V_Asociacion asociacion)
+        {
+            _servicio.Post(new MDL_TextoCategoria()
+            {
+                IdCategoria = asociacion.Derecha,
+                IdTexto = asociacion.Izquierda
+            });
+            return RedirectToAction("Details","Texto", new { id = asociacion.Izquierda });
+        }
+        public ActionResult AsociarCategoriaATexto(V_Asociacion asociacion)
+        {
+            _servicio.Post(new MDL_TextoCategoria()
+            {
+                IdCategoria = asociacion.Izquierda,
+                IdTexto = asociacion.Derecha
+            });
+            return RedirectToAction("Details", "Categoria", new { id = asociacion.Izquierda });
+        }
+
+        public ActionResult TextosPorCategoria(int id)
+        {
+            var modelo = _servicio.GetTextoPorCategoria(id);
+            return View(modelo);
+        }
+        public ActionResult CategoriasPorTexto(int id)
+        {
+            var modelo = _servicio.GetCategoriaPorTexto(id);
+            return View(modelo);
         }
     }
 }

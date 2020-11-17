@@ -1,33 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LectoresConGloria_FWK.Interfaces;
+﻿using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+using LectoresConGloria_SVC.Servicios;
+using System.Web.Http;
 
 namespace LectoresConGloria_MVC.Controllers.Api
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class UsuarioController : ControllerBase
+    public class UsuarioController : ApiController
     {
         private readonly ISVC_Usuario _servicio;
-        public UsuarioController(ISVC_Usuario servicio)
+        public UsuarioController()
         {
-            _servicio = servicio;
+            _servicio = new SVC_Usuario();
         }
 
-        public IActionResult Login(MDL_Login login)
+        public MDL_Usuario Login(MDL_Login login)
         {
             var usuario = _servicio.Login(login);
-            return Ok(usuario);
+            return usuario;
         }
-        public IActionResult Register(MDL_Usuario reg)
+        public void Register(MDL_Usuario reg)
         {
-            var usuario = _servicio.Register(reg);
-            return Ok(usuario);
+            _servicio.Register(reg);
         }
     }
 }

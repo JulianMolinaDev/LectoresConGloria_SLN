@@ -1,41 +1,38 @@
-﻿using System;
+﻿using LectoresConGloria_FWK.Interfaces;
+using LectoresConGloria_MDL.Vistas;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LectoresConGloria_FWK.Interfaces;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+using System.Web.Http;
 
 namespace LectoresConGloria_MVC.Controllers.Api
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class TextoController : ControllerBase
+
+    public class TextoController : ApiController
     {
         private readonly ISVC_Texto _servicio;
         public TextoController(ISVC_Texto servicio)
         {
             _servicio = servicio;
         }
-        public ActionResult GetUltimosPorFecha(DateTime fecha)
+        public IEnumerable<V_Lista> GetUltimosPorFecha(DateTime fecha)
         {
             var model = _servicio.GetUltimosPorFecha(fecha);
-            return Ok(model);
+            return model;
         }
-        public ActionResult GetUltimos()
+        public IEnumerable<V_Lista> GetUltimos()
         {
             var model = _servicio.GetUltimos();
-            return Ok(model);
+            return model;
         }
-        public ActionResult GetMasClicks()
+        public IEnumerable<V_Lista> GetMasClicks()
         {
             var model = _servicio.GetMasClicks();
-            return Ok(model);
+            return model;
         }
-        public ActionResult Detalle(int id)
+        public IEnumerable<V_Lista> Detalle(int id)
         {
             var model = _servicio.GetMasClicks();
-            return Ok(model);
+            return model;
         }
     }
 }

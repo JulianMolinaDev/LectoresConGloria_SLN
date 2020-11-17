@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
+using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Data.Entidades;
 using LectoresConGloria_SVC.Mapeo;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Repositorios
@@ -19,41 +20,51 @@ namespace LectoresConGloria_SVC.Repositorios
             _contexto = new LectoresConGloria_Context();
             _mapper = Automapeo.Instance;
         }
-        public async void Delete(int id)
+        public void Delete(int id)
         {
             var entity = _contexto.TBL_Formatos.Find(id);
             _contexto.TBL_Formatos.Remove(entity);
-            await _contexto.SaveChangesAsync();
+             _contexto.SaveChanges();
         }
 
-        public async Task<MDL_Formato> Get(int id)
+        public MDL_Formato Get(int id)
         {
-            var entity = await _contexto.TBL_Formatos.FindAsync(id);
+            var entity = _contexto.TBL_Formatos.Find(id);
             var output = _mapper.Map<MDL_Formato>(entity);
             return output;
         }
 
-        public async Task<IEnumerable<MDL_Formato>> Get()
+        public IEnumerable<MDL_Formato> Get()
         {
-            var entity = await _contexto.TBL_Formatos.ToListAsync();
+            var entity = _contexto.TBL_Formatos.ToList();
             var output = _mapper.Map<IEnumerable<MDL_Formato>>(entity);
             return output;
         }
 
-        public async void Post(MDL_Formato reg)
+        public IEnumerable<V_Lista> GetList()
+        {
+            var output = _contexto.TBL_Formatos.Select(x => new V_Lista()
+            {
+                Id = x.Id,
+                Valor = x.Nombre
+            });
+            return output;
+        }
+
+        public void Post(MDL_Formato reg)
         {
             var entity = _mapper.Map<TBL_Formatos>(reg);
             _contexto.TBL_Formatos.Add(entity);
-            await _contexto.SaveChangesAsync();
+             _contexto.SaveChanges();
         }
 
-        public async void Put(int id, MDL_Formato reg)
+        public void Put(int id, MDL_Formato reg)
         {
             var register = _mapper.Map<TBL_Formatos>(reg);
-            var entity = await _contexto.TBL_Formatos.FindAsync(id);
+            var entity = _contexto.TBL_Formatos.Find(id);
             entity.Nombre = register.Nombre;
             _contexto.Entry(entity).State = EntityState.Modified;
-            await _contexto.SaveChangesAsync();
+            _contexto.SaveChanges();
         }
     }
 }

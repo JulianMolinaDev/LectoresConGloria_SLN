@@ -201,8 +201,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Archivos\" />
     <Folder Include="Content\Images\Libros\" />
-    <Folder Include="Content\Images\Textos\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

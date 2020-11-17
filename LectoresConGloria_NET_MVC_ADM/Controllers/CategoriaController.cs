@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using LectoresConGloria_SVC.Servicios;
+using System.Threading.Tasks;
 
 namespace LectoresConGloria_NET_MVC_ADM.Controllers
 {
@@ -32,7 +33,7 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         // GET: Categoria/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new MDL_Categoria());
         }
 
         // POST: Categoria/Create
