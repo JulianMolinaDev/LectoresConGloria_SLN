@@ -4,6 +4,7 @@ using LectoresConGloria_NET_MVC_ADM.Models;
 using LectoresConGloria_NET_MVC_ADM.Utilidades;
 using LectoresConGloria_SVC.Servicios;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -36,30 +37,25 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         public ActionResult AsignarFormato(int id)
         {
             ViewBag.Formatos = _servicio.FaltantesFormatosByLibro(id);
-            var modelo = new VM_FormatoLibro()
+            var modelo = new MDL_FormatoLibro()
             {
-                IdLibro = id,
-                Archivo = null,
+                IdLibro = id
             };
             return View(modelo);
         }
 
         // POST: FormatosLibros/Create
         [HttpPost]
-        public ActionResult AsignarFormato(VM_FormatoLibro reg)
+        public ActionResult AsignarFormato(MDL_FormatoLibro reg)
         {
             try
             {
-                _servicio.Post(new MDL_FormatoLibro()
-                {
-                    Contenido = reg.Archivo.InputStream.StreamToByteArray(),
-                    IdFormato = reg.IdFormato,
-                    IdLibro = reg.IdLibro
-                });
+                _servicio.Post(reg);
                 return RedirectToAction("Index");
             }
             catch
             {
+                ViewBag.Formatos = _servicio.FaltantesFormatosByLibro(reg.IdLibro);
                 return View(reg);
             }
         }
@@ -107,12 +103,13 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
                 return View(reg);
             }
         }
-
+        [HttpGet]
         public ActionResult FormatosPorLibro(int id)
         {
             var modelo = _servicio.GetFormatosByLibro(id);
             return View(modelo);
         }
+        [HttpGet]
         public ActionResult LibrosPorFormato(int id)
         {
             var modelo = _servicio.GetLibrosByFormato(id);
@@ -124,5 +121,12 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             var modelo = _servicio.GetLibroAsItem(id);
             return PartialView(modelo);
         }
+        [HttpGet]
+        public ActionResult CrearFormatoPorLibro(int id)
+        {
+            var modelo = _servicio.GetLibroAsItem(id);
+            return PartialView(modelo);
+        }
+
     }
 }

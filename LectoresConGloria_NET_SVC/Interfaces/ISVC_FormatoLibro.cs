@@ -2,7 +2,7 @@
 using LectoresConGloria_MDL.Vistas;
 using System.Collections.Generic;
 
-namespace LectoresConGloria_FWK.Interfaces
+namespace LectoresConGloria_SVC.Interfaces
 {
     public interface ISVC_FormatoLibro : IServicio<MDL_FormatoLibro, int>
     {
@@ -12,7 +12,7 @@ namespace LectoresConGloria_FWK.Interfaces
         IEnumerable<V_Lista> FaltantesFormatosByLibro(int idLibro);
         V_Lista GetLibroAsItem(int idFormatoLibro);
         V_Lista GetFormatoAsItem(int idFormatoLibro);
-        void CambiarContenido(int idFormatoLibro, byte[] contenido);
+        void CambiarContenido(int idFormatoLibro, string contenido);
         void CambiarFormato(int idFormatoLibro, int idFormato);
     }
 }

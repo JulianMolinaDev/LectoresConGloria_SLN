@@ -1,4 +1,4 @@
-﻿using LectoresConGloria_FWK.Interfaces;
+﻿using LectoresConGloria_SVC.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_SVC.Repositorios;
 using System;

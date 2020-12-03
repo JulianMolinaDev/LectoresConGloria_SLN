@@ -1,15 +1,13 @@
 ﻿using AutoMapper;
-using LectoresConGloria_FWK.Interfaces;
+using LectoresConGloria_SVC.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Data.Entidades;
 using LectoresConGloria_SVC.Mapeo;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Repositorios
 {
@@ -29,6 +27,14 @@ namespace LectoresConGloria_SVC.Repositorios
             _contexto.SaveChanges();
         }
 
+        public IEnumerable<V_Lista> FaltantesCategoriasPorTexto(int idTexto)
+        {
+            var output = _contexto.Database.SqlQuery<V_Lista>
+                ("SP_FaltantesCategoriasByTexto @idTexto", new SqlParameter("@idTexto", idTexto))
+                .ToList();
+            return output;
+        }
+
         public MDL_TextoCategoria Get(int id)
         {
             var entity = _contexto.TBL_TextosCategorias.Find(id);
@@ -38,7 +44,9 @@ namespace LectoresConGloria_SVC.Repositorios
 
         public IEnumerable<MDL_TextoCategoria> Get()
         {
-            var entity = _contexto.TBL_TextosCategorias.ToList();
+            var entity = _contexto.TBL_TextosCategorias
+                .AsNoTracking()
+                .ToList();
             var output = _mapper.Map<IEnumerable<MDL_TextoCategoria>>(entity);
             return output;
         }
@@ -47,8 +55,8 @@ namespace LectoresConGloria_SVC.Repositorios
         {
             var output = _contexto.TBL_TextosCategorias
                 .Include(x => x.TBL_Categorias)
-                .AsNoTracking()
                 .Where(x => x.IdTexto == idTexto)
+                .AsNoTracking()
                 .Select(x => new V_ListaRelacion()
                 {
                     Id = x.Id,
@@ -63,6 +71,7 @@ namespace LectoresConGloria_SVC.Repositorios
             var output = _contexto.TBL_TextosCategorias
                 .Include(x => x.TBL_Textos)
                 .Where(x => x.IdCategoria == idCategoria)
+                .AsNoTracking()
                 .Select(x => new V_ListaRelacion()
                 {
                     Id = x.Id,

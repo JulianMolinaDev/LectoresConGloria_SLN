@@ -18,7 +18,8 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         // GET: Texto
         public ActionResult Index()
         {
-            return View();
+            var modelo = _servicio.GetUltimos(10);
+            return View(modelo);
         }
 
         // GET: Texto/Details/5
@@ -31,7 +32,8 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         // GET: Texto/Create
         public ActionResult Create()
         {
-            return View();
+            var modelo = new MDL_Texto();
+            return View(modelo);
         }
 
         // POST: Texto/Create
@@ -91,6 +93,17 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             {
                 return View(reg);
             }
+        }
+        public ActionResult Busqueda(string titulo)
+        {
+            var modelo =_servicio.GetListaPorTitulo(titulo);
+            return View(modelo);
+        }
+        [ChildActionOnly]
+        public PartialViewResult Titulo(int id)
+        {
+            var modelo = _servicio.GetItem(id);
+            return PartialView(modelo);
         }
     }
 }

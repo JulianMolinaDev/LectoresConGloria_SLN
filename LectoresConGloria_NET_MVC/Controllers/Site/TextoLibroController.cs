@@ -11,10 +11,11 @@ namespace LectoresConGloria_MVC.Controllers.Site
         {
             _servicio = new SVC_TextoLibro();
         }
-        public ActionResult TextosPorLibro(int idLibro)
+        [ChildActionOnly]
+        public ActionResult TextosPorLibro(int id)
         {
-            var model = _servicio.GetTextosPorLibro(idLibro);
-            return View(model);
+            var model = _servicio.GetTextosPorLibro(id);
+            return PartialView(model);
         }
     }
 }

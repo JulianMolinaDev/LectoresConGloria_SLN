@@ -8,9 +8,16 @@ namespace LectoresConGloria_SVC.Mapeo
     {
         public AppProfile()
         {
-            CreateMap<MDL_Usuario, TBL_Usuarios>().ReverseMap();
             CreateMap<MDL_Categoria, TBL_Categorias>().ReverseMap();
+            CreateMap<MDL_Click, TBL_Clicks>().ReverseMap();
             CreateMap<MDL_Formato, TBL_Formatos>().ReverseMap();
+            CreateMap<MDL_FormatoLibro, TBL_FormatosLibros>().ReverseMap();
+            CreateMap<MDL_Lector, TBL_Lectores>().ReverseMap(); 
+            CreateMap<MDL_Libro, TBL_Libros>().ReverseMap();
+            CreateMap<MDL_Texto, TBL_Textos>().ReverseMap();
+            CreateMap<MDL_TextoCategoria, TBL_TextosCategorias>().ReverseMap();
+            CreateMap<MDL_TextoLibro, TBL_TextosLibros>().ReverseMap();
+            CreateMap<MDL_Usuario, TBL_Usuarios>().ReverseMap();
         }
     }
 }

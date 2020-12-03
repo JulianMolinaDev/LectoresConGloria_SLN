@@ -11,16 +11,22 @@ namespace LectoresConGloria_NET_MVC.Controllers.Site
             _servicio = new SVC_TextoCategoria();
         }
         [ChildActionOnly]
-        public ActionResult CategoriaPorTexto(int idTexto)
+        public ActionResult CategoriaPorTexto(int id)
         {
-            var modelo = _servicio.GetCategoriaPorTexto(idTexto);
-            return View(modelo);
+            var modelo = _servicio.GetCategoriaPorTexto(id);
+            return PartialView(modelo);
         }
         [ChildActionOnly]
-        public ActionResult TextoPorCategoria(int idCategoria)
+        public ActionResult TextoPorCategoria(int id)
         {
-            var modelo = _servicio.GetTextoPorCategoria(idCategoria);
-            return View(modelo);
+            var modelo = _servicio.GetTextoPorCategoria(id);
+            return PartialView(modelo);
+        }
+        
+        public ActionResult TextosPorCategoria(int id)
+        {
+            var modelo = _servicio.GetTextoPorCategoria(id);
+            return PartialView(modelo);
         }
     }
 }

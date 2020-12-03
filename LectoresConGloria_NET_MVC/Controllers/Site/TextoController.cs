@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using LectoresConGloria_SVC.Interfaces;
+using System;
 using System.Web.Mvc;
-using LectoresConGloria_FWK.Interfaces;
-using LectoresConGloria_MDL.Vistas;
 
 namespace LectoresConGloria_MVC.Controllers.Site
 {
@@ -22,17 +18,17 @@ namespace LectoresConGloria_MVC.Controllers.Site
         public ActionResult GetUltimosPorFecha()
         {
             //TODO: Revisar fecha
-            var model = _servicio.GetUltimosPorFecha(DateTime.Now);
+            var model = _servicio.GetListaUltimosPorFecha(DateTime.Now);
             return View(model);
         }
         public ActionResult GetUltimos()
         {
-            var model = _servicio.GetUltimos();
+            var model = _servicio.GetListaUltimos();
             return View(model);
         }
         public ActionResult GetMasClicks()
         {
-            var model = _servicio.GetMasClicks();
+            var model = _servicio.GetListaMasClicks();
             return View(model);
         }
         public ActionResult Detalle(int id)

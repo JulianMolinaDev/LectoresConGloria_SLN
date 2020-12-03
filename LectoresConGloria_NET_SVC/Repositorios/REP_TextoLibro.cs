@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using LectoresConGloria_FWK.Interfaces;
+using LectoresConGloria_SVC.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Data.Entidades;
@@ -8,8 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Repositorios
 {
@@ -46,8 +44,8 @@ namespace LectoresConGloria_SVC.Repositorios
         {
             var output =  _contexto.TBL_TextosLibros
                 .Where(x => x.IdLibro == idLibro)
-                .AsNoTracking()
                 .Include(x => x.TBL_Textos)
+                .AsNoTracking()
                 .Select(x => new V_ListaRelacion()
                 {
                     Id = x.Id,
@@ -65,6 +63,11 @@ namespace LectoresConGloria_SVC.Repositorios
         }
 
         public void Put(int id, MDL_TextoLibro reg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TextoDesdeLibro(int idLibro, MDL_Texto texto)
         {
             throw new NotImplementedException();
         }

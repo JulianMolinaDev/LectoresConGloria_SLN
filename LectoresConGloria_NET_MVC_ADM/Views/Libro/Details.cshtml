@@ -30,6 +30,7 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Agregar Formato", "AsignarFormato", "FormatoLibro", new { id = Model.Id }, null) |
     @Html.ActionLink("Back to List", "Index")
 </p>
 @Html.Action("FormatosPorLibro", "FormatosLibros", new { id = Model.Id })

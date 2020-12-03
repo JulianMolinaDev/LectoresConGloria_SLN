@@ -1,4 +1,4 @@
-﻿using LectoresConGloria_FWK.Interfaces;
+﻿using LectoresConGloria_SVC.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Repositorios;
@@ -29,9 +29,19 @@ namespace LectoresConGloria_SVC.Servicios
             return _repositorio.Get();
         }
 
+        public V_Lista GetItem(int id)
+        {
+            return _repositorio.GetItem(id);
+        }
+
         public IEnumerable<V_Lista> GetList()
         {
             return _repositorio.GetList();
+        }
+
+        public IEnumerable<V_Lista> GetListaUltimos(int cantidad)
+        {
+            return _repositorio.GetListaUltimos(cantidad);
         }
 
         public IEnumerable<V_Lista> GetListByNombre(string nombre)

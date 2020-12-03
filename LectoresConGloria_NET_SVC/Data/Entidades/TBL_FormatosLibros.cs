@@ -14,8 +14,8 @@ namespace LectoresConGloria_SVC.Data.Entidades
 
         public int IdFormato { get; set; }
 
-        [Required]
-        public byte[] Contenido { get; set; }
+        [StringLength(50)]
+        public string Archivo { get; set; }
 
         public virtual TBL_Formatos TBL_Formatos { get; set; }
 

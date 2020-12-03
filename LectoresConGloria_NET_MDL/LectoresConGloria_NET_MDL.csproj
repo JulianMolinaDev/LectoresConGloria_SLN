@@ -55,12 +55,12 @@
     <Compile Include="Modelos\MDL_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vistas\V_Asociacion.cs" />
-    <Compile Include="Vistas\Genericas\V_DetalleGenerico.cs" />
     <Compile Include="Vistas\V_DetalleItemLista.cs" />
     <Compile Include="Vistas\V_LibroDescarga.cs" />
     <Compile Include="Vistas\V_Lista.cs" />
     <Compile Include="Vistas\V_ListaRelacion.cs" />
     <Compile Include="Vistas\V_TextoDetalle.cs" />
+    <Compile Include="Vistas\V_TextoLista.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

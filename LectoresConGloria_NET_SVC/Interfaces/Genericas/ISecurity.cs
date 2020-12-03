@@ -1,4 +1,4 @@
-﻿namespace LectoresConGloria_FWK.Interfaces
+﻿namespace LectoresConGloria_SVC.Interfaces
 {
     public interface ISecurity<TEntity, TLogin>
     {

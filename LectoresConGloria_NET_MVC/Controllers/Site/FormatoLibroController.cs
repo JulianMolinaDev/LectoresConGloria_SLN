@@ -1,5 +1,7 @@
 ﻿using LectoresConGloria_MDL.Vistas;
+using LectoresConGloria_NET_MVC.Constantes;
 using LectoresConGloria_SVC.Servicios;
+using System.IO;
 using System.Web.Mvc;
 
 namespace LectoresConGloria_MVC.Controllers.Site
@@ -20,7 +22,8 @@ namespace LectoresConGloria_MVC.Controllers.Site
         public ActionResult GetFormatoLibro(int idFormatoLibro)
         {
             V_LibroDescarga model = _servicio.GetContenido(idFormatoLibro);
-            return File(model.Contenido, model.Tipo, model.Nombre);
+            var path = Path.Combine(Globales.pathToFiles, "Contenido", model.Archivo);
+            return File(path, model.Tipo, model.Nombre);
         }
     }
 }

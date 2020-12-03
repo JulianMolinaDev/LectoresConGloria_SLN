@@ -133,6 +133,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Constantes\Globales.cs" />
     <Compile Include="Controllers\Api\ClickController.cs" />
     <Compile Include="Controllers\Api\TextoController.cs" />
     <Compile Include="Controllers\Api\UsuarioController.cs" />
@@ -198,12 +199,14 @@
     <Content Include="Views\TextoCategoria\CategoriaPorTexto.cshtml" />
     <Content Include="Views\TextoCategoria\TextoPorCategoria.cshtml" />
     <Content Include="Views\Libro\Detalle.cshtml" />
+    <Content Include="Views\Shared\_ListaTexto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Archivos\" />
-    <Folder Include="Content\Images\Libros\" />
+    <Folder Include="Content\Images\" />
     <Folder Include="Models\" />
+    <Folder Include="UploadedFiles\Contenido\" />
+    <Folder Include="UploadedFiles\Portadas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

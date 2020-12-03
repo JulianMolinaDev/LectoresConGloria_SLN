@@ -1,13 +1,9 @@
-﻿@model IEnumerable<LectoresConGloria_MDL.Vistas.V_ListaRelacion>
-
-<h3>
-    Libros por formato
-</h3>
+﻿@model IEnumerable<LectoresConGloria_MDL.Vistas.V_Lista>
 
 <table class="table">
     <tr>
         <th>
-            Libro
+            Texto
         </th>
         <th></th>
     </tr>
@@ -19,6 +15,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>

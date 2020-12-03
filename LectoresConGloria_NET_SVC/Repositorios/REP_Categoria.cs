@@ -1,14 +1,12 @@
 ﻿using AutoMapper;
-using LectoresConGloria_FWK.Interfaces;
+using LectoresConGloria_SVC.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Data.Entidades;
 using LectoresConGloria_SVC.Mapeo;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Repositorios
 {
@@ -40,6 +38,11 @@ namespace LectoresConGloria_SVC.Repositorios
             var entity = _contexto.TBL_Categorias.AsNoTracking().ToList();
             var output = _mapper.Map<IEnumerable<MDL_Categoria>>(entity);
             return output;
+        }
+
+        public V_Lista GetItem(int id)
+        {
+            throw new System.NotImplementedException();
         }
 
         public IEnumerable<V_Lista> GetList()

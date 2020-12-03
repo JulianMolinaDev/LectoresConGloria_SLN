@@ -1,17 +1,13 @@
 ﻿using AutoMapper;
-using LectoresConGloria_FWK.Interfaces;
-using LectoresConGloria_MDL.Enumerados;
+using LectoresConGloria_SVC.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Data.Entidades;
 using LectoresConGloria_SVC.Mapeo;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Repositorios
 {
@@ -25,10 +21,10 @@ namespace LectoresConGloria_SVC.Repositorios
             _mapper = Automapeo.Instance;
         }
 
-        public void CambiarContenido(int idFormatoLibro, byte[] contenido)
+        public void CambiarContenido(int idFormatoLibro, string contenido)
         {
             var entity = _contexto.TBL_FormatosLibros.Find(idFormatoLibro);
-            entity.Contenido = contenido;
+            entity.Archivo = contenido;
             _contexto.Entry(entity).State = EntityState.Modified;
             _contexto.SaveChanges();
         }
@@ -65,7 +61,9 @@ namespace LectoresConGloria_SVC.Repositorios
 
         public IEnumerable<MDL_FormatoLibro> Get()
         {
-            var entity = _contexto.TBL_FormatosLibros.ToList();
+            var entity = _contexto.TBL_FormatosLibros
+                .AsNoTracking()
+                .ToList();
             var output = _mapper.Map<IEnumerable<MDL_FormatoLibro>>(entity);
             return output;
         }
@@ -79,10 +77,11 @@ namespace LectoresConGloria_SVC.Repositorios
             var entity = _contexto.TBL_FormatosLibros
                 .Include(x => x.TBL_Libros)
                 .Include(x => x.TBL_Formatos)
+                .AsNoTracking()
                 .FirstOrDefault(x => x.Id == idFormatoLibro);
             var output = new V_LibroDescarga()
             {
-                Contenido = entity.Contenido,
+                Archivo = entity.Archivo,
                 Nombre = entity.TBL_Libros.Nombre,
                 Tipo = entity.TBL_Formatos.Nombre
             };
@@ -93,8 +92,8 @@ namespace LectoresConGloria_SVC.Repositorios
         {
             var output = _contexto.TBL_FormatosLibros
                 .Where(x => x.Id == idFormatoLibro)
-                .AsNoTracking()
                 .Include(x => x.TBL_Formatos)
+                .AsNoTracking()
                 .Select(x => new V_Lista()
                 {
                     Id = x.IdFormato,
@@ -115,6 +114,7 @@ namespace LectoresConGloria_SVC.Repositorios
             var output = _contexto.TBL_FormatosLibros
                 .Where(x => x.IdLibro == idLibro)
                 .Include(x => x.TBL_Formatos)
+                .AsNoTracking()
                 .Select(x => new V_ListaRelacion()
                 {
                     Id = x.Id,
@@ -129,8 +129,8 @@ namespace LectoresConGloria_SVC.Repositorios
         {
             var output = _contexto.TBL_FormatosLibros
                 .Where(x => x.Id == idFormatoLibro)
-                .AsNoTracking()
                 .Include(x => x.TBL_Libros)
+                .AsNoTracking()
                 .Select(x => new V_Lista()
                 {
                     Id = x.IdLibro,
@@ -145,6 +145,7 @@ namespace LectoresConGloria_SVC.Repositorios
             var output = _contexto.TBL_FormatosLibros
                 .Where(x => x.IdFormato == idFormato)
                 .Include(x => x.TBL_Libros)
+                .AsNoTracking()
                 .Select(x => new V_ListaRelacion()
                 {
                     Id = x.Id,

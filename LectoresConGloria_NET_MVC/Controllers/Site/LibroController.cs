@@ -1,10 +1,9 @@
-﻿using LectoresConGloria_FWK.Interfaces;
-using LectoresConGloria_SVC.Servicios;
-using System;
+﻿using LectoresConGloria_SVC.Servicios;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Linq;
+using System.IO;
+using LectoresConGloria_NET_MVC.Constantes;
 
 namespace LectoresConGloria_MVC.Controllers.Site
 {
@@ -17,12 +16,14 @@ namespace LectoresConGloria_MVC.Controllers.Site
         }
         public ActionResult Index()
         {
-            var modelo = _servicio.Get();
+            var modelo = _servicio.Get().ToList();
+            modelo.ForEach(x => x.Imagen = Path.Combine(Globales.pathToFiles, "Portadas", x.Imagen));
             return View(modelo);
         }
         public ActionResult Detalle(int idLibro)
         {
             var modelo = _servicio.Get(idLibro);
+            modelo.Imagen = Path.Combine(Globales.pathToFiles, "Portadas", modelo.Imagen);
             return View(modelo);
         }
     }

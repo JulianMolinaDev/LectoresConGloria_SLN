@@ -1,4 +1,4 @@
-﻿using LectoresConGloria_FWK.Interfaces;
+﻿using LectoresConGloria_SVC.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Repositorios;
@@ -42,6 +42,11 @@ namespace LectoresConGloria_SVC.Servicios
         public void Put(int id, MDL_TextoLibro reg)
         {
             _repositorio.Put(id, reg);
+        }
+
+        public void TextoDesdeLibro(int idLibro, MDL_Texto texto)
+        {
+            _repositorio.TextoDesdeLibro(idLibro, texto);
         }
     }
 }

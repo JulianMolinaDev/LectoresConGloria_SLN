@@ -38,7 +38,8 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         // GET: Libros/Create
         public ActionResult Create()
         {
-            return View();
+            var modelo = new MDL_Libro();
+            return View(modelo);
         }
 
         // POST: Libros/Create
@@ -48,7 +49,6 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             try
             {
                 _servicio.Post(reg);
-
                 return RedirectToAction("Index");
             }
             catch
@@ -100,5 +100,12 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
                 return View(reg);
             }
         }
+        [ChildActionOnly]
+        public ActionResult Titulo(int id)
+        {
+            var modelo = _servicio.GetItem(id);
+            return View("_Titulo", modelo);
+        }
+
     }
 }

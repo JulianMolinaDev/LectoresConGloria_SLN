@@ -2,11 +2,11 @@
 using LectoresConGloria_MDL.Vistas;
 using System.Collections.Generic;
 
-namespace LectoresConGloria_FWK.Interfaces
+namespace LectoresConGloria_SVC.Interfaces
 {
-    public interface ISVC_Libro : IServicio<MDL_Libro, int>
+    public interface ISVC_Formato : IServicio<MDL_Formato, int>
     {
         IEnumerable<V_Lista> GetList();
-        IEnumerable<V_Lista> GetListByNombre(string nombre);
+        V_Lista GetItem(int id);
     }
 }

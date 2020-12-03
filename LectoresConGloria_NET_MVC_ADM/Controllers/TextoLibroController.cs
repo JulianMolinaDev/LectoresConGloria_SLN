@@ -1,5 +1,6 @@
 ﻿using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
+using LectoresConGloria_NET_MVC_ADM.Models;
 using LectoresConGloria_SVC.Servicios;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             return View(modelo);
         }
 
+        [HttpPost]
         public ActionResult AsociarLibroATexto(V_Asociacion asociacion)
 
         {
@@ -34,6 +36,7 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult AsociarTextoALibro(V_Asociacion asociacion)
         {
             _servicio.Post(new MDL_TextoLibro()
@@ -42,6 +45,23 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
                 IdLibro = asociacion.Derecha
             });
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult TextoDesdeLibro(int id)
+        {
+            var modelo = new VM_TextoDesdeLibro()
+            {
+                idLibro = id,
+                Texto = new MDL_Texto()
+            };
+            return View(modelo);
+        }
+        [HttpPost]
+        public ActionResult TextoDesdeLibro(VM_TextoDesdeLibro modelo)
+        {
+            _servicio.TextoDesdeLibro(modelo.idLibro, modelo.Texto);
+            return View(modelo);
         }
     }
 }

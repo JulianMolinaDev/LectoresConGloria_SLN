@@ -138,7 +138,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\VM_FormatoLibro.cs" />
+    <Compile Include="Models\VM_TextoDesdeLibro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\Converter.cs" />
   </ItemGroup>
@@ -194,6 +194,12 @@
     <Content Include="Views\TextoCategoria\TextosPorCategoria.cshtml" />
     <Content Include="Views\TextoCategoria\CategoriasPorTexto.cshtml" />
     <Content Include="Views\FormatoLibro\AsignarFormato.cshtml" />
+    <Content Include="Views\Texto\Edit.cshtml" />
+    <Content Include="Views\Texto\Details.cshtml" />
+    <Content Include="Views\Texto\Index.cshtml" />
+    <Content Include="Views\Texto\Lista.cshtml" />
+    <Content Include="Views\TextoLibro\TextoDesdeLibro.cshtml" />
+    <Content Include="Views\Shared\_Titulo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

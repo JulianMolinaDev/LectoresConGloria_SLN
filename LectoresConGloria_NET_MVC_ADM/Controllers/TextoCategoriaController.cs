@@ -93,15 +93,17 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
                 return View(reg);
             }
         }
-        public ActionResult AsociarTextoACategoria(V_Asociacion asociacion)
+        [HttpGet]
+        public ActionResult AsociarCategoriaATexto(int id)
         {
-            _servicio.Post(new MDL_TextoCategoria()
+            ViewBag.Categorias = _servicio.FaltantesCategoriasPorTexto(id);
+            var modelo = new V_Asociacion()
             {
-                IdCategoria = asociacion.Derecha,
-                IdTexto = asociacion.Izquierda
-            });
-            return RedirectToAction("Details","Texto", new { id = asociacion.Izquierda });
+                Derecha = id
+            };
+            return View(modelo);
         }
+        [HttpPost]
         public ActionResult AsociarCategoriaATexto(V_Asociacion asociacion)
         {
             _servicio.Post(new MDL_TextoCategoria()
@@ -115,12 +117,12 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         public ActionResult TextosPorCategoria(int id)
         {
             var modelo = _servicio.GetTextoPorCategoria(id);
-            return View(modelo);
+            return PartialView(modelo);
         }
         public ActionResult CategoriasPorTexto(int id)
         {
             var modelo = _servicio.GetCategoriaPorTexto(id);
-            return View(modelo);
+            return PartialView(modelo);
         }
     }
 }

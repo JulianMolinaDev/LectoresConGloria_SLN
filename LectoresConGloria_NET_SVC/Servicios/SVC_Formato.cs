@@ -1,4 +1,4 @@
-﻿using LectoresConGloria_FWK.Interfaces;
+﻿using LectoresConGloria_SVC.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Repositorios;
@@ -29,6 +29,11 @@ namespace LectoresConGloria_SVC.Servicios
         public IEnumerable<MDL_Formato> Get()
         {
             return _repositorio.Get();
+        }
+
+        public V_Lista GetItem(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<V_Lista> GetList()

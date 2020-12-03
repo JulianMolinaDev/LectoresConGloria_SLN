@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using LectoresConGloria_FWK.Interfaces;
+using LectoresConGloria_SVC.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Data.Entidades;
@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Repositorios
 {
@@ -44,51 +43,64 @@ namespace LectoresConGloria_SVC.Repositorios
 
         public IEnumerable<MDL_Texto> Get()
         {
-            var entity = _contexto.TBL_Textos.ToList();
+            var entity = _contexto.TBL_Textos
+                .AsNoTracking()
+                .ToList();
             var output = _mapper.Map<IEnumerable<MDL_Texto>>(entity);
             return output;
         }
 
-        public IEnumerable<V_Lista> GetMasClicks()
+        public IEnumerable<V_TextoLista> GetListaMasClicks()
         {
-            var output =  _contexto.TBL_Textos.OrderByDescending(x => x.FechaAlta)
+            var output = _contexto.TBL_Textos.OrderByDescending(x => x.FechaAlta)
                 .AsNoTracking()
-                .Take(5).Select(x => new V_Lista()
+                .Take(5).Select(x => new V_TextoLista()
                 {
                     Id = x.Id,
-                    Valor = x.Titulo
+                    Valor = x.Titulo,
+                    UrlDescripcion = x.Explicacion
                 }).ToList();
             return output;
         }
 
-        public IEnumerable<V_Lista> GetUltimos()
+        public IEnumerable<V_TextoLista> GetListaUltimos()
         {
-            var output =  _contexto.TBL_Textos
+            var output = _contexto.TBL_Textos
                 .OrderByDescending(x => x.FechaAlta)
                 .AsNoTracking()
-                .Take(5).Select(x => new V_Lista()
+                .Take(5).Select(x => new V_TextoLista()
                 {
                     Id = x.Id,
-                    Valor = x.Titulo
+                    Valor = x.Titulo,
+                    UrlDescripcion = x.Explicacion
                 });
             return output;
         }
 
-        public IEnumerable<V_Lista> GetUltimosPorFecha(DateTime fecha)
+        public IEnumerable<V_TextoLista> GetListaUltimosPorFecha(DateTime fecha)
         {
-            var output =  _contexto.TBL_Textos.Where(x => x.FechaAlta >= fecha)
+            var output = _contexto.TBL_Textos.Where(x => x.FechaAlta >= fecha)
                 .AsNoTracking()
-                .Take(5).Select(x => new V_Lista()
+                .Take(5).Select(x => new V_TextoLista()
                 {
                     Id = x.Id,
-                    Valor = x.Titulo
+                    Valor = x.Titulo,
+                    UrlDescripcion = x.Explicacion
                 });
             return output;
         }
 
         public void Put(int id, MDL_Texto item)
         {
-            throw new NotImplementedException();
+            var entity = _contexto.TBL_Textos.Find(id);
+            item.FechaAlta = DateTime.Now;
+            entity.FechaAlta = DateTime.Now;
+            entity.Archivo = item.Archivo;
+            entity.Audio = item.Audio;
+            entity.Explicacion = item.Explicacion;
+            entity.Titulo = item.Titulo;
+            _contexto.Entry(entity).State = EntityState.Modified;
+            _contexto.SaveChanges();
         }
 
         public V_TextoDetalle GetDetalle(int id)
@@ -107,11 +119,47 @@ namespace LectoresConGloria_SVC.Repositorios
 
         public IEnumerable<V_Lista> GetList()
         {
-            var output = _contexto.TBL_Textos.Select(x => new V_Lista()
+            var output = _contexto.TBL_Textos
+                .AsNoTracking()
+                .Select(x => new V_Lista()
+                {
+                    Id = x.Id,
+                    Valor = x.Titulo
+                });
+            return output;
+        }
+
+        public IEnumerable<V_Lista> GetListaPorTitulo(string titulo)
+        {
+            var output = _contexto.TBL_Textos.Where(x => x.Titulo.Contains(titulo))
+               .AsNoTracking()
+               .Select(x => new V_Lista()
+               {
+                   Id = x.Id,
+                   Valor = x.Titulo
+               });
+            return output;
+        }
+
+        public IEnumerable<MDL_Texto> GetUltimos(int cantidad)
+        {
+            var entity = _contexto.TBL_Textos
+                .OrderByDescending(x => x.FechaAlta)
+                .AsNoTracking()
+                .Take(cantidad)
+                .ToList();
+            var output = _mapper.Map<IEnumerable<MDL_Texto>>(entity);
+            return output;
+        }
+
+        public V_Lista GetItem(int id)
+        {
+            var entity = _contexto.TBL_Textos.Find(id);
+            var output = new V_Lista()
             {
-                Id = x.Id,
-                Valor = x.Titulo
-            });
+                Id = entity.Id,
+                Valor = entity.Titulo
+            };
             return output;
         }
     }

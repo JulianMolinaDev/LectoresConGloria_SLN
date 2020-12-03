@@ -3,10 +3,11 @@ using LectoresConGloria_MDL.Vistas;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace LectoresConGloria_FWK.Interfaces
+namespace LectoresConGloria_SVC.Interfaces
 {
     public interface ISVC_TextoLibro : IServicio<MDL_TextoLibro, int>
     {
         IEnumerable<V_ListaRelacion> GetTextosPorLibro(int idLibro);
+        void TextoDesdeLibro(int idLibro, MDL_Texto texto);
     }
 }

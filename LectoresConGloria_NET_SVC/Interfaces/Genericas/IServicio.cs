@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace LectoresConGloria_FWK.Interfaces
+namespace LectoresConGloria_SVC.Interfaces
 {
     public interface IServicio<TEntity, TKey>
     {

@@ -1,10 +1,9 @@
-﻿using LectoresConGloria_FWK.Interfaces;
+﻿using LectoresConGloria_SVC.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Repositorios;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Servicios
 {
@@ -35,24 +34,39 @@ namespace LectoresConGloria_SVC.Servicios
             return _repositorio.GetDetalle(id);
         }
 
+        public V_Lista GetItem(int id)
+        {
+            return _repositorio.GetItem(id);
+        }
+
         public IEnumerable<V_Lista> GetList()
         {
             return _repositorio.GetList();
         }
 
-        public IEnumerable<V_Lista> GetMasClicks()
+        public IEnumerable<V_TextoLista> GetListaMasClicks()
         {
-            return _repositorio.GetMasClicks();
+            return _repositorio.GetListaMasClicks();
         }
 
-        public IEnumerable<V_Lista> GetUltimos()
+        public IEnumerable<V_Lista> GetListaPorTitulo(string titulo)
         {
-            return _repositorio.GetUltimos();
+            return _repositorio.GetListaPorTitulo(titulo);
         }
 
-        public IEnumerable<V_Lista> GetUltimosPorFecha(DateTime fecha)
+        public IEnumerable<V_TextoLista> GetListaUltimos()
         {
-            return _repositorio.GetUltimosPorFecha(fecha);
+            return _repositorio.GetListaUltimos();
+        }
+
+        public IEnumerable<V_TextoLista> GetListaUltimosPorFecha(DateTime fecha)
+        {
+            return _repositorio.GetListaUltimosPorFecha(fecha);
+        }
+
+        public IEnumerable<MDL_Texto> GetUltimos(int cantidad)
+        {
+            return _repositorio.GetUltimos(cantidad);
         }
 
         public void Post(MDL_Texto reg)

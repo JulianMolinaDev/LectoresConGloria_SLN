@@ -1,4 +1,4 @@
-﻿using LectoresConGloria_FWK.Interfaces;
+﻿using LectoresConGloria_SVC.Interfaces;
 using LectoresConGloria_MDL.Enumerados;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
@@ -72,7 +72,7 @@ namespace LectoresConGloria_SVC.Servicios
             return _repositorio.GetFormatoAsItem(idFormatoLibro);
         }
 
-        public void CambiarContenido(int idFormatoLibro, byte[] contenido)
+        public void CambiarContenido(int idFormatoLibro, string contenido)
         {
             _repositorio.CambiarContenido(idFormatoLibro, contenido);
         }

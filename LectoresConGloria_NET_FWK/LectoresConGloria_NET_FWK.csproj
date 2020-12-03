@@ -41,19 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\Genericas\ISecurity.cs" />
-    <Compile Include="Interfaces\Genericas\IServicio.cs" />
-    <Compile Include="Interfaces\Genericas\IWriteOnly.cs" />
-    <Compile Include="Interfaces\ISVC_Categoria.cs" />
-    <Compile Include="Interfaces\ISVC_Click.cs" />
-    <Compile Include="Interfaces\ISVC_Formato.cs" />
-    <Compile Include="Interfaces\ISVC_FormatoLibro.cs" />
-    <Compile Include="Interfaces\ISVC_Lector.cs" />
-    <Compile Include="Interfaces\ISVC_Libro.cs" />
-    <Compile Include="Interfaces\ISVC_Texto.cs" />
-    <Compile Include="Interfaces\ISVC_TextoCategoria.cs" />
-    <Compile Include="Interfaces\ISVC_TextoLibro.cs" />
-    <Compile Include="Interfaces\ISVC_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

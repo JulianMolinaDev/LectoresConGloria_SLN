@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
-using LectoresConGloria_FWK.Interfaces;
+using LectoresConGloria_SVC.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_SVC.Data.Entidades;
 using LectoresConGloria_SVC.Mapeo;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Repositorios
 {
@@ -57,7 +55,9 @@ namespace LectoresConGloria_SVC.Repositorios
 
         public IEnumerable<MDL_Usuario> Get()
         {
-            var entity = _contexto.TBL_Usuarios.ToList();
+            var entity = _contexto.TBL_Usuarios
+                                .AsNoTracking()
+                                .ToList();
             var output = _mapper.Map<IEnumerable<MDL_Usuario>>(entity);
             return output;
         }
