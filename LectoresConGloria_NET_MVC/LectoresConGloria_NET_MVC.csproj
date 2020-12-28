@@ -136,7 +136,6 @@
     <Compile Include="Constantes\Globales.cs" />
     <Compile Include="Controllers\Api\ClickController.cs" />
     <Compile Include="Controllers\Api\TextoController.cs" />
-    <Compile Include="Controllers\Api\UsuarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Site\ClickController.cs" />
     <Compile Include="Controllers\Site\FormatoLibroController.cs" />

@@ -22,6 +22,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultSchema>SCH_LectoresConGloria</DefaultSchema>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -64,6 +65,8 @@
     <Folder Include="SP" />
     <Folder Include="Tablas" />
     <Folder Include="Scripts" />
+    <Folder Include="Seguridad" />
+    <Folder Include="Seguridad\Schemas" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tablas\TBL_Clicks.sql" />
@@ -100,11 +103,9 @@
     <Build Include="Keys\Foreign\FK_TextosLibros_Textos.sql" />
     <Build Include="SP\SP_FaltantesFormatosByLibro.sql" />
     <Build Include="SP\SP_FaltantesCategoriasByTexto.sql" />
+    <Build Include="Seguridad\Schemas\SCH_LectoresConGloria.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="LectoresConGloria_BD.refactorlog" />
   </ItemGroup>
 </Project>

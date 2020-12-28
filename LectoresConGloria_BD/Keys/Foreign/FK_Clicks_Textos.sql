@@ -1,4 +1,4 @@
-﻿ALTER TABLE [dbo].[TBL_Clicks]
+﻿ALTER TABLE [SCH_LectoresConGloria].[TBL_Clicks]
 	ADD CONSTRAINT [FK_Clicks_Textos]
 	FOREIGN KEY (IdTexto)
-	REFERENCES [TBL_Textos] (Id)
+	REFERENCES [SCH_LectoresConGloria].[TBL_Textos] (Id)

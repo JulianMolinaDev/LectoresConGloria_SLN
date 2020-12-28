@@ -21,7 +21,6 @@ namespace LectoresConGloria_SVC.Data.Entidades
         public virtual DbSet<TBL_Textos> TBL_Textos { get; set; }
         public virtual DbSet<TBL_TextosCategorias> TBL_TextosCategorias { get; set; }
         public virtual DbSet<TBL_TextosLibros> TBL_TextosLibros { get; set; }
-        public virtual DbSet<TBL_Usuarios> TBL_Usuarios { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -113,17 +112,7 @@ namespace LectoresConGloria_SVC.Data.Entidades
                 .HasForeignKey(e => e.IdTexto)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<TBL_Usuarios>()
-                .Property(e => e.Nombre)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<TBL_Usuarios>()
-                .Property(e => e.Apellidos)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<TBL_Usuarios>()
-                .Property(e => e.Correo)
-                .IsUnicode(false);
+           
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [dbo].[FN_HabilitaBajarLibro]
+﻿CREATE FUNCTION [SCH_LectoresConGloria].[FN_HabilitaBajarLibro]
 (
 	@IdLibro INT,
 	@IdLector INT,

@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[SP_FaltantesCategoriasByTexto]
+﻿CREATE PROCEDURE [SCH_LectoresConGloria].[SP_FaltantesCategoriasByTexto]
 	@idTexto int
 AS
 	SELECT A.Id,

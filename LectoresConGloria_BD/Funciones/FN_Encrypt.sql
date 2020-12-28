@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [dbo].[FN_Encrypt]
+﻿CREATE FUNCTION [SCH_LectoresConGloria].[FN_Encrypt]
 (
 	@param1 int,
 	@param2 int

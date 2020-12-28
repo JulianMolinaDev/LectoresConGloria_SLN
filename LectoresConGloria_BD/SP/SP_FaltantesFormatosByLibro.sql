@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[SP_FaltantesFormatosByLibro]
+﻿CREATE PROCEDURE [SCH_LectoresConGloria].[SP_FaltantesFormatosByLibro]
 	@idLibro int
 AS
 	SELECT A.Id,

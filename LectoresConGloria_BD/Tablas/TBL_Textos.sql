@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[TBL_Textos]
+﻿CREATE TABLE [SCH_LectoresConGloria].[TBL_Textos]
 (
 	[Id] INT NOT NULL IDENTITY(1,1), 
     [Titulo] VARCHAR(50) NOT NULL, 

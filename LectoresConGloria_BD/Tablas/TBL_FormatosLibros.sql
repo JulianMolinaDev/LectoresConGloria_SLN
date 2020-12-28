@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[TBL_FormatosLibros]
+﻿CREATE TABLE [SCH_LectoresConGloria].[TBL_FormatosLibros]
 (
 	[Id] INT NOT NULL IDENTITY(1,1), 
     [IdLibro] INT NOT NULL, 
