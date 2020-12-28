@@ -90,7 +90,6 @@
     <Compile Include="Repositorios\REP_Texto.cs" />
     <Compile Include="Repositorios\REP_TextoCategoria.cs" />
     <Compile Include="Repositorios\REP_TextoLibro.cs" />
-    <Compile Include="Repositorios\REP_Usuario.cs" />
     <Compile Include="Servicios\SVC_Categoria.cs" />
     <Compile Include="Servicios\SVC_Click.cs" />
     <Compile Include="Servicios\SVC_Formato.cs" />
@@ -100,16 +99,11 @@
     <Compile Include="Servicios\SVC_Texto.cs" />
     <Compile Include="Servicios\SVC_TextoCategoria.cs" />
     <Compile Include="Servicios\SVC_TextoLibro.cs" />
-    <Compile Include="Servicios\SVC_Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Constantes\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LectoresConGloria_NET_FWK\LectoresConGloria_NET_FWK.csproj">
-      <Project>{2A7A1D22-0D92-4C92-9E5D-5CE6B6D4A0AE}</Project>
-      <Name>LectoresConGloria_NET_FWK</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LectoresConGloria_NET_MDL\LectoresConGloria_NET_MDL.csproj">
       <Project>{A16468F3-71AA-487C-AAED-E45C3390959C}</Project>
       <Name>LectoresConGloria_NET_MDL</Name>

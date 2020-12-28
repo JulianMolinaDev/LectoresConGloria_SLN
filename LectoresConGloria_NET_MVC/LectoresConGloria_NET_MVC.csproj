@@ -221,10 +221,6 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LectoresConGloria_NET_FWK\LectoresConGloria_NET_FWK.csproj">
-      <Project>{2A7A1D22-0D92-4C92-9E5D-5CE6B6D4A0AE}</Project>
-      <Name>LectoresConGloria_NET_FWK</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LectoresConGloria_NET_MDL\LectoresConGloria_NET_MDL.csproj">
       <Project>{A16468F3-71AA-487C-AAED-E45C3390959C}</Project>
       <Name>LectoresConGloria_NET_MDL</Name>

@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectoresConGloria_NET_MVC_A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectoresConGloria_NET_SVC", "LectoresConGloria_NET_SVC\LectoresConGloria_NET_SVC.csproj", "{7CFFDD5A-2798-4609-B4A2-9A2B7D186641}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectoresConGloria_NET_FWK", "LectoresConGloria_NET_FWK\LectoresConGloria_NET_FWK.csproj", "{2A7A1D22-0D92-4C92-9E5D-5CE6B6D4A0AE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,12 +63,6 @@ Global
 		{7CFFDD5A-2798-4609-B4A2-9A2B7D186641}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
 		{7CFFDD5A-2798-4609-B4A2-9A2B7D186641}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CFFDD5A-2798-4609-B4A2-9A2B7D186641}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A7A1D22-0D92-4C92-9E5D-5CE6B6D4A0AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A7A1D22-0D92-4C92-9E5D-5CE6B6D4A0AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A7A1D22-0D92-4C92-9E5D-5CE6B6D4A0AE}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A7A1D22-0D92-4C92-9E5D-5CE6B6D4A0AE}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
-		{2A7A1D22-0D92-4C92-9E5D-5CE6B6D4A0AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A7A1D22-0D92-4C92-9E5D-5CE6B6D4A0AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

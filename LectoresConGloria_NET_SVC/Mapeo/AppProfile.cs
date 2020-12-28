@@ -17,7 +17,6 @@ namespace LectoresConGloria_SVC.Mapeo
             CreateMap<MDL_Texto, TBL_Textos>().ReverseMap();
             CreateMap<MDL_TextoCategoria, TBL_TextosCategorias>().ReverseMap();
             CreateMap<MDL_TextoLibro, TBL_TextosLibros>().ReverseMap();
-            CreateMap<MDL_Usuario, TBL_Usuarios>().ReverseMap();
         }
     }
 }
