@@ -75,13 +75,13 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         // GET: TextoCategoria/Delete/5
         public ActionResult Delete(int id)
         {
-            var modelo = _servicio.Get(id);
+            var modelo = _servicio.GetAsociacionDetalle(id);
             return View(modelo);
         }
 
         // POST: TextoCategoria/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, MDL_TextoCategoria reg)
+        public ActionResult Delete(int id, V_AsociacionDetalle reg)
         {
             try
             {
@@ -119,10 +119,6 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             var modelo = _servicio.GetTextoPorCategoria(id);
             return PartialView(modelo);
         }
-        public ActionResult CategoriasPorTexto(int id)
-        {
-            var modelo = _servicio.GetCategoriaPorTexto(id);
-            return PartialView(modelo);
-        }
+
     }
 }

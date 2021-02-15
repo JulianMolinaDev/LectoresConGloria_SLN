@@ -55,6 +55,7 @@
     <Compile Include="Modelos\MDL_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vistas\V_Asociacion.cs" />
+    <Compile Include="Vistas\V_AsociacionDetalle.cs" />
     <Compile Include="Vistas\V_DetalleItemLista.cs" />
     <Compile Include="Vistas\V_LibroDescarga.cs" />
     <Compile Include="Vistas\V_Lista.cs" />

@@ -6,6 +6,7 @@ namespace LectoresConGloria_SVC.Data.Entidades
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table(name: "TBL_TextosCategorias", Schema = "SCH_LectoresConGloria")]
     public partial class TBL_TextosCategorias
     {
         public int Id { get; set; }

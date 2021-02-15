@@ -30,7 +30,7 @@ namespace LectoresConGloria_SVC.Repositorios
         public IEnumerable<V_Lista> FaltantesCategoriasPorTexto(int idTexto)
         {
             var output = _contexto.Database.SqlQuery<V_Lista>
-                ("SP_FaltantesCategoriasByTexto @idTexto", new SqlParameter("@idTexto", idTexto))
+                ("EXEC [SCH_LectoresConGloria].SP_FaltantesCategoriasByTexto @idTexto", new SqlParameter("@idTexto", idTexto))
                 .ToList();
             return output;
         }
@@ -48,6 +48,25 @@ namespace LectoresConGloria_SVC.Repositorios
                 .AsNoTracking()
                 .ToList();
             var output = _mapper.Map<IEnumerable<MDL_TextoCategoria>>(entity);
+            return output;
+        }
+
+        public V_AsociacionDetalle GetAsociacionDetalle(int id)
+        {
+            var output = _contexto.TBL_TextosCategorias
+                .Where(x => x.Id == id)
+                .Include(x => x.TBL_Categorias)
+                .Include(x => x.TBL_Textos)                
+                .AsNoTracking()
+                .Select(x => new V_AsociacionDetalle()
+                {
+                    Id = x.Id,
+                    DerechaTexto = x.TBL_Categorias.Nombre,
+                    Derecha = x.TBL_Categorias.Id,
+                    IzquierdaTexto = x.TBL_Textos.Titulo,
+                    Izquierda = x.TBL_Textos.Id
+                })
+                .FirstOrDefault();
             return output;
         }
 

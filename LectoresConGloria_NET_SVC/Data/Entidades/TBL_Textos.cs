@@ -6,6 +6,7 @@ namespace LectoresConGloria_SVC.Data.Entidades
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table(name: "TBL_Textos", Schema = "SCH_LectoresConGloria")]
     public partial class TBL_Textos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

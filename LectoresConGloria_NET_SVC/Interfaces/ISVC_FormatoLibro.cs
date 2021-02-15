@@ -14,5 +14,6 @@ namespace LectoresConGloria_SVC.Interfaces
         V_Lista GetFormatoAsItem(int idFormatoLibro);
         void CambiarContenido(int idFormatoLibro, string contenido);
         void CambiarFormato(int idFormatoLibro, int idFormato);
+        V_AsociacionDetalle GetAsociacionDetalle(int id);
     }
 }

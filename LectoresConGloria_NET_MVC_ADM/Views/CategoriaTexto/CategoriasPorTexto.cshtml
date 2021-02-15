@@ -1,13 +1,9 @@
 ﻿@model IEnumerable<LectoresConGloria_MDL.Vistas.V_ListaRelacion>
 
-<h3>
-    Textos por Categoría
-</h3>
-
 <table class="table">
     <tr>
         <th>
-            Texto
+            Categoría
         </th>
         <th></th>
     </tr>
@@ -19,7 +15,7 @@
                 @Html.DisplayFor(modelItem => item.Valor)
             </td>
             <td>
-                @Html.ActionLink("Editar Texto", "Edit", "Texto", new { id = item.IdForanea }, null) |
+                @Html.ActionLink("Editar Categoria", "Edit", "Categoria", new { id = item.IdForanea }, null) |
                 @Html.ActionLink("Editar Relacion", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>

@@ -55,6 +55,10 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio.Put(id, reg);
         }
-        
+
+        public V_AsociacionDetalle GetAsociacionDetalle(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

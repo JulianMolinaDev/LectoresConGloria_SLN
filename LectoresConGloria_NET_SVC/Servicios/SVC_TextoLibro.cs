@@ -29,6 +29,11 @@ namespace LectoresConGloria_SVC.Servicios
             return _repositorio.Get();
         }
 
+        public V_AsociacionDetalle GetAsociacionDetalle(int id)
+        {
+            return _repositorio.GetAsociacionDetalle(id);
+        }
+
         public IEnumerable<V_ListaRelacion> GetTextosPorLibro(int idLibro)
         {
             return _repositorio.GetTextosPorLibro(idLibro);

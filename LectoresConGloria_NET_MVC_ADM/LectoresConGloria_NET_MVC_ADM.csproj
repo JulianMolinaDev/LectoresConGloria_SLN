@@ -128,10 +128,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Controllers\CategoriaTextoController.cs" />
     <Compile Include="Controllers\FormatoController.cs" />
     <Compile Include="Controllers\FormatoLibroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibroController.cs" />
+    <Compile Include="Controllers\LibroFormatoController.cs" />
     <Compile Include="Controllers\TextoCategoriaController.cs" />
     <Compile Include="Controllers\TextoController.cs" />
     <Compile Include="Controllers\TextoLibroController.cs" />
@@ -189,10 +191,10 @@
     <Content Include="Views\Libro\Details.cshtml" />
     <Content Include="Views\Categoria\Details.cshtml" />
     <Content Include="Views\Formato\Details.cshtml" />
-    <Content Include="Views\FormatoLibro\LibrosPorFormato.cshtml" />
+    <Content Include="Views\LibroFormato\LibrosPorFormato.cshtml" />
     <Content Include="Views\TextoLibro\TextosPorLibro.cshtml" />
     <Content Include="Views\TextoCategoria\TextosPorCategoria.cshtml" />
-    <Content Include="Views\TextoCategoria\CategoriasPorTexto.cshtml" />
+    <Content Include="Views\CategoriaTexto\CategoriasPorTexto.cshtml" />
     <Content Include="Views\FormatoLibro\AsignarFormato.cshtml" />
     <Content Include="Views\Texto\Edit.cshtml" />
     <Content Include="Views\Texto\Details.cshtml" />
@@ -200,6 +202,15 @@
     <Content Include="Views\Texto\Lista.cshtml" />
     <Content Include="Views\TextoLibro\TextoDesdeLibro.cshtml" />
     <Content Include="Views\Shared\_Titulo.cshtml" />
+    <Content Include="Views\Libro\Index.cshtml" />
+    <Content Include="Views\Libro\Edit.cshtml" />
+    <Content Include="Views\FormatoLibro\Delete.cshtml" />
+    <Content Include="Views\CategoriaTexto\Delete.cshtml" />
+    <Content Include="Views\LibroFormato\Delete.cshtml" />
+    <Content Include="Views\TextoCategoria\Delete.cshtml" />
+    <Content Include="Views\Shared\_FormatoLibro.cshtml" />
+    <Content Include="Views\Shared\_TextoLibro.cshtml" />
+    <Content Include="Views\Shared\_TextoCategoria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

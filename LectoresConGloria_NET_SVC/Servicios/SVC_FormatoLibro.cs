@@ -81,5 +81,10 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio.CambiarFormato(idFormatoLibro, idFormato);
         }
+
+        public V_AsociacionDetalle GetAsociacionDetalle(int idFormatoLibro)
+        {
+            return _repositorio.GetAsociacionDetalle(idFormatoLibro);
+        }
     }
 }

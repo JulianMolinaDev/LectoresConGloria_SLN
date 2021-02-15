@@ -47,7 +47,7 @@ namespace LectoresConGloria_SVC.Repositorios
         public IEnumerable<V_Lista> FaltantesFormatosByLibro(int idLibro)
         {
             var output = _contexto.Database.SqlQuery<V_Lista>
-                ("SP_FaltantesFormatosByLibro @idLibro", new SqlParameter("@idLibro", idLibro))
+                ("EXEC [SCH_LectoresConGloria].[SP_FaltantesFormatosByLibro] @idLibro", new SqlParameter("@idLibro", idLibro))
                 .ToList();
             return output;
         }
@@ -67,6 +67,26 @@ namespace LectoresConGloria_SVC.Repositorios
             var output = _mapper.Map<IEnumerable<MDL_FormatoLibro>>(entity);
             return output;
         }
+
+        public V_AsociacionDetalle GetAsociacionDetalle(int idFormatoLibro)
+        {
+            var output = _contexto.TBL_FormatosLibros
+                .Where(x => x.Id == idFormatoLibro)
+                .Include(x => x.TBL_Libros)
+                .Include(x => x.TBL_Formatos)
+                .AsNoTracking()
+                .Select(i => new V_AsociacionDetalle()
+                {
+                    Id = i.Id,
+                    DerechaTexto = i.TBL_Libros.Nombre,
+                    Derecha = i.TBL_Libros.Id,
+                    IzquierdaTexto = i.TBL_Formatos.Nombre,
+                    Izquierda = i.TBL_Formatos.Id
+                })
+                .FirstOrDefault();
+            return output;
+        }
+
         /// <summary>
         /// Obtiene el contenido del archivo que se va a descargar
         /// </summary>
@@ -149,7 +169,7 @@ namespace LectoresConGloria_SVC.Repositorios
                 .Select(x => new V_ListaRelacion()
                 {
                     Id = x.Id,
-                    IdForanea = x.IdLibro,
+                    IdForanea = x.TBL_Libros.Id,
                     Valor = x.TBL_Libros.Nombre
                 });
             return output;

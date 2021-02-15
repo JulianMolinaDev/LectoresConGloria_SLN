@@ -40,6 +40,25 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
+        public V_AsociacionDetalle GetAsociacionDetalle(int id)
+        {
+            var output = _contexto.TBL_TextosLibros
+               .Where(x => x.Id == id)
+               .Include(x => x.TBL_Textos)
+               .Include(x => x.TBL_Libros)
+               .AsNoTracking()
+               .Select(x => new V_AsociacionDetalle()
+               {
+                   Id = x.Id,
+                   Izquierda = x.TBL_Textos.Id,
+                   IzquierdaTexto = x.TBL_Textos.Titulo,
+                   Derecha = x.TBL_Libros.Id,
+                   DerechaTexto = x.TBL_Libros.Nombre
+               })
+               .FirstOrDefault();
+            return output;
+        }
+
         public IEnumerable<V_ListaRelacion> GetTextosPorLibro(int idLibro)
         {
             var output =  _contexto.TBL_TextosLibros

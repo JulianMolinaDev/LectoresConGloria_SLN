@@ -9,5 +9,6 @@ namespace LectoresConGloria_SVC.Interfaces
     {
         IEnumerable<V_ListaRelacion> GetTextosPorLibro(int idLibro);
         void TextoDesdeLibro(int idLibro, MDL_Texto texto);
+        V_AsociacionDetalle GetAsociacionDetalle(int id);
     }
 }

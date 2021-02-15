@@ -19,7 +19,7 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         public ActionResult Index()
         {
             var modelo = _servicio.Get();
-            return View("Lista", modelo);
+            return View(modelo);
         }
 
         public ActionResult Busqueda(string nombre)

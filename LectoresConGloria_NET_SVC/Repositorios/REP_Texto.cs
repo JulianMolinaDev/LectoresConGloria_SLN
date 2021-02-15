@@ -30,6 +30,7 @@ namespace LectoresConGloria_SVC.Repositorios
         public void Post(MDL_Texto item)
         {
             var entity = _mapper.Map<TBL_Textos>(item);
+            entity.FechaAlta = DateTime.Now;
             _contexto.TBL_Textos.Add(entity);
             _contexto.SaveChanges();
         }
@@ -93,7 +94,6 @@ namespace LectoresConGloria_SVC.Repositorios
         public void Put(int id, MDL_Texto item)
         {
             var entity = _contexto.TBL_Textos.Find(id);
-            item.FechaAlta = DateTime.Now;
             entity.FechaAlta = DateTime.Now;
             entity.Archivo = item.Archivo;
             entity.Audio = item.Audio;

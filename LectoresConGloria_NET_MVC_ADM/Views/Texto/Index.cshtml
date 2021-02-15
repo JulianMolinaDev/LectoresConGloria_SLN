@@ -1,5 +1,11 @@
 ﻿@model IEnumerable<LectoresConGloria_MDL.Modelos.MDL_Texto>
 
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Textos</h2>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -16,9 +22,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Archivo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaAlta)
         </th>
         <th></th>
     </tr>
@@ -37,9 +40,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Archivo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaAlta)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

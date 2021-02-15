@@ -60,38 +60,16 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             }
         }
 
-        // GET: FormatosLibros/Edit/5
-        public ActionResult Edit(int id)
-        {
-            var modelo = _servicio.Get(id);
-            return View(modelo);
-        }
-
-        // POST: FormatosLibros/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, MDL_FormatoLibro reg)
-        {
-            try
-            {
-                _servicio.Put(id, reg);
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View(reg);
-            }
-        }
-
         // GET: FormatosLibros/Delete/5
         public ActionResult Delete(int id)
         {
-            var modelo = _servicio.Get(id);
+            var modelo = _servicio.GetAsociacionDetalle(id);
             return View(modelo);
         }
 
         // POST: FormatosLibros/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, MDL_FormatoLibro reg)
+        public ActionResult Delete(int id, V_AsociacionDetalle reg)
         {
             try
             {
@@ -107,24 +85,6 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         public ActionResult FormatosPorLibro(int id)
         {
             var modelo = _servicio.GetFormatosByLibro(id);
-            return View(modelo);
-        }
-        [HttpGet]
-        public ActionResult LibrosPorFormato(int id)
-        {
-            var modelo = _servicio.GetLibrosByFormato(id);
-            return PartialView(modelo);
-        }
-        [HttpGet]
-        public ActionResult CambiarFormato(int id)
-        {
-            var modelo = _servicio.GetLibroAsItem(id);
-            return PartialView(modelo);
-        }
-        [HttpGet]
-        public ActionResult CrearFormatoPorLibro(int id)
-        {
-            var modelo = _servicio.GetLibroAsItem(id);
             return PartialView(modelo);
         }
 
