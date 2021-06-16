@@ -17,11 +17,11 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         {
             _servicio = new SVC_TextoLibro();
         }
-        // GET: TextoLibro
+        [ChildActionOnly]
         public ActionResult TextosPorLibro(int id)
         {
             var modelo = _servicio.GetTextosPorLibro(id);
-            return View(modelo);
+            return PartialView(modelo);
         }
 
         [HttpPost]
@@ -48,7 +48,7 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         }
 
         [HttpGet]
-        public ActionResult TextoDesdeLibro(int id)
+        public ActionResult DesdeLibro(int id)
         {
             var modelo = new VM_TextoDesdeLibro()
             {
@@ -58,10 +58,17 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             return View(modelo);
         }
         [HttpPost]
-        public ActionResult TextoDesdeLibro(VM_TextoDesdeLibro modelo)
+        public ActionResult DesdeLibro(VM_TextoDesdeLibro modelo)
         {
-            _servicio.TextoDesdeLibro(modelo.idLibro, modelo.Texto);
-            return View(modelo);
+            try
+            {
+                _servicio.TextoDesdeLibro(modelo.idLibro, modelo.Texto);
+                return RedirectToAction("Details", "Libro", new { id = modelo.idLibro });
+            }
+            catch (Exception ex)
+            {
+                return View(modelo);
+            }
         }
     }
 }

@@ -200,7 +200,7 @@
     <Content Include="Views\Texto\Details.cshtml" />
     <Content Include="Views\Texto\Index.cshtml" />
     <Content Include="Views\Texto\Lista.cshtml" />
-    <Content Include="Views\TextoLibro\TextoDesdeLibro.cshtml" />
+    <Content Include="Views\TextoLibro\DesdeLibro.cshtml" />
     <Content Include="Views\Shared\_Titulo.cshtml" />
     <Content Include="Views\Libro\Index.cshtml" />
     <Content Include="Views\Libro\Edit.cshtml" />
@@ -211,6 +211,7 @@
     <Content Include="Views\Shared\_FormatoLibro.cshtml" />
     <Content Include="Views\Shared\_TextoLibro.cshtml" />
     <Content Include="Views\Shared\_TextoCategoria.cshtml" />
+    <Content Include="Views\TextoCategoria\AsociarCategoria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

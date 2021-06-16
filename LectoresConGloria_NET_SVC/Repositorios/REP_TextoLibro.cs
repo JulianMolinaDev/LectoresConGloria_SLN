@@ -61,7 +61,7 @@ namespace LectoresConGloria_SVC.Repositorios
 
         public IEnumerable<V_ListaRelacion> GetTextosPorLibro(int idLibro)
         {
-            var output =  _contexto.TBL_TextosLibros
+            var output = _contexto.TBL_TextosLibros
                 .Where(x => x.IdLibro == idLibro)
                 .Include(x => x.TBL_Textos)
                 .AsNoTracking()
@@ -88,7 +88,16 @@ namespace LectoresConGloria_SVC.Repositorios
 
         public void TextoDesdeLibro(int idLibro, MDL_Texto texto)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<TBL_Textos>(texto);
+            entity.FechaAlta = DateTime.Now;
+            _contexto.TBL_Textos.Add(entity);
+            _contexto.TBL_TextosLibros.Add(new TBL_TextosLibros()
+            {
+                IdLibro = idLibro,
+                IdTexto = entity.Id
+
+            });
+            _contexto.SaveChanges();
         }
     }
 }

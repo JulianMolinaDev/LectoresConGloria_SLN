@@ -94,24 +94,29 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
             }
         }
         [HttpGet]
-        public ActionResult AsociarCategoriaATexto(int id)
+        public ActionResult AsociarCategoria(int id)
         {
             ViewBag.Categorias = _servicio.FaltantesCategoriasPorTexto(id);
-            var modelo = new V_Asociacion()
+            var modelo = new MDL_TextoCategoria()
             {
-                Derecha = id
+                IdTexto = id
             };
             return View(modelo);
         }
         [HttpPost]
-        public ActionResult AsociarCategoriaATexto(V_Asociacion asociacion)
+        public ActionResult AsociarCategoria(MDL_TextoCategoria reg)
         {
-            _servicio.Post(new MDL_TextoCategoria()
+            try
             {
-                IdCategoria = asociacion.Izquierda,
-                IdTexto = asociacion.Derecha
-            });
-            return RedirectToAction("Details", "Categoria", new { id = asociacion.Izquierda });
+                _servicio.Post(reg);
+                return RedirectToAction("Details", "Texto", new { id = reg.IdTexto });
+            }
+            catch (Exception)
+            {
+
+                ViewBag.Categorias = _servicio.FaltantesCategoriasPorTexto(reg.IdTexto);
+                return View(reg);
+            }            
         }
 
         public ActionResult TextosPorCategoria(int id)

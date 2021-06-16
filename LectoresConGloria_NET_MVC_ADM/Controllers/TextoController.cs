@@ -96,14 +96,14 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         }
         public ActionResult Busqueda(string titulo)
         {
-            var modelo =_servicio.GetListaPorTitulo(titulo);
+            var modelo = _servicio.GetListaPorTitulo(titulo);
             return View(modelo);
         }
         [ChildActionOnly]
         public PartialViewResult Titulo(int id)
         {
             var modelo = _servicio.GetItem(id);
-            return PartialView(modelo);
+            return PartialView("_Titulo", modelo);
         }
     }
 }

@@ -104,7 +104,7 @@ namespace LectoresConGloria_NET_MVC_ADM.Controllers
         public ActionResult Titulo(int id)
         {
             var modelo = _servicio.GetItem(id);
-            return View("_Titulo", modelo);
+            return PartialView("_Titulo", modelo);
         }
 
     }
