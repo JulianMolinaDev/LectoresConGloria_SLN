@@ -1,4 +1,4 @@
-﻿using LectoresConGloria_SVC.Interfaces;
+﻿using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
 using LectoresConGloria_SVC.Repositorios;
@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using LectoresConGloria_SVC.Data.Entidades;
+using LectoresConGloria_SVC.Data;
 
 namespace LectoresConGloria_SVC.Servicios
 {
@@ -22,9 +22,9 @@ namespace LectoresConGloria_SVC.Servicios
             _repositorio.Delete(id);
         }
 
-        public IEnumerable<V_Lista> FaltantesCategoriasPorTexto(int idTexto)
+        public IEnumerable<V_Lista> GetFaltantesCategoriasPorTexto(int idTexto)
         {
-            return _repositorio.FaltantesCategoriasPorTexto(idTexto);
+            return _repositorio.GetFaltantesCategoriasPorTexto(idTexto);
         }
 
         public MDL_TextoCategoria Get(int id)

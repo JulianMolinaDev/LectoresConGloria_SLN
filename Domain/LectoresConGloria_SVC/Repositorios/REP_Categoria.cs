@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
-using LectoresConGloria_SVC.Interfaces;
+using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
-using LectoresConGloria_SVC.Data.Entidades;
+using LectoresConGloria_SVC.Data;
 using LectoresConGloria_SVC.Mapeo;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 
 namespace LectoresConGloria_SVC.Repositorios
 {
@@ -43,7 +42,13 @@ namespace LectoresConGloria_SVC.Repositorios
 
         public V_Lista GetItem(int id)
         {
-            throw new System.NotImplementedException();
+            var entity = _contexto.TBL_Categorias.Find(id);
+            var output = new V_Lista()
+            {
+                Id = entity.Id,
+                Valor = entity.Nombre
+            };
+            return output;
         }
 
         public IEnumerable<V_Lista> GetList()

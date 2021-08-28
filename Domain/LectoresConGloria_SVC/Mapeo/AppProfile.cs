@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using LectoresConGloria_MDL.Modelos;
-using LectoresConGloria_SVC.Data.Entidades;
+using LectoresConGloria_SVC.Data;
 
 namespace LectoresConGloria_SVC.Mapeo
 {

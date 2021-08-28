@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LectoresConGloria_FWK\LectoresConGloria_FWK.csproj" />
     <ProjectReference Include="..\LectoresConGloria_MDL\LectoresConGloria_MDL.csproj" />
   </ItemGroup>
 

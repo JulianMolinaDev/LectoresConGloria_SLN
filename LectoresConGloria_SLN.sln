@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectoresConGloria_GW", "Gat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectoresConGloria_API", "Servicios\LectoresConGloria_API\LectoresConGloria_API.csproj", "{5217E1C9-D211-4F1B-9968-BFC454FF3AA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectoresConGloria_FWK", "Domain\LectoresConGloria_FWK\LectoresConGloria_FWK.csproj", "{5DC95142-2C37-490A-9D5D-0F39A70DBC09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,12 @@ Global
 		{5217E1C9-D211-4F1B-9968-BFC454FF3AA7}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
 		{5217E1C9-D211-4F1B-9968-BFC454FF3AA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5217E1C9-D211-4F1B-9968-BFC454FF3AA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC95142-2C37-490A-9D5D-0F39A70DBC09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC95142-2C37-490A-9D5D-0F39A70DBC09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC95142-2C37-490A-9D5D-0F39A70DBC09}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC95142-2C37-490A-9D5D-0F39A70DBC09}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{5DC95142-2C37-490A-9D5D-0F39A70DBC09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC95142-2C37-490A-9D5D-0F39A70DBC09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +87,7 @@ Global
 		{42DDB44C-3BB9-42F0-92BD-D358829C6B42} = {FC2A8B30-1017-41D7-87A8-3A0EF1525E34}
 		{86141396-4E93-4514-9251-3673FB756F38} = {671325D4-F80F-49C7-B253-33E0F4D2A544}
 		{5217E1C9-D211-4F1B-9968-BFC454FF3AA7} = {AAB382C5-D493-4A65-B4BD-E37F94330656}
+		{5DC95142-2C37-490A-9D5D-0F39A70DBC09} = {FC2A8B30-1017-41D7-87A8-3A0EF1525E34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {39781017-341C-4A67-BD48-FA0451B8881D}

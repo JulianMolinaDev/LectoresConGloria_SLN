@@ -1,4 +1,4 @@
-namespace LectoresConGloria_SVC.Data.Entidades
+namespace LectoresConGloria_SVC.Data
 {
     using System;
     using System.Collections.Generic;
@@ -8,7 +8,7 @@ namespace LectoresConGloria_SVC.Data.Entidades
     [Table(name: "TBL_Textos", Schema = "SCH_LectoresConGloria")]
     public partial class TBL_Textos
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        
         public TBL_Textos()
         {
             TBL_Clicks = new HashSet<TBL_Clicks>();
@@ -37,13 +37,13 @@ namespace LectoresConGloria_SVC.Data.Entidades
         [Column(TypeName = "smalldatetime")]
         public DateTime FechaAlta { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<TBL_Clicks> TBL_Clicks { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<TBL_TextosCategorias> TBL_TextosCategorias { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<TBL_TextosLibros> TBL_TextosLibros { get; set; }
     }
 }

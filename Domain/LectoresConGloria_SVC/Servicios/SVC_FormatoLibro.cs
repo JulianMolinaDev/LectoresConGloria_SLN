@@ -1,4 +1,4 @@
-﻿using LectoresConGloria_SVC.Interfaces;
+﻿using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Enumerados;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using LectoresConGloria_SVC.Data.Entidades;
+using LectoresConGloria_SVC.Data;
 
 namespace LectoresConGloria_SVC.Servicios
 {
@@ -23,9 +23,9 @@ namespace LectoresConGloria_SVC.Servicios
             _repositorio.Delete(id);
         }
 
-        public IEnumerable<V_Lista> FaltantesFormatosByLibro(int idLibro)
+        public IEnumerable<V_Lista> GetFaltantesFormatosByLibro(int idLibro)
         {
-            return _repositorio.FaltantesFormatosByLibro(idLibro);
+            return _repositorio.GetFaltantesFormatosByLibro(idLibro);
         }
 
         public MDL_FormatoLibro Get(int id)

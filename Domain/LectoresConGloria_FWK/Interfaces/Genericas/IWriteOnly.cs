@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace LectoresConGloria_SVC.Interfaces
+namespace LectoresConGloria_FWK.Interfaces
 {
     public interface IWriteOnly<TEntity>
     {

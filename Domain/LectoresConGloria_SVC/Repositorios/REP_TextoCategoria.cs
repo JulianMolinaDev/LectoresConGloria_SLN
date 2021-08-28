@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using LectoresConGloria_SVC.Interfaces;
+using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_MDL.Vistas;
-using LectoresConGloria_SVC.Data.Entidades;
+using LectoresConGloria_SVC.Data;
 using LectoresConGloria_SVC.Mapeo;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
@@ -28,7 +28,7 @@ namespace LectoresConGloria_SVC.Repositorios
             _contexto.SaveChanges();
         }
 
-        public IEnumerable<V_Lista> FaltantesCategoriasPorTexto(int idTexto)
+        public IEnumerable<V_Lista> GetFaltantesCategoriasPorTexto(int idTexto)
         {
             var output = _contexto.Set<V_Lista>().FromSqlRaw
                 ("EXEC [SCH_LectoresConGloria].SP_FaltantesCategoriasByTexto @idTexto", new SqlParameter("@idTexto", idTexto))

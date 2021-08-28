@@ -1,4 +1,4 @@
-namespace LectoresConGloria_SVC.Data.Entidades
+namespace LectoresConGloria_SVC.Data
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -7,7 +7,7 @@ namespace LectoresConGloria_SVC.Data.Entidades
     [Table(name: "TBL_Formatos", Schema = "SCH_LectoresConGloria")]
     public partial class TBL_Formatos
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        
         public TBL_Formatos()
         {
             TBL_FormatosLibros = new HashSet<TBL_FormatosLibros>();
@@ -19,7 +19,7 @@ namespace LectoresConGloria_SVC.Data.Entidades
         [StringLength(50)]
         public string Nombre { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<TBL_FormatosLibros> TBL_FormatosLibros { get; set; }
     }
 }

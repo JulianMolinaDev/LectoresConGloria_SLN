@@ -12,8 +12,9 @@ namespace LectoresConGloria_GW.Proxies
     public class PRX_Generico<TEntity, TKEy>
     {
         private readonly string _url;
-        private readonly string _endPoint;
+        private string _endPoint;
         private readonly string _token;
+        public string EndPoint { set { _endPoint = value; } }
         public PRX_Generico(string url, string endpoint)
         {
             _url = url;

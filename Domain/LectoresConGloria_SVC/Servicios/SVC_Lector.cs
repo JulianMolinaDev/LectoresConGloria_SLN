@@ -1,10 +1,10 @@
-﻿using LectoresConGloria_SVC.Interfaces;
+﻿using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_SVC.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using LectoresConGloria_SVC.Data.Entidades;
+using LectoresConGloria_SVC.Data;
 
 namespace LectoresConGloria_SVC.Servicios
 {

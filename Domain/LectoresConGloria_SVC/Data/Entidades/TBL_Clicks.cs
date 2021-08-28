@@ -1,4 +1,4 @@
-namespace LectoresConGloria_SVC.Data.Entidades
+namespace LectoresConGloria_SVC.Data
 {
     using System;
     using System.ComponentModel.DataAnnotations.Schema;

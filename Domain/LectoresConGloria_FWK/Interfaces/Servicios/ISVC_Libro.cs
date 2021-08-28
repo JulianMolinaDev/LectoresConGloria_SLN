@@ -2,7 +2,7 @@
 using LectoresConGloria_MDL.Vistas;
 using System.Collections.Generic;
 
-namespace LectoresConGloria_SVC.Interfaces
+namespace LectoresConGloria_FWK.Interfaces
 {
     public interface ISVC_Libro : IServicio<MDL_Libro, int>
     {

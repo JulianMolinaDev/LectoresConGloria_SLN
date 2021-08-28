@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using LectoresConGloria_SVC.Interfaces;
+using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
-using LectoresConGloria_SVC.Data.Entidades;
+using LectoresConGloria_SVC.Data;
 using LectoresConGloria_SVC.Mapeo;
 
 namespace LectoresConGloria_SVC.Repositorios

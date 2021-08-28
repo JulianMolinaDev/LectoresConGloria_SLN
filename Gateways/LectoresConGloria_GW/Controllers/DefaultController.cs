@@ -1,4 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace LectoresConGloria_GW.Controllers
 {
@@ -6,6 +11,7 @@ namespace LectoresConGloria_GW.Controllers
     [Route("[controller]")]
     public class DefaultController : ControllerBase
     {
+        
         [HttpGet]
         public string Get()
         {
