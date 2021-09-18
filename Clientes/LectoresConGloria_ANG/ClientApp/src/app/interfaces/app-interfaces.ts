@@ -25,12 +25,12 @@ export interface FormatoLibro {
 
 export interface Lector {
   id: number,
-  Nombre: string,
-  Apellidos: string,
-  FechaNacimiento : Date,
-  Correo: string  ,
-  Password: string,
-  FechaAlta: Date
+  nombre: string,
+  apellidos: string,
+  fechaNacimiento : Date,
+  correo: string  ,
+  password: string,
+  fechaAlta: Date
 }
 
 export interface Libro {

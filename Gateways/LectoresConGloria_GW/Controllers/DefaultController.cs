@@ -15,7 +15,7 @@ namespace LectoresConGloria_GW.Controllers
         [HttpGet]
         public string Get()
         {
-            return "Running";
+            return nameof(CategoriasController);
         }
     }
 }

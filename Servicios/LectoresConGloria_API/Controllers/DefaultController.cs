@@ -15,7 +15,7 @@ namespace LectoresConGloria_API.Controllers
         [HttpGet]
         public string Get()
         {
-            return "Running";
+            return nameof(DefaultController);
         }
     }
 }

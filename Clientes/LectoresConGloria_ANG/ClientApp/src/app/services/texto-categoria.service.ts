@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { TextoCategoria } from 'src/app/interfaces/app-interfaces';
+
 
 
 @Injectable({
@@ -8,53 +10,41 @@ import { TextoCategoria } from 'src/app/interfaces/app-interfaces';
 })
 export class TextoCategoriaService {
 
-  private _baseUrl: string = '';
-  private _lista: TextoCategoria[] = [];
-  private _cliente?: TextoCategoria;
-
-  get lista() {
-    return [...this._lista];
-  }
-
+  private _baseUrl: string = 'https://localhost:44340/api/TextoCategorias';
   constructor(private http: HttpClient) {
   }
-  buscar(busqueda: string) {
-    console.log("generar busqueda:", busqueda);
+  get(): Observable<any> {
+    const url: string = `${this._baseUrl}`;
+    return this.http.get(url);
   }
-  obtener(id: number) {
-    console.log("obtener:", id);
-    this._lista.forEach(element => {
-      if (element.id === id) {
-        this._cliente = element;
-      }
-    });
-    console.log("obtenido:", this._cliente);
+  obtener(id: number): Observable<any> {
+    const url: string = `${this._baseUrl}/${id}`;
+    return this.http.get(url);
+  }
+  insertar(registro: TextoCategoria): Observable<any> {
 
+    if (registro.id != 0) {
+      const url: string = `${this._baseUrl}/${registro.id}`;
+      return this.http.put(url, registro);
+    }
+    const url: string = `${this._baseUrl}`;
+    return this.http.post(url, registro);
   }
-  insertar(cliente: TextoCategoria) {
-
-    cliente.id = this._lista.length + 1;
-    console.log("insertar:", cliente);
-    this._lista.push(cliente);
+  eliminar(id: number): Observable<any> {
+    const url: string = `${this._baseUrl}/${id}`;
+    return this.http.delete(url);
   }
-  actualizar(cliente: TextoCategoria) {
-    console.log("actualizar:", cliente);
-    this._lista.forEach(element => {
-      if (element.id === cliente.id) {
-        element = cliente;
-      }
-    });
+  getByTipoTextoCategoria(id: number): Observable<any> {
+    const url: string = `${this._baseUrl}/GetByTipoTextoCategoria/${id}`;
+    return this.http.get(url);
   }
-  eliminar(id: number) {
-    let arreglo: TextoCategoria[] = [];
-
-    console.log("eliminar:", id);
-    this._lista.forEach(element => {
-      if (element.id !== id) {
-        arreglo.push(element);
-      }
-    });
-    this._lista = arreglo;
+  getByInstitucion(id: number): Observable<any> {
+    const url: string = `${this._baseUrl}/GetByInstitucion/${id}`;
+    return this.http.get(url);
+  }
+  getVista(): Observable<any> {
+    const url: string = `${this._baseUrl}/GetVista`;
+    return this.http.get(url);
   }
 
 }
