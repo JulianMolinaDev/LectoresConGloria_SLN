@@ -1,0 +1,50 @@
+﻿@model LectoresConGloria_MVC_ADM.Models.TBL_Clicks
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TBL_Clicks</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TBL_Lectores.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TBL_Lectores.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TBL_Textos.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TBL_Textos.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoClick)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoClick)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaAlta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaAlta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

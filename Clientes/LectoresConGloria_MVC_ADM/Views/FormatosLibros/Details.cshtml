@@ -1,0 +1,42 @@
+﻿@model LectoresConGloria_MVC_ADM.Models.TBL_FormatosLibros
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TBL_FormatosLibros</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TBL_Formatos.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TBL_Formatos.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TBL_Libros.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TBL_Libros.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Archivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Archivo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

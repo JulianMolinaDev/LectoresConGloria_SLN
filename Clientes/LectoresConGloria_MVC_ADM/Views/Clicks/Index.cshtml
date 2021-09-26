@@ -1,0 +1,51 @@
+﻿@model IEnumerable<LectoresConGloria_MVC_ADM.Models.TBL_Clicks>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_Lectores.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_Textos.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoClick)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaAlta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TBL_Lectores.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TBL_Textos.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoClick)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaAlta)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

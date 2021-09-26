@@ -2,5 +2,6 @@
 (
 	[Id] INT NOT NULL IDENTITY(1,1), 
     [IdLibro] INT NOT NULL, 
-    [IdTexto] INT NOT NULL
+    [IdTexto] INT NOT NULL,
+    CONSTRAINT PK_TextosLibros PRIMARY KEY (Id)
 )
