@@ -234,6 +234,7 @@
     <Content Include="Views\TextosLibros\Details.cshtml" />
     <Content Include="Views\TextosLibros\Edit.cshtml" />
     <Content Include="Views\TextosLibros\Index.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
