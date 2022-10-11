@@ -19,52 +19,52 @@ namespace LectoresConGloria_PRX.Servicios
             _endpoint = "";
             _proxie = new PRX_Generico<MDL_Lector, int>(_url, _endpoint);
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            var modelo = _proxie.Delete(id);
-            modelo.Wait();
+            await _proxie.Delete(id);
+            
         }
 
-        public MDL_Lector Get(int id)
+        public async Task<MDL_Lector> Get(int id)
         {
-            var modelo = _proxie.Get(id);
-            modelo.Wait();
-            return modelo.Result;
+            return await _proxie.Get(id);
+            
+            
         }
 
-        public IEnumerable<MDL_Lector> Get()
+        public async Task<IEnumerable<MDL_Lector>> Get()
         {
-            var modelo = _proxie.Get();
-            modelo.Wait();
-            return modelo.Result;
+            return await _proxie.Get();
+            
+            
         }
 
-        public MDL_Lector Login(MDL_Login reg)
+        public async Task<MDL_Lector> Login(MDL_Login reg)
         {
             _endpoint += "/Login";
             var prx = new PRX_Custom<MDL_Login, int>(_url, _endpoint);
-            var modelo = prx.PostGet<MDL_Lector>(reg);
-            modelo.Wait();
-            return modelo.Result;
+            return await  prx.PostGet<MDL_Lector>(reg);
+            
+            
         }
 
-        public void Post(MDL_Lector reg)
+        public async Task Post(MDL_Lector reg)
         {
-            var modelo = _proxie.Post(reg);
-            modelo.Wait();
+            await _proxie.Post(reg);
+            
         }
 
-        public void Put(int id, MDL_Lector reg)
+        public async Task Put(int id, MDL_Lector reg)
         {
-            var modelo = _proxie.Put(id, reg);
-            modelo.Wait();
+            await _proxie.Put(id, reg);
+            
         }
 
-        public void Register(MDL_Lector reg)
+        public async Task Register(MDL_Lector reg)
         {
             _proxie.EndPoint = _endpoint + "/Register";
-            var modelo = _proxie.Post(reg);
-            modelo.Wait();
+            await _proxie.Post(reg);
+            
         }
     }
 

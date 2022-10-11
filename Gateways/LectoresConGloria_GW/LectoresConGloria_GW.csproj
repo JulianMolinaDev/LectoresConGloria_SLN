@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\LectoresConGloria_FWK\LectoresConGloria_FWK.csproj" />
     <ProjectReference Include="..\..\Domain\LectoresConGloria_MDL\LectoresConGloria_MDL.csproj" />
+    <ProjectReference Include="..\..\Domain\LectoresConGloria_SVC\LectoresConGloria_SVC.csproj" />
   </ItemGroup>
 
 

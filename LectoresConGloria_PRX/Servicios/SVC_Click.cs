@@ -12,10 +12,10 @@ namespace LectoresConGloria_PRX.Servicios
         {
             _proxie = new PRX_Generico<MDL_Click, int>("","");
         }
-        public void Write(MDL_Click reg)
+        public async Task Write(MDL_Click reg)
         {
-            var modelo = _proxie.Post(reg);
-            modelo.Wait();
+            await _proxie.Post(reg);
+            
         }
     }
 }

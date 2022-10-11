@@ -3,6 +3,7 @@ using LectoresConGloria_FWK.Interfaces;
 using LectoresConGloria_MDL.Modelos;
 using LectoresConGloria_SVC.Data;
 using LectoresConGloria_SVC.Mapeo;
+using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Repositorios
 {
@@ -16,11 +17,11 @@ namespace LectoresConGloria_SVC.Repositorios
             _mapper = Automapeo.Instance;
         }
 
-        public void Write(MDL_Click reg)
+        public async Task Write(MDL_Click reg)
         {
             var entity = _mapper.Map<TBL_Clicks>(reg);
             _contexto.TBL_Clicks.Add(entity);
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
     }
 }

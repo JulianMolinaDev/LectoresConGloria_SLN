@@ -75,8 +75,6 @@
     <Build Include="Keys\Foreign\FK_Clicks_Lectores.sql" />
     <Build Include="Tablas\TBL_TextosCategorias.sql" />
     <Build Include="Tablas\TBL_Categorias.sql" />
-    <Build Include="Funciones\FN_Encrypt.sql" />
-    <Build Include="Funciones\FN_Decrypt.sql" />
     <Build Include="Tablas\TBL_Lectores.sql" />
     <Build Include="Keys\Primary\PK_Categorias.sql" />
     <Build Include="Keys\Primary\PK_Clicks.sql" />

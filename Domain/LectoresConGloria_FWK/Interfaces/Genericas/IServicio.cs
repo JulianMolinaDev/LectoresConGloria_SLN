@@ -5,10 +5,10 @@ namespace LectoresConGloria_FWK.Interfaces
 {
     public interface IServicio<TEntity, TKey>
     {
-        void Post(TEntity reg);
-        void Delete(TKey id);
-        TEntity Get(TKey id);
-        IEnumerable<TEntity> Get();
-        void Put(TKey id, TEntity reg);
+        Task Post(TEntity reg);
+        Task Delete(TKey id);
+        Task<TEntity> Get(TKey id);
+        Task<IEnumerable<TEntity>> Get();
+        Task Put(TKey id, TEntity reg);
     }
 }

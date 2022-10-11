@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.Data.SqlClient;
+using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Repositorios
 {
@@ -21,54 +22,54 @@ namespace LectoresConGloria_SVC.Repositorios
             _mapper = Automapeo.Instance;
         }
 
-        public void CambiarContenido(int idFormatoLibro, string contenido)
+        public async Task CambiarContenido(int idFormatoLibro, string contenido)
         {
-            var entity = _contexto.TBL_FormatosLibros.Find(idFormatoLibro);
+            var entity = await _contexto.TBL_FormatosLibros.FindAsync(idFormatoLibro);
             entity.Archivo = contenido;
             _contexto.Entry(entity).State = EntityState.Modified;
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
 
-        public void CambiarFormato(int idFormatoLibro, int idFormato)
+        public async Task CambiarFormato(int idFormatoLibro, int idFormato)
         {
-            var entity = _contexto.TBL_FormatosLibros.Find(idFormatoLibro);
+            var entity = await _contexto.TBL_FormatosLibros.FindAsync(idFormatoLibro);
             entity.IdFormato = idFormato;
             _contexto.Entry(entity).State = EntityState.Modified;
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            var entity = _contexto.TBL_FormatosLibros.Find(id);
+            var entity = await _contexto.TBL_FormatosLibros.FindAsync(id);
             _contexto.TBL_FormatosLibros.Remove(entity);
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
 
-        public IEnumerable<V_Lista> GetFaltantesFormatosByLibro(int idLibro)
+        public async Task<IEnumerable<V_Lista>> GetFaltantesFormatosByLibro(int idLibro)
         {
-            var output = _contexto.Set<V_Lista>().FromSqlRaw
+            var output = await _contexto.Set<V_Lista>().FromSqlRaw
                 ("EXEC [SCH_LectoresConGloria].[SP_FaltantesFormatosByLibro] @idLibro", new SqlParameter("@idLibro", idLibro))
-                .ToList();
+                .ToListAsync();
             return output;
         }
 
-        public MDL_FormatoLibro Get(int id)
+        public async Task<MDL_FormatoLibro> Get(int id)
         {
-            var entity = _contexto.TBL_FormatosLibros.Find(id);
+            var entity = await _contexto.TBL_FormatosLibros.FindAsync(id);
             var output = _mapper.Map<MDL_FormatoLibro>(entity);
             return output;
         }
 
-        public IEnumerable<MDL_FormatoLibro> Get()
+        public async Task<IEnumerable<MDL_FormatoLibro>> Get()
         {
-            var entity = _contexto.TBL_FormatosLibros
+            var entity = await _contexto.TBL_FormatosLibros
                 .AsNoTracking()
-                .ToList();
+                .ToListAsync();
             var output = _mapper.Map<IEnumerable<MDL_FormatoLibro>>(entity);
             return output;
         }
 
-        public V_AsociacionDetalle GetAsociacionDetalle(int idFormatoLibro)
+        public async Task<V_AsociacionDetalle> GetAsociacionDetalle(int idFormatoLibro)
         {
             var output = _contexto.TBL_FormatosLibros
                 .Where(x => x.Id == idFormatoLibro)
@@ -92,13 +93,13 @@ namespace LectoresConGloria_SVC.Repositorios
         /// </summary>
         /// <param name="idFormatoLibro"></param>
         /// <returns></returns>
-        public V_LibroDescarga GetContenido(int idFormatoLibro)
+        public async Task<V_LibroDescarga> GetContenido(int idFormatoLibro)
         {
-            var entity = _contexto.TBL_FormatosLibros
+            var entity = await _contexto.TBL_FormatosLibros
                 .Include(x => x.TBL_Libros)
                 .Include(x => x.TBL_Formatos)
                 .AsNoTracking()
-                .FirstOrDefault(x => x.Id == idFormatoLibro);
+                .FirstOrDefaultAsync(x => x.Id == idFormatoLibro);
             var output = new V_LibroDescarga()
             {
                 Archivo = entity.Archivo,
@@ -108,7 +109,7 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public V_Lista GetFormatoAsItem(int idFormatoLibro)
+        public async Task<V_Lista> GetFormatoAsItem(int idFormatoLibro)
         {
             var output = _contexto.TBL_FormatosLibros
                 .Where(x => x.Id == idFormatoLibro)
@@ -128,7 +129,7 @@ namespace LectoresConGloria_SVC.Repositorios
         /// </summary>
         /// <param name="idLibro">Id del libro/// </param>
         /// <returns>Lista de formatos disponibles para descargar</returns>
-        public IEnumerable<V_ListaRelacion> GetFormatosByLibro(int idLibro)
+        public async Task<IEnumerable<V_ListaRelacion>> GetFormatosByLibro(int idLibro)
         {
 
             var output = _contexto.TBL_FormatosLibros
@@ -145,7 +146,7 @@ namespace LectoresConGloria_SVC.Repositorios
 
         }
 
-        public V_Lista GetLibroAsItem(int idFormatoLibro)
+        public async Task<V_Lista> GetLibroAsItem(int idFormatoLibro)
         {
             var output = _contexto.TBL_FormatosLibros
                 .Where(x => x.Id == idFormatoLibro)
@@ -160,7 +161,7 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public IEnumerable<V_ListaRelacion> GetLibrosByFormato(int idFormato)
+        public async Task<IEnumerable<V_ListaRelacion>> GetLibrosByFormato(int idFormato)
         {
             var output = _contexto.TBL_FormatosLibros
                 .Where(x => x.IdFormato == idFormato)
@@ -175,21 +176,21 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public void Post(MDL_FormatoLibro reg)
+        public async Task Post(MDL_FormatoLibro reg)
         {
             var entity = _mapper.Map<TBL_FormatosLibros>(reg);
             _contexto.TBL_FormatosLibros.Add(entity);
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
 
-        public void Put(int id, MDL_FormatoLibro reg)
+        public async Task Put(int id, MDL_FormatoLibro reg)
         {
             var register = _mapper.Map<TBL_FormatosLibros>(reg);
-            var entity = _contexto.TBL_FormatosLibros.Find(id);
+            var entity = await _contexto.TBL_FormatosLibros.FindAsync(id);
             entity.IdFormato = register.IdFormato;
             entity.IdLibro = register.IdLibro;
             _contexto.Entry(entity).State = EntityState.Modified;
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
     }
 }

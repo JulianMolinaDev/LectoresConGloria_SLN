@@ -49,25 +49,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Remove="MVVM\Views\V_Formatos.xaml" />
-	  <MauiXaml Remove="MVVM\Views\V_FormatosLibros.xaml" />
-	  <MauiXaml Remove="MVVM\Views\V_Login.xaml" />
-	  <MauiXaml Remove="MVVM\Views\V_Registro.xaml" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Include="MVVM\Views\V_Formatos.xaml">
-	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-	  </EmbeddedResource>
-	  <EmbeddedResource Include="MVVM\Views\V_FormatosLibros.xaml">
-	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-	  </EmbeddedResource>
-	  <EmbeddedResource Include="MVVM\Views\V_Login.xaml">
-	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-	  </EmbeddedResource>
-	  <EmbeddedResource Include="MVVM\Views\V_Registro.xaml">
-	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-	  </EmbeddedResource>
+	  <Folder Include="MVVM\Views\" />
 	</ItemGroup>
 
 </Project>

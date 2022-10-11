@@ -18,74 +18,74 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio = new REP_FormatoLibro(context);
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _repositorio.Delete(id);
+            await _repositorio.Delete(id);
         }
 
-        public IEnumerable<V_Lista> GetFaltantesFormatosByLibro(int idLibro)
+        public async Task<IEnumerable<V_Lista>> GetFaltantesFormatosByLibro(int idLibro)
         {
-            return _repositorio.GetFaltantesFormatosByLibro(idLibro);
+            return await _repositorio.GetFaltantesFormatosByLibro(idLibro);
         }
 
-        public MDL_FormatoLibro Get(int id)
+        public async Task<MDL_FormatoLibro> Get(int id)
         {
-            return _repositorio.Get(id);
+            return await _repositorio.Get(id);
         }
 
-        public IEnumerable<MDL_FormatoLibro> Get()
+        public async Task<IEnumerable<MDL_FormatoLibro>> Get()
         {
-            return _repositorio.Get();
+            return await _repositorio.Get();
         }
 
-        public V_LibroDescarga GetContenido(int idFormatoLibro)
+        public async Task<V_LibroDescarga> GetContenido(int idFormatoLibro)
         {
-            return _repositorio.GetContenido(idFormatoLibro);
+            return await _repositorio.GetContenido(idFormatoLibro);
         }
 
-        public IEnumerable<V_ListaRelacion> GetFormatosByLibro(int idLibro)
+        public async Task<IEnumerable<V_ListaRelacion>> GetFormatosByLibro(int idLibro)
         {
-            return _repositorio.GetFormatosByLibro(idLibro);
+            return await _repositorio.GetFormatosByLibro(idLibro);
         }
 
-        public IEnumerable<V_ListaRelacion> GetLibrosByFormato(int idFormato)
+        public async Task<IEnumerable<V_ListaRelacion>> GetLibrosByFormato(int idFormato)
         {
-            return _repositorio.GetLibrosByFormato(idFormato);
+            return await _repositorio.GetLibrosByFormato(idFormato);
         }
 
-        public void Post(MDL_FormatoLibro reg)
+        public async Task Post(MDL_FormatoLibro reg)
         {
-            _repositorio.Post(reg);
+            await _repositorio.Post(reg);
         }
 
-        public void Put(int id, MDL_FormatoLibro reg)
+        public async Task Put(int id, MDL_FormatoLibro reg)
         {
-            _repositorio.Put(id, reg);
+            await _repositorio.Put(id, reg);
         }
 
-        public V_Lista GetLibroAsItem(int idFormatoLibro)
+        public async Task<V_Lista> GetLibroAsItem(int idFormatoLibro)
         {
-            return _repositorio.GetLibroAsItem(idFormatoLibro);
+            return await _repositorio.GetLibroAsItem(idFormatoLibro);
         }
 
-        public V_Lista GetFormatoAsItem(int idFormatoLibro)
+        public async Task<V_Lista> GetFormatoAsItem(int idFormatoLibro)
         {
-            return _repositorio.GetFormatoAsItem(idFormatoLibro);
+            return await _repositorio.GetFormatoAsItem(idFormatoLibro);
         }
 
-        public void CambiarContenido(int idFormatoLibro, string contenido)
+        public async Task CambiarContenido(int idFormatoLibro, string contenido)
         {
-            _repositorio.CambiarContenido(idFormatoLibro, contenido);
+            await _repositorio.CambiarContenido(idFormatoLibro, contenido);
         }
 
-        public void CambiarFormato(int idFormatoLibro, int idFormato)
+        public async Task CambiarFormato(int idFormatoLibro, int idFormato)
         {
-            _repositorio.CambiarFormato(idFormatoLibro, idFormato);
+            await _repositorio.CambiarFormato(idFormatoLibro, idFormato);
         }
 
-        public V_AsociacionDetalle GetAsociacionDetalle(int idFormatoLibro)
+        public async Task<V_AsociacionDetalle> GetAsociacionDetalle(int idFormatoLibro)
         {
-            return _repositorio.GetAsociacionDetalle(idFormatoLibro);
+            return await _repositorio.GetAsociacionDetalle(idFormatoLibro);
         }
     }
 }

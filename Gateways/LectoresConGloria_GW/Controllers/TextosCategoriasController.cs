@@ -22,49 +22,49 @@ namespace LectoresConGloria_GW.Controllers
         }
         // GET: api/<TextosCategoriasController>
         [HttpGet]
-        public IEnumerable<MDL_TextoCategoria> Get()
+        public async Task<IEnumerable<MDL_TextoCategoria>> Get()
         {
-            return _servicio.Get();
+            return await _servicio.Get();
         }
 
         // GET api/<TextosCategoriasController>/5
         [HttpGet("{id}")]
-        public MDL_TextoCategoria Get(int id)
+        public async Task<MDL_TextoCategoria> Get(int id)
         {
-            return _servicio.Get(id);
+            return await _servicio.Get(id);
         }
 
         // POST api/<TextosCategoriasController>
         [HttpPost]
-        public void Post([FromBody] MDL_TextoCategoria value)
+        public async Task Post([FromBody] MDL_TextoCategoria value)
         {
-            _servicio.Post(value);
+            await _servicio.Post(value);
         }
 
         // PUT api/<TextosCategoriasController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] MDL_TextoCategoria value)
+        public async Task Put(int id, [FromBody] MDL_TextoCategoria value)
         {
-            _servicio.Put(id, value);
+            await _servicio.Put(id, value);
         }
 
         // DELETE api/<TextosCategoriasController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _servicio.Delete(id);
+            await _servicio.Delete(id);
         }
         // GET api/<TextosCategoriasController>/GetAsociacionDetalle/5
         [HttpGet("GetAsociacionDetalle/{id}")]
-        public V_AsociacionDetalle GetAsociacionDetalle(int id)
+        public async Task<V_AsociacionDetalle> GetAsociacionDetalle(int id)
         {
-            return _servicio.GetAsociacionDetalle(id);
+            return await _servicio.GetAsociacionDetalle(id);
         }
         // GET api/<TextosCategoriasController>/GetCategoriaPorTexto/5
         [HttpGet("GetCategoriaPorTexto/{id}")]
-        public IEnumerable<V_ListaRelacion> GetCategoriaPorTexto(int id)
+        public async Task<IEnumerable<V_ListaRelacion>> GetCategoriaPorTexto(int id)
         {
-            return _servicio.GetCategoriaPorTexto(id);
+            return await _servicio.GetCategoriaPorTexto(id);
         }
     }
 }

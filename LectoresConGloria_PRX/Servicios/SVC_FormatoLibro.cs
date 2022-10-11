@@ -22,109 +22,109 @@ namespace LectoresConGloria_PRX.Servicios
             _endpoint = "";
             _proxie = new PRX_Generico<MDL_FormatoLibro, int>("","");
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            var modelo = _proxie.Delete(id);
-            modelo.Wait();
+            await _proxie.Delete(id);
+            
         }
 
-        public IEnumerable<V_Lista> GetFaltantesFormatosByLibro(int idLibro)
+        public async Task<IEnumerable<V_Lista>> GetFaltantesFormatosByLibro(int idLibro)
         {
             _endpoint += "/GetFaltantesFormatosByLibro";
             var prx = new PRX_Custom<V_Lista, int>(_url, _endpoint);
-            var modelo = prx.GetList(idLibro);
-            modelo.Wait();
-            return modelo.Result;
+            return await  prx.GetList(idLibro);
+            
+            
         }
 
-        public MDL_FormatoLibro Get(int id)
+        public async Task<MDL_FormatoLibro> Get(int id)
         {
-            var modelo = _proxie.Get(id);
-            modelo.Wait();
-            return modelo.Result;
+            return await _proxie.Get(id);
+            
+            
         }
 
-        public IEnumerable<MDL_FormatoLibro> Get()
+        public async Task<IEnumerable<MDL_FormatoLibro>> Get()
         {
-            var modelo = _proxie.Get();
-            modelo.Wait();
-            return modelo.Result;
+            return await _proxie.Get();
+            
+            
         }
 
-        public V_LibroDescarga GetContenido(int idFormatoLibro)
+        public async Task<V_LibroDescarga> GetContenido(int idFormatoLibro)
         {
             _endpoint += "/GetContenido";
             var prx = new PRX_Custom<V_LibroDescarga, int>(_url, _endpoint);
-            var modelo = prx.Get(idFormatoLibro);
-            modelo.Wait();
-            return modelo.Result;
+            return await  prx.Get(idFormatoLibro);
+            
+            
         }
 
-        public IEnumerable<V_ListaRelacion> GetFormatosByLibro(int idLibro)
+        public async Task<IEnumerable<V_ListaRelacion>> GetFormatosByLibro(int idLibro)
         {
             _endpoint += "/GetFormatosByLibro";
             var prx = new PRX_Custom<V_ListaRelacion, int>(_url, _endpoint);
-            var modelo = prx.GetList(idLibro);
-            modelo.Wait();
-            return modelo.Result;
+            return await  prx.GetList(idLibro);
+            
+            
         }
 
-        public IEnumerable<V_ListaRelacion> GetLibrosByFormato(int idFormato)
+        public async Task<IEnumerable<V_ListaRelacion>> GetLibrosByFormato(int idFormato)
         {
             _endpoint += "/GetLibrosByFormato";
             var prx = new PRX_Custom<V_ListaRelacion, int>(_url, _endpoint);
-            var modelo = prx.GetList(idFormato);
-            modelo.Wait();
-            return modelo.Result;
+            return await  prx.GetList(idFormato);
+            
+            
         }
 
-        public void Post(MDL_FormatoLibro reg)
+        public async Task Post(MDL_FormatoLibro reg)
         {
-            var modelo = _proxie.Post(reg);
-            modelo.Wait();
+            await _proxie.Post(reg);
+            
         }
 
-        public void Put(int id, MDL_FormatoLibro reg)
+        public async Task Put(int id, MDL_FormatoLibro reg)
         {
-            var modelo = _proxie.Put(id, reg);
-            modelo.Wait();
+            await _proxie.Put(id, reg);
+            
         }
 
-        public V_Lista GetLibroAsItem(int idFormatoLibro)
+        public async Task<V_Lista> GetLibroAsItem(int idFormatoLibro)
         {
             _endpoint += "/GetLibroAsItem";
             var prx = new PRX_Custom<V_Lista, int>(_url, _endpoint);
-            var modelo = prx.Get(idFormatoLibro);
-            modelo.Wait();
-            return modelo.Result;
+            return await  prx.Get(idFormatoLibro);
+            
+            
         }
 
-        public V_Lista GetFormatoAsItem(int idFormatoLibro)
+        public async Task<V_Lista> GetFormatoAsItem(int idFormatoLibro)
         {
             _endpoint += "/GetFormatoAsItem";
             var prx = new PRX_Custom<V_Lista, int>(_url, _endpoint);
-            var modelo = prx.Get(idFormatoLibro);
-            modelo.Wait();
-            return modelo.Result;
+            return await  prx.Get(idFormatoLibro);
+            
+            
         }
 
-        public void CambiarContenido(int idFormatoLibro, string contenido)
+        public async Task CambiarContenido(int idFormatoLibro, string contenido)
         {
             //TODO: Hacer
         }
 
-        public void CambiarFormato(int idFormatoLibro, int idFormato)
+        public async Task CambiarFormato(int idFormatoLibro, int idFormato)
         {
             //TODO: Hacer
         }
 
-        public V_AsociacionDetalle GetAsociacionDetalle(int idFormatoLibro)
+        public async Task<V_AsociacionDetalle> GetAsociacionDetalle(int idFormatoLibro)
         {
             _endpoint += "/GetAsociacionDetalle";
             var prx = new PRX_Custom<V_AsociacionDetalle, int>(_url, _endpoint);
-            var modelo = prx.Get(idFormatoLibro);
-            modelo.Wait();
-            return modelo.Result;
+            return await  prx.Get(idFormatoLibro);
+            
+            
         }
     }
 }

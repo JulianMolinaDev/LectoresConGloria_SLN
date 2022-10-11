@@ -7,6 +7,7 @@ using LectoresConGloria_SVC.Mapeo;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Repositorios
 {
@@ -19,30 +20,30 @@ namespace LectoresConGloria_SVC.Repositorios
             _contexto = context;
             _mapper = Automapeo.Instance;
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            var entity = _contexto.TBL_Categorias.Find(id);
+            var entity = await _contexto.TBL_Categorias.FindAsync(id);
             _contexto.TBL_Categorias.Remove(entity);
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
 
-        public MDL_Categoria Get(int id)
+        public async Task<MDL_Categoria> Get(int id)
         {
-            var entity = _contexto.TBL_Categorias.Find(id);
+            var entity = await _contexto.TBL_Categorias.FindAsync(id);
             var output = _mapper.Map<MDL_Categoria>(entity);
             return output;
         }
 
-        public IEnumerable<MDL_Categoria> Get()
+        public async Task<IEnumerable<MDL_Categoria>> Get()
         {
-            var entity = _contexto.TBL_Categorias.AsNoTracking().ToList();
+            var entity = await _contexto.TBL_Categorias.AsNoTracking().ToListAsync();
             var output = _mapper.Map<IEnumerable<MDL_Categoria>>(entity);
             return output;
         }
 
-        public V_Lista GetItem(int id)
+        public async Task<V_Lista> GetItem(int id)
         {
-            var entity = _contexto.TBL_Categorias.Find(id);
+            var entity = await _contexto.TBL_Categorias.FindAsync(id);
             var output = new V_Lista()
             {
                 Id = entity.Id,
@@ -51,7 +52,7 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public IEnumerable<V_Lista> GetList()
+        public async Task<IEnumerable<V_Lista>> GetList()
         {
             var output = _contexto.TBL_Categorias.AsNoTracking().Select(x => new V_Lista()
             {
@@ -61,20 +62,20 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public void Post(MDL_Categoria reg)
+        public async Task Post(MDL_Categoria reg)
         {
             var entity = _mapper.Map<TBL_Categorias>(reg);
             _contexto.TBL_Categorias.Add(entity);
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
 
-        public void Put(int id, MDL_Categoria reg)
+        public async Task Put(int id, MDL_Categoria reg)
         {
             var origin = _mapper.Map<TBL_Categorias>(reg);
-            var entity = _contexto.TBL_Categorias.Find(id);
+            var entity = await _contexto.TBL_Categorias.FindAsync(id);
             entity.Nombre = origin.Nombre;
             _contexto.Entry(entity).State = EntityState.Modified;
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
     }
 }

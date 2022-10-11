@@ -21,54 +21,54 @@ namespace LectoresConGloria_PRX.Servicios
             _endpoint = "";
             _proxie = new PRX_Generico<MDL_Categoria, int>(_url, _endpoint);
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-           var modelo = _proxie.Delete(id);
-            modelo.Wait();
+           await _proxie.Delete(id);
+            
         }
 
-        public MDL_Categoria Get(int id)
+        public async Task<MDL_Categoria> Get(int id)
         {
-            var modelo = _proxie.Get(id);
-            modelo.Wait();
-            return modelo.Result;
+            return await _proxie.Get(id);
+            
+            
         }
 
-        public IEnumerable<MDL_Categoria> Get()
+        public async Task<IEnumerable<MDL_Categoria>> Get()
         {
-            var modelo = _proxie.Get();
-            modelo.Wait();
-            return modelo.Result;
+            return await _proxie.Get();
+            
+            
         }
 
-        public V_Lista GetItem(int id)
+        public async Task<V_Lista> GetItem(int id)
         {
             _endpoint += "/GetItem";
             var prx = new PRX_Custom<V_Lista, int>(_url, _endpoint);
-            var modelo = prx.Get(id);
-            modelo.Wait();
-            return modelo.Result;
+            return await  prx.Get(id);
+            
+            
         }
 
-        public IEnumerable<V_Lista> GetList()
+        public async Task<IEnumerable<V_Lista>> GetList()
         {
             _endpoint += "/GetList";
             var prx = new PRX_Custom<V_Lista, int>(_url, _endpoint);
-            var modelo = prx.Get();
-            modelo.Wait();
-            return modelo.Result;
+            return await  prx.Get();
+            
+            
         }
 
-        public void Post(MDL_Categoria reg)
+        public async Task Post(MDL_Categoria reg)
         {
-            var modelo = _proxie.Post(reg);
-            modelo.Wait();
+            await _proxie.Post(reg);
+            
         }
 
-        public void Put(int id, MDL_Categoria reg)
+        public async Task Put(int id, MDL_Categoria reg)
         {
-            var modelo = _proxie.Put(id, reg);
-            modelo.Wait();
+            await _proxie.Put(id, reg);
+            
         }
     }
 }

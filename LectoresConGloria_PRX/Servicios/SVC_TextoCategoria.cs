@@ -22,72 +22,72 @@ namespace LectoresConGloria_PRX.Servicios
             _endpoint = "";
             _proxie = new PRX_Generico<MDL_TextoCategoria, int>(_url, _endpoint);
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            var modelo = _proxie.Delete(id);
-            modelo.Wait();
+            await _proxie.Delete(id);
+            
         }
 
-        public IEnumerable<V_Lista> GetFaltantesCategoriasPorTexto(int idTexto)
+        public async Task<IEnumerable<V_Lista>> GetFaltantesCategoriasPorTexto(int idTexto)
         {
             _endpoint += "/GetFaltantesCategoriasPorTexto";
             var prx = new PRX_Custom<V_Lista, int>(_url, _endpoint);
-            var modelo = prx.GetList(idTexto);
-            modelo.Wait();
-            return modelo.Result;
+            return await  prx.GetList(idTexto);
+            
+            
         }
 
-        public MDL_TextoCategoria Get(int id)
+        public async Task<MDL_TextoCategoria> Get(int id)
         {
-            var modelo = _proxie.Get(id);
-            modelo.Wait();
-            return modelo.Result;
+            return await _proxie.Get(id);
+            
+            
         }
 
-        public IEnumerable<MDL_TextoCategoria> Get()
+        public async Task<IEnumerable<MDL_TextoCategoria>> Get()
         {
-            var modelo = _proxie.Get();
-            modelo.Wait();
-            return modelo.Result;
+            return await _proxie.Get();
+            
+            
         }
 
-        public IEnumerable<V_ListaRelacion> GetCategoriaPorTexto(int idTexto)
+        public async Task<IEnumerable<V_ListaRelacion>> GetCategoriaPorTexto(int idTexto)
         {
             _endpoint += "/GetCategoriaPorTexto";
             var prx = new PRX_Custom<V_ListaRelacion, int>(_url, _endpoint);
-            var modelo = prx.GetList(idTexto);
-            modelo.Wait();
-            return modelo.Result;
+            return await  prx.GetList(idTexto);
+            
+            
         }
 
-        public IEnumerable<V_ListaRelacion> GetTextoPorCategoria(int idCategoria)
+        public async Task<IEnumerable<V_ListaRelacion>> GetTextoPorCategoria(int idCategoria)
         {
             _endpoint += "/GetTextoPorCategoria";
             var prx = new PRX_Custom<V_ListaRelacion, int>(_url, _endpoint);
-            var modelo = prx.GetList(idCategoria);
-            modelo.Wait();
-            return modelo.Result;
+            return await  prx.GetList(idCategoria);
+            
+            
         }
 
-        public void Post(MDL_TextoCategoria reg)
+        public async Task Post(MDL_TextoCategoria reg)
         {
-            var modelo = _proxie.Post(reg);
-            modelo.Wait();
+            await _proxie.Post(reg);
+            
         }
 
-        public void Put(int id, MDL_TextoCategoria reg)
+        public async Task Put(int id, MDL_TextoCategoria reg)
         {
-            var modelo = _proxie.Put(id, reg);
-            modelo.Wait();
+            await _proxie.Put(id, reg);
+            
         }
 
-        public V_AsociacionDetalle GetAsociacionDetalle(int id)
+        public async Task<V_AsociacionDetalle> GetAsociacionDetalle(int id)
         {
             _endpoint += "/GetAsociacionDetalle";
             var prx = new PRX_Custom<V_AsociacionDetalle, int>(_url, _endpoint);
-            var modelo = prx.Get(id);
-            modelo.Wait();
-            return modelo.Result;
+            return await  prx.Get(id);
+            
+            
         }
     }
 }

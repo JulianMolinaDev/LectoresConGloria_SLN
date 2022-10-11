@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Repositorios
 {
@@ -20,51 +21,51 @@ namespace LectoresConGloria_SVC.Repositorios
             _contexto = context;
             _mapper = Automapeo.Instance;
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            var entity = _contexto.TBL_Textos.Find(id);
+            var entity = await _contexto.TBL_Textos.FindAsync(id);
             _contexto.TBL_Textos.Remove(entity);
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
 
-        public void Post(MDL_Texto item)
+        public async Task Post(MDL_Texto item)
         {
             var entity = _mapper.Map<TBL_Textos>(item);
             entity.FechaAlta = DateTime.Now;
             _contexto.TBL_Textos.Add(entity);
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
 
-        public MDL_Texto Get(int id)
+        public async Task<MDL_Texto> Get(int id)
         {
-            var entity = _contexto.TBL_Textos.Find(id);
+            var entity = await _contexto.TBL_Textos.FindAsync(id);
             var output = _mapper.Map<MDL_Texto>(entity);
             return output;
         }
 
-        public IEnumerable<MDL_Texto> Get()
+        public async Task<IEnumerable<MDL_Texto>> Get()
         {
-            var entity = _contexto.TBL_Textos
+            var entity = await _contexto.TBL_Textos
                 .AsNoTracking()
-                .ToList();
+                .ToListAsync();
             var output = _mapper.Map<IEnumerable<MDL_Texto>>(entity);
             return output;
         }
 
-        public IEnumerable<V_TextoLista> GetListaMasClicks()
+        public async Task<IEnumerable<V_TextoLista>> GetListaMasClicks()
         {
-            var output = _contexto.TBL_Textos.OrderByDescending(x => x.FechaAlta)
+            var output = await _contexto.TBL_Textos.OrderByDescending(x => x.FechaAlta)
                 .AsNoTracking()
                 .Take(5).Select(x => new V_TextoLista()
                 {
                     Id = x.Id,
                     Valor = x.Titulo,
                     UrlDescripcion = x.Explicacion
-                }).ToList();
+                }).ToListAsync();
             return output;
         }
 
-        public IEnumerable<V_TextoLista> GetListaUltimos()
+        public async Task<IEnumerable<V_TextoLista>> GetListaUltimos()
         {
             var output = _contexto.TBL_Textos
                 .OrderByDescending(x => x.FechaAlta)
@@ -78,7 +79,7 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public IEnumerable<V_TextoLista> GetListaUltimosPorFecha(DateTime fecha)
+        public async Task<IEnumerable<V_TextoLista>> GetListaUltimosPorFecha(DateTime fecha)
         {
             var output = _contexto.TBL_Textos.Where(x => x.FechaAlta >= fecha)
                 .AsNoTracking()
@@ -91,21 +92,21 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public void Put(int id, MDL_Texto item)
+        public async Task Put(int id, MDL_Texto item)
         {
-            var entity = _contexto.TBL_Textos.Find(id);
+            var entity = await _contexto.TBL_Textos.FindAsync(id);
             entity.FechaAlta = DateTime.Now;
             entity.Archivo = item.Archivo;
             entity.Audio = item.Audio;
             entity.Explicacion = item.Explicacion;
             entity.Titulo = item.Titulo;
             _contexto.Entry(entity).State = EntityState.Modified;
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
 
-        public V_TextoDetalle GetDetalle(int id)
+        public async Task<V_TextoDetalle> GetDetalle(int id)
         {
-            var entity = _contexto.TBL_Textos.Find(id);
+            var entity = await _contexto.TBL_Textos.FindAsync(id);
             var output = new V_TextoDetalle()
             {
                 Audio = !string.IsNullOrEmpty(entity.Audio),
@@ -117,7 +118,7 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public IEnumerable<V_Lista> GetList()
+        public async Task<IEnumerable<V_Lista>> GetList()
         {
             var output = _contexto.TBL_Textos
                 .AsNoTracking()
@@ -129,7 +130,7 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public IEnumerable<V_Lista> GetListaPorTitulo(string titulo)
+        public async Task<IEnumerable<V_Lista>> GetListaPorTitulo(string titulo)
         {
             var output = _contexto.TBL_Textos.Where(x => x.Titulo.Contains(titulo))
                .AsNoTracking()
@@ -141,20 +142,20 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public IEnumerable<MDL_Texto> GetUltimos(int cantidad)
+        public async Task<IEnumerable<MDL_Texto>> GetUltimos(int cantidad)
         {
-            var entity = _contexto.TBL_Textos
+            var entity = await _contexto.TBL_Textos
                 .OrderByDescending(x => x.FechaAlta)
                 .AsNoTracking()
                 .Take(cantidad)
-                .ToList();
+                .ToListAsync();
             var output = _mapper.Map<IEnumerable<MDL_Texto>>(entity);
             return output;
         }
 
-        public V_Lista GetItem(int id)
+        public async Task<V_Lista> GetItem(int id)
         {
-            var entity = _contexto.TBL_Textos.Find(id);
+            var entity = await _contexto.TBL_Textos.FindAsync(id);
             var output = new V_Lista()
             {
                 Id = entity.Id,

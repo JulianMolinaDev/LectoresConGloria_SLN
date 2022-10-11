@@ -17,49 +17,49 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio = new REP_TextoCategoria(context);
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _repositorio.Delete(id);
+            await _repositorio.Delete(id);
         }
 
-        public IEnumerable<V_Lista> GetFaltantesCategoriasPorTexto(int idTexto)
+        public async Task<IEnumerable<V_Lista>> GetFaltantesCategoriasPorTexto(int idTexto)
         {
-            return _repositorio.GetFaltantesCategoriasPorTexto(idTexto);
+            return await _repositorio.GetFaltantesCategoriasPorTexto(idTexto);
         }
 
-        public MDL_TextoCategoria Get(int id)
+        public async Task<MDL_TextoCategoria> Get(int id)
         {
-            return _repositorio.Get(id);
+            return await _repositorio.Get(id);
         }
 
-        public IEnumerable<MDL_TextoCategoria> Get()
+        public async Task<IEnumerable<MDL_TextoCategoria>> Get()
         {
-            return _repositorio.Get();
+            return await _repositorio.Get();
         }
 
-        public IEnumerable<V_ListaRelacion> GetCategoriaPorTexto(int idTexto)
+        public async Task<IEnumerable<V_ListaRelacion>> GetCategoriaPorTexto(int idTexto)
         {
-            return _repositorio.GetCategoriaPorTexto(idTexto);
+            return await _repositorio.GetCategoriaPorTexto(idTexto);
         }
 
-        public IEnumerable<V_ListaRelacion> GetTextoPorCategoria(int idCategoria)
+        public async Task<IEnumerable<V_ListaRelacion>> GetTextoPorCategoria(int idCategoria)
         {
-            return _repositorio.GetTextoPorCategoria(idCategoria);
+            return await _repositorio.GetTextoPorCategoria(idCategoria);
         }
 
-        public void Post(MDL_TextoCategoria reg)
+        public async Task Post(MDL_TextoCategoria reg)
         {
-            _repositorio.Post(reg);
+            await _repositorio.Post(reg);
         }
 
-        public void Put(int id, MDL_TextoCategoria reg)
+        public async Task Put(int id, MDL_TextoCategoria reg)
         {
-            _repositorio.Put(id, reg);
+            await _repositorio.Put(id, reg);
         }
 
-        public V_AsociacionDetalle GetAsociacionDetalle(int id)
+        public async Task<V_AsociacionDetalle> GetAsociacionDetalle(int id)
         {
-            return _repositorio.GetAsociacionDetalle(id);
+            return await _repositorio.GetAsociacionDetalle(id);
         }
     }
 }

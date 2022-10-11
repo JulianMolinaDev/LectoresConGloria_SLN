@@ -15,39 +15,39 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio = new REP_Lector(context);
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _repositorio.Delete(id);
+            await _repositorio.Delete(id);
         }
 
-        public MDL_Lector Get(int id)
+        public async Task<MDL_Lector> Get(int id)
         {
-            return _repositorio.Get(id);
+            return await _repositorio.Get(id);
         }
 
-        public IEnumerable<MDL_Lector> Get()
+        public async Task<IEnumerable<MDL_Lector>> Get()
         {
-            return _repositorio.Get();
+            return await _repositorio.Get();
         }
 
-        public MDL_Lector Login(MDL_Login reg)
+        public async Task<MDL_Lector> Login(MDL_Login reg)
         {
-            return _repositorio.Login(reg);
+            return await _repositorio.Login(reg);
         }
 
-        public void Post(MDL_Lector reg)
+        public async Task Post(MDL_Lector reg)
         {
-            _repositorio.Post(reg);
+            await _repositorio.Post(reg);
         }
 
-        public void Put(int id, MDL_Lector reg)
+        public async Task Put(int id, MDL_Lector reg)
         {
-            _repositorio.Put(id, reg);
+            await _repositorio.Put(id, reg);
         }
 
-        public void Register(MDL_Lector reg)
+        public async Task Register(MDL_Lector reg)
         {
-            _repositorio.Register(reg);
+            await _repositorio.Register(reg);
         }
     }
 
