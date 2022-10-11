@@ -19,6 +19,14 @@ namespace LectoresConGloria_SVC.Data
         public virtual DbSet<TBL_TextosCategorias> TBL_TextosCategorias { get; set; }
         public virtual DbSet<TBL_TextosLibros> TBL_TextosLibros { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var conn = "Server=.;Database=CentroUniversitario_BD;Trusted_Connection = True; MultipleActiveResultSets = true";
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(conn);
+            }
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TBL_Categorias>()
@@ -109,7 +117,7 @@ namespace LectoresConGloria_SVC.Data
                 .HasForeignKey(e => e.IdTexto)
                 .OnDelete(DeleteBehavior.NoAction);
 
-           
+
         }
     }
 }
