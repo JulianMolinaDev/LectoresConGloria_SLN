@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Repositorios
 {
@@ -20,27 +21,27 @@ namespace LectoresConGloria_SVC.Repositorios
             _contexto = context;
             _mapper = Automapeo.Instance;
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            var entity = _contexto.TBL_TextosCategorias.Find(id);
+            var entity = await _contexto.TBL_TextosCategorias.FindAsync(id);
             _contexto.TBL_TextosCategorias.Remove(entity);
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
-        public MDL_TextoLibro Get(int id)
+        public async Task<MDL_TextoLibro> Get(int id)
         {
-            var entity = _contexto.TBL_TextosLibros.Find(id);
+            var entity = await _contexto.TBL_TextosLibros.FindAsync(id);
             var output = _mapper.Map<MDL_TextoLibro>(entity);
             return output;
         }
 
-        public IEnumerable<MDL_TextoLibro> Get()
+        public async Task<IEnumerable<MDL_TextoLibro>> Get()
         {
-            var entity = _contexto.TBL_TextosLibros.ToList();
+            var entity = await _contexto.TBL_TextosLibros.ToListAsync();
             var output = _mapper.Map<IEnumerable<MDL_TextoLibro>>(entity);
             return output;
         }
 
-        public V_AsociacionDetalle GetAsociacionDetalle(int id)
+        public async Task<V_AsociacionDetalle> GetAsociacionDetalle(int id)
         {
             var output = _contexto.TBL_TextosLibros
                .Where(x => x.Id == id)
@@ -59,7 +60,7 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public IEnumerable<V_ListaRelacion> GetTextosPorLibro(int idLibro)
+        public async Task<IEnumerable<V_ListaRelacion>> GetTextosPorLibro(int idLibro)
         {
             var output = _contexto.TBL_TextosLibros
                 .Where(x => x.IdLibro == idLibro)
@@ -74,19 +75,19 @@ namespace LectoresConGloria_SVC.Repositorios
             return output;
         }
 
-        public void Post(MDL_TextoLibro reg)
+        public async Task Post(MDL_TextoLibro reg)
         {
             var entity = _mapper.Map<TBL_TextosLibros>(reg);
             _contexto.TBL_TextosLibros.Add(entity);
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
 
-        public void Put(int id, MDL_TextoLibro reg)
+        public async Task Put(int id, MDL_TextoLibro reg)
         {
             throw new NotImplementedException();
         }
 
-        public void TextoDesdeLibro(int idLibro, MDL_Texto texto)
+        public async Task TextoDesdeLibro(int idLibro, MDL_Texto texto)
         {
             var entity = _mapper.Map<TBL_Textos>(texto);
             entity.FechaAlta = DateTime.Now;
@@ -97,7 +98,7 @@ namespace LectoresConGloria_SVC.Repositorios
                 IdTexto = entity.Id
 
             });
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
     }
 }

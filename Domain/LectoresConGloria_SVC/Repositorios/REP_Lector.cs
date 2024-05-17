@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Repositorios
 {
@@ -19,53 +20,55 @@ namespace LectoresConGloria_SVC.Repositorios
             _contexto = context;
             _mapper = Automapeo.Instance;
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            var entity = _contexto.TBL_Lectores.Find(id);
+            var entity = await _contexto.TBL_Lectores.FindAsync(id);
             _contexto.TBL_Lectores.Remove(entity);
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
 
-        public void Post(MDL_Lector item)
+        public async Task Post(MDL_Lector item)
         {
             var entity = _mapper.Map<TBL_Lectores>(item);
             _contexto.TBL_Lectores.Add(entity);
-            _contexto.SaveChanges();
+            await _contexto.SaveChangesAsync();
         }
 
-        public MDL_Lector Login(MDL_Login reg)
+        public async Task<MDL_Lector> Login(MDL_Login reg)
         {
-            var entity = _contexto.TBL_Lectores.FromSqlRaw("", new { reg.Usuario, reg.Password })
+            var entity = await _contexto.TBL_Lectores.FromSqlRaw("", new { reg.Usuario, reg.Password })
                 .FirstOrDefaultAsync();
             var output = _mapper.Map<MDL_Lector>(entity);
             return output;
         }
 
-        public void Register(MDL_Lector reg)
+        public async Task Register(MDL_Lector reg)
         {
-            _contexto.Database.ExecuteSqlRaw("",
+            await _contexto.Database.ExecuteSqlRawAsync("",
                 new { reg.Nombre, reg.Apellidos, reg.Correo, reg.FechaNacimiento, reg.Password });
         }
 
-        public MDL_Lector Get(int id)
+        public async Task<MDL_Lector> Get(int id)
         {
-            var entity = _contexto.TBL_Lectores.Find(id);
+            var entity = await _contexto.TBL_Lectores.FindAsync(id);
             var output = _mapper.Map<MDL_Lector>(entity);
             return output;
         }
 
-        public IEnumerable<MDL_Lector> Get()
+        public async Task<IEnumerable<MDL_Lector>> Get()
         {
-            var entity = _contexto.TBL_Lectores
+            var entity = await _contexto.TBL_Lectores
                 .AsNoTracking()
-                .ToList();
+                .ToListAsync();
             var output = _mapper.Map<IEnumerable<MDL_Lector>>(entity);
             return output;
         }
 
-        public void Put(int id, MDL_Lector item)
+        public async Task Put(int id, MDL_Lector item)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<TBL_Lectores>(item);
+            _contexto.TBL_Lectores.Update(entity);
+            await _contexto.SaveChangesAsync();
         }
     }
 }

@@ -5,6 +5,7 @@ using LectoresConGloria_SVC.Repositorios;
 using System;
 using System.Collections.Generic;
 using LectoresConGloria_SVC.Data;
+using System.Threading.Tasks;
 
 namespace LectoresConGloria_SVC.Servicios
 {
@@ -15,69 +16,69 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio = new REP_Texto(context);
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _repositorio.Delete(id);
+            await _repositorio.Delete(id);
         }
 
-        public MDL_Texto Get(int id)
+        public async Task<MDL_Texto> Get(int id)
         {
-            return _repositorio.Get(id);
+            return await _repositorio.Get(id);
         }
 
-        public IEnumerable<MDL_Texto> Get()
+        public async Task<IEnumerable<MDL_Texto>> Get()
         {
-            return _repositorio.Get();
+            return await _repositorio.Get();
         }
 
-        public V_TextoDetalle GetDetalle(int id)
+        public async Task<V_TextoDetalle> GetDetalle(int id)
         {
-            return _repositorio.GetDetalle(id);
+            return await _repositorio.GetDetalle(id);
         }
 
-        public V_Lista GetItem(int id)
+        public async Task<V_Lista> GetItem(int id)
         {
-            return _repositorio.GetItem(id);
+            return await _repositorio.GetItem(id);
         }
 
-        public IEnumerable<V_Lista> GetList()
+        public async Task<IEnumerable<V_Lista>> GetList()
         {
-            return _repositorio.GetList();
+            return await _repositorio.GetList();
         }
 
-        public IEnumerable<V_TextoLista> GetListaMasClicks()
+        public async Task<IEnumerable<V_TextoLista>> GetListaMasClicks()
         {
-            return _repositorio.GetListaMasClicks();
+            return await _repositorio.GetListaMasClicks();
         }
 
-        public IEnumerable<V_Lista> GetListaPorTitulo(string titulo)
+        public async Task<IEnumerable<V_Lista>> GetListaPorTitulo(string titulo)
         {
-            return _repositorio.GetListaPorTitulo(titulo);
+            return await _repositorio.GetListaPorTitulo(titulo);
         }
 
-        public IEnumerable<V_TextoLista> GetListaUltimos()
+        public async Task<IEnumerable<V_TextoLista>> GetListaUltimos()
         {
-            return _repositorio.GetListaUltimos();
+            return await _repositorio.GetListaUltimos();
         }
 
-        public IEnumerable<V_TextoLista> GetListaUltimosPorFecha(DateTime fecha)
+        public async Task<IEnumerable<V_TextoLista>> GetListaUltimosPorFecha(DateTime fecha)
         {
-            return _repositorio.GetListaUltimosPorFecha(fecha);
+            return await _repositorio.GetListaUltimosPorFecha(fecha);
         }
 
-        public IEnumerable<MDL_Texto> GetUltimos(int cantidad)
+        public async Task<IEnumerable<MDL_Texto>> GetUltimos(int cantidad)
         {
-            return _repositorio.GetUltimos(cantidad);
+            return await _repositorio.GetUltimos(cantidad);
         }
 
-        public void Post(MDL_Texto reg)
+        public async Task Post(MDL_Texto reg)
         {
-            _repositorio.Post(reg);
+            await _repositorio.Post(reg);
         }
 
-        public void Put(int id, MDL_Texto reg)
+        public async Task Put(int id, MDL_Texto reg)
         {
-            _repositorio.Put(id, reg);
+            await _repositorio.Put(id, reg);
         }
     }
 }

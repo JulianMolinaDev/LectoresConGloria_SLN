@@ -12,7 +12,7 @@ namespace LectoresConGloria_GW.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClicksController : ControllerBase
+    public class ClicksController : ControllerBase, ISVC_Click
     {
         private readonly ISVC_Click _servicio;
         public ClicksController(ISVC_Click servicio)
@@ -23,9 +23,9 @@ namespace LectoresConGloria_GW.Controllers
 
         // POST api/<ClicksController>
         [HttpPost]
-        public void Post([FromBody] MDL_Click value)
+        public async Task Write([FromBody] MDL_Click value)
         {
-            _servicio.Write(value);
+            await _servicio.Write(value);
         }
         
     }

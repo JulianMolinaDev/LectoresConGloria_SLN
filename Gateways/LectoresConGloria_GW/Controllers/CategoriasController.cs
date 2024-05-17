@@ -21,37 +21,37 @@ namespace LectoresConGloria_GW.Controllers
         }
         // GET: api/<CategoriasController>
         [HttpGet]
-        public IEnumerable<MDL_Categoria> Get()
+        public async Task<IEnumerable<MDL_Categoria>> Get()
         {
-            return _servicio.Get();
+            return await _servicio.Get();
         }
 
         // GET api/<CategoriasController>/5
         [HttpGet("{id}")]
-        public MDL_Categoria Get(int id)
+        public async Task<MDL_Categoria> Get(int id)
         {
-            return _servicio.Get(id);
+            return await _servicio.Get(id);
         }
 
         // POST api/<CategoriasController>
         [HttpPost]
-        public void Post([FromBody] MDL_Categoria value)
+        public async Task Post([FromBody] MDL_Categoria value)
         {
-            _servicio.Post(value);
+            await _servicio.Post(value);
         }
 
         // PUT api/<CategoriasController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] MDL_Categoria value)
+        public async Task Put(int id, [FromBody] MDL_Categoria value)
         {
-            _servicio.Put(id, value);
+            await _servicio.Put(id, value);
         }
 
         // DELETE api/<CategoriasController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _servicio.Delete(id);
+            await _servicio.Delete(id);
         }
     }
 }

@@ -7,8 +7,8 @@ namespace LectoresConGloria_FWK.Interfaces
 {
     public interface ISVC_TextoLibro : IServicio<MDL_TextoLibro, int>
     {
-        IEnumerable<V_ListaRelacion> GetTextosPorLibro(int idLibro);
-        void TextoDesdeLibro(int idLibro, MDL_Texto texto);
-        V_AsociacionDetalle GetAsociacionDetalle(int id);
+        Task<IEnumerable<V_ListaRelacion>> GetTextosPorLibro(int idLibro);
+        Task TextoDesdeLibro(int idLibro, MDL_Texto texto);
+        Task<V_AsociacionDetalle> GetAsociacionDetalle(int id);
     }
 }

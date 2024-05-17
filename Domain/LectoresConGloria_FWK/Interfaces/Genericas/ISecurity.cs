@@ -1,8 +1,10 @@
-﻿namespace LectoresConGloria_FWK.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace LectoresConGloria_FWK.Interfaces
 {
     public interface ISecurity<TEntity, TLogin>
     {
-        void Register(TEntity reg);
-        TEntity Login(TLogin reg);
+        Task Register(TEntity reg);
+        Task<TEntity> Login(TLogin reg);
     }
 }

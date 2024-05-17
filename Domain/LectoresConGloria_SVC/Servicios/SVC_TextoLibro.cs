@@ -15,44 +15,44 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio = new REP_TextoLibro(context);
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _repositorio.Delete(id);
+            await _repositorio.Delete(id);
         }
 
-        public MDL_TextoLibro Get(int id)
+        public async Task<MDL_TextoLibro> Get(int id)
         {
-            return _repositorio.Get(id);
+            return await _repositorio.Get(id);
         }
 
-        public IEnumerable<MDL_TextoLibro> Get()
+        public async Task<IEnumerable<MDL_TextoLibro>> Get()
         {
-            return _repositorio.Get();
+            return await _repositorio.Get();
         }
 
-        public V_AsociacionDetalle GetAsociacionDetalle(int id)
+        public async Task<V_AsociacionDetalle> GetAsociacionDetalle(int id)
         {
-            return _repositorio.GetAsociacionDetalle(id);
+            return await _repositorio.GetAsociacionDetalle(id);
         }
 
-        public IEnumerable<V_ListaRelacion> GetTextosPorLibro(int idLibro)
+        public async Task<IEnumerable<V_ListaRelacion>> GetTextosPorLibro(int idLibro)
         {
-            return _repositorio.GetTextosPorLibro(idLibro);
+            return await _repositorio.GetTextosPorLibro(idLibro);
         }
 
-        public void Post(MDL_TextoLibro reg)
+        public async Task Post(MDL_TextoLibro reg)
         {
-            _repositorio.Post(reg);
+            await _repositorio.Post(reg);
         }
 
-        public void Put(int id, MDL_TextoLibro reg)
+        public async Task Put(int id, MDL_TextoLibro reg)
         {
-            _repositorio.Put(id, reg);
+            await _repositorio.Put(id, reg);
         }
 
-        public void TextoDesdeLibro(int idLibro, MDL_Texto texto)
+        public async Task TextoDesdeLibro(int idLibro, MDL_Texto texto)
         {
-            _repositorio.TextoDesdeLibro(idLibro, texto);
+            await _repositorio.TextoDesdeLibro(idLibro, texto);
         }
     }
 }

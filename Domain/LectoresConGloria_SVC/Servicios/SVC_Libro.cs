@@ -15,49 +15,49 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio = new REP_Libro(context);
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _repositorio.Delete(id);
+            await _repositorio.Delete(id);
         }
 
-        public MDL_Libro Get(int id)
+        public async Task<MDL_Libro> Get(int id)
         {
-            return _repositorio.Get(id);
+            return await _repositorio.Get(id);
         }
 
-        public IEnumerable<MDL_Libro> Get()
+        public async Task<IEnumerable<MDL_Libro>> Get()
         {
-            return _repositorio.Get();
+            return await _repositorio.Get();
         }
 
-        public V_Lista GetItem(int id)
+        public async Task<V_Lista> GetItem(int id)
         {
-            return _repositorio.GetItem(id);
+            return await _repositorio.GetItem(id);
         }
 
-        public IEnumerable<V_Lista> GetList()
+        public async Task<IEnumerable<V_Lista>> GetList()
         {
-            return _repositorio.GetList();
+            return await _repositorio.GetList();
         }
 
-        public IEnumerable<V_Lista> GetListaUltimos(int cantidad)
+        public async Task<IEnumerable<V_Lista>> GetListaUltimos(int cantidad)
         {
-            return _repositorio.GetListaUltimos(cantidad);
+            return await _repositorio.GetListaUltimos(cantidad);
         }
 
-        public IEnumerable<V_Lista> GetListByNombre(string nombre)
+        public async Task<IEnumerable<V_Lista>> GetListByNombre(string nombre)
         {
-            return _repositorio.GetListByNombre(nombre);
+            return await _repositorio.GetListByNombre(nombre);
         }
 
-        public void Post(MDL_Libro reg)
+        public async Task Post(MDL_Libro reg)
         {
-            _repositorio.Post(reg);
+            await _repositorio.Post(reg);
         }
 
-        public void Put(int id, MDL_Libro reg)
+        public async Task Put(int id, MDL_Libro reg)
         {
-            _repositorio.Put(id, reg);
+            await _repositorio.Put(id, reg);
         }
     }
 }

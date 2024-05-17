@@ -17,39 +17,39 @@ namespace LectoresConGloria_SVC.Servicios
         {
             _repositorio = new REP_Categoria(context);
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-           _repositorio.Delete(id);
+           await _repositorio.Delete(id);
         }
 
-        public MDL_Categoria Get(int id)
+        public async Task<MDL_Categoria> Get(int id)
         {
-            return _repositorio.Get(id);
+            return await _repositorio.Get(id);
         }
 
-        public IEnumerable<MDL_Categoria> Get()
+        public async Task<IEnumerable<MDL_Categoria>> Get()
         {
-            return _repositorio.Get();
+            return await _repositorio.Get();
         }
 
-        public V_Lista GetItem(int id)
+        public async Task<V_Lista> GetItem(int id)
         {
-            return _repositorio.GetItem(id);
+            return await _repositorio.GetItem(id);
         }
 
-        public IEnumerable<V_Lista> GetList()
+        public async Task<IEnumerable<V_Lista>> GetList()
         {
-            return _repositorio.GetList();
+            return await _repositorio.GetList();
         }
 
-        public void Post(MDL_Categoria reg)
+        public async Task Post(MDL_Categoria reg)
         {
-            _repositorio.Post(reg);
+            await _repositorio.Post(reg);
         }
 
-        public void Put(int id, MDL_Categoria reg)
+        public async Task Put(int id, MDL_Categoria reg)
         {
-            _repositorio.Put(id, reg);
+            await _repositorio.Put(id, reg);
         }
     }
 }
